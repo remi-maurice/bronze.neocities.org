@@ -32,7 +32,8 @@ To deploy this project run
 
 ## For [non users]
 
-Feel free to use this repo as a template to make a neocities website that use a nano_gallery maintained with a .yaml file. 
+Feel free to use this repo as a template to make a neocities website that use a nano_gallery maintained with a .yaml file. \
+Also, the heavily commented (in french) .html files may be of interest for someone who want to make a website too. Pay in mind im myself new to this tho.
 
 
 
