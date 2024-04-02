@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<!--Le titre de la page-->
+	<title>Victor Maurice - Art bronze</title>
+	<!--La description de la page dans content=""-->
+	<meta name="description" content="livre d'or">
+	<!--Le logo-->
+	<link rel="icon" type="image/png" href="img/favicon.png">
+
+	<!--Des machins pour que tout s'affiche bien, pas touche minouche.-->
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- le css -->
+	<link rel="stylesheet" href="css/simple.css">
+</head>
+
+<body id="top">
+	<header>
+		<nav>
+			<ul>
+				<!--La barre de navigation avec class="current" qui indique ou on est.-->
+				<li><a href="index.html">accueil</a></li>
+				<li><a href="galerie.html">galerie</a></li>
+				<li><a href="fabrication.html">fabrication</a></li>
+				<div class="dropdown" style="float:right;">
+					<button class="dropbtn-current">+</button>
+					<div class="dropdown-content">
+						<a href="contact.html">contact</a>
+						<a href="news.html">news!</a>
+						<a href="about.html">a propos</a>
+						<a class="current" href="livre.html">livre d'or</a>
+						<a href="fun.html">fun</a>
+						<a href="webring.html">webring</a>
+
+					</div>
+				</div>
+			</ul>
+		</nav>
+	</header>
+	<main>
+        <!--On met toute la page ici!-->
+		<iframe src="https://chattable.neocities.org/embed?chat=52510347" id="chattable" frameborder="none"></iframe>
+		<script src="https://xobyte.neocities.org/scripts/xp_popup.js"></script>
+		<script>window.onload = function () {
+			document.getElementById('chattable').contentWindow.postMessage(`
+			:root {
+			  --notification-sfx: /media/beep.mp3;
+			}
+			@keyframes hue {
+				0% {
+					filter: hue-rotate(0deg);
+				}
+				50% {
+					filter: hue-rotate(360deg);
+				}
+				100% {
+					filter: hue-rotate(0deg);
+				}
+			}
+
+			.allMessages {
+			  color: #dcdcdc;
+			  
+			  border-radius: 10px;
+			  font-family: "jetbrains mono";
+			  letter-spacing: 0px;
+			}
+
+			.allMessages > p {
+				animation-name: hue ;
+				animation-duration: 5s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+          	}
+
+			.sent {
+			  border-radius: 0px 0px 0px 0px;
+			  background-color: #2b2b2b;
+			  color: #dcdcdc;
+			}
+
+			.recieved {
+			  border-radius: 0px 0px 0 0px;
+			  background-color: #2b2b2b;
+			  color: #dcdcdc;
+			  
+			}
+
+			.senderInfo {
+            	font-weight: bold;
+				text-decoration: underline;
+          	}
+
+			#background {
+			  background-color: #212121;
+			}
+
+			#input {
+				color: #dcdcdc;
+				background-color: #2b2b2b;
+				border-radius: 0px;
+				font-family: Jetbrains mono;
+				font-size: 18px;
+				overflow-y: scroll;
+				cursor: text;
+				}
+
+			#input:empty:before {
+			content: "Clique ici pour écrire un message publique";
+			  color: #dcdcdc;
+			  font-weight: bold;
+			  text-decoration: underline;
+			}
+
+			.mod, .owner {
+			  filter: contrast(10);
+			  margin-right: 5px;
+			}
+
+			#timestamp {
+			  color: #dcdcdc;
+			  font-style: italic;
+			  font-family: "jetbrains mono";
+			  font-size: 7pt;
+			}
+			#top_banner {
+			  display: none;
+			}
+			#settings {
+				margin: 0;
+				cursor: pointer;
+				position: fixed;
+				right: 5px;
+				top: 5px;
+				z-index: 5;
+				width: 30px;
+				height: 30px;
+				background-image: url('/media/settings.png');
+				background-size: 100% 100%;
+				}
+			#settingsWindow {
+				margin: 0;
+				padding: 0;
+				background: #dcdcdc;
+				z-index: 6;
+				backdrop-filter: blur(5px);
+				-webkit-backdrop-filter: dim(5px);
+			}
+			}
+		  `, '*');
+		  window.xp_popup("vict'or chat", "Vous pouver changer votre nom dans le menu ⚙ en haut a droite, (et cliquez sur save changes, puis close.).", {
+          "OK" : function(){
+
+		  	}
+		  })
+		  }</script>
+		<!--fin de la page-->
+	</main>
+			
+	<footer>
+		<p><a href="livre.html#top">[ Revenir en haut]</a></p>
+		<br>
+        <p>&copy2024 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a>  </p>
+	</footer>
+</body>
+
+</html>

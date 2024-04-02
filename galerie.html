@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!--Le titre de la page-->
+    <title>Victor Maurice - Art bronze</title>
+    <!--La description de la page dans content=""-->
+    <meta name="description" content="gallerie / portfolio ou l'on peux voir les sculptures de victor maurice">
+    <!--Le logo-->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!--Des machins pour que tout s'affiche bien, pas touche minouche.-->
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Les trucs pour la galerie, on touche pas. https://nanogallery2.nanostudio.org/ -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="nanogallery/jquery.min.js"></script>
+    <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js"></script>
+    <link href="nanogallery/nanogallery2.min.css" rel="stylesheet" type="text/css">
+
+    <!-- le css -->
+    <link rel="stylesheet" href="css/simple.css">
+</head>
+
+<body id="top" style="background-color: #808080;">
+    <header>
+        <nav>
+            <ul>
+                <!--La barre de navigation avec class="current" qui indique ou on est.-->
+                <li><a href="index.html">accueil</a></li>
+                <li><a class="current" href="galerie.html">galerie</a></li>
+                <li><a href="fabrication.html">fabrication</a></li>
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn">+</button>
+                    <div class="dropdown-content">
+                        <a href="contact.html">contact</a>
+                        <a href="news.html">news!</a>
+                        <a href="about.html">a propos</a>
+                        <a href="livre.html">livre d'or</a>
+                        <a href="fun.html">fun</a>
+                        <a href="webring.html">webring</a>
+
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!--sa c'est le bouton pour revenir en haut.-->
+        <a href="galerie.html#top" class="scrollToTopBtn">↑</a>
+        <!--On met toute la page ici!-->
+        <!-- Nanogallery intégré avec une database yaml-->
+        <div id="ngy2p">
+        </div>
+        <script type="text/javascript" src="nanogallery/js-yaml.min.js"></script>
+        <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js"></script>
+        <script>
+            // Charger les données YAML et initialiser nanogallery2
+            fetch('MAJ/galerie.yaml')
+                .then(response => response.text())
+                .then(yamlData => {
+                    const data = jsyaml.load(yamlData); // Convertir YAML en objet JavaScript
+                    
+                    const galleryItems = data.images.map(item => {
+
+                // On construit le titre...
+                const title = `${item.numero ? item.numero + ': ' : ''}${item.taille ? item.taille + 'cm/ ' : ''}${item.prix ? item.prix + '€' : ''}${item.statut ? ' /' + item.statut : ''}`;
+                    
+                    return {
+                        src: data.base_url + item.image_principale,
+                        srct: data.base_url + item.image_miniature,
+                        title: title, 
+                        };
+                    });
+                    
+                    // Les options de  nanogallery2
+                    jQuery(document).ready(function() {
+                        jQuery("#ngy2p").nanogallery2({
+                            items: galleryItems,
+                            thumbnailWidth: "300",
+                            thumbnailHeight: "auto",
+                            thumbnailBorderVertical: 4,
+                            thumbnailBorderHorizontal: 4,
+                            thumbnailLabel: {
+                                position: "overImage",
+                                align: "left",
+                                // position: "onBottom" is not compatible with titleMultiLine!
+                                titleMultiLine: "true",
+                                titleFontSize: "0.9em",                   
+                            },
+
+                            thumbnailDisplayTransition:   'SLIDEAPPEAR',
+                            thumbnailDisplayTransitionDuration:  100,
+                            thumbnailDisplayInterval:            30,
+                            thumbnailHoverEffect2: "image_sepia_0%_100%_400|borderLighter",
+                            thumbnailAlignment: "center",
+                            thumbnailGutterWidth: 10,
+                            thumbnailGutterHeight: 10,
+                            thumbnailOpenImage: true,
+                            
+                            imageTransition:"slideUP",
+                            viewerHideToolsDelay: "2000",
+                            viewerGallery:"none",
+                            viewerTools:{
+                                topLeft:    'zoomButton',
+                                topRight:   'fullscreenButton, closeButton'
+                            }, 
+                            viewerToolbar:{
+                                display:false,
+                                position:'bottom',
+                                align:'left',
+                                standard: 'label',
+                            },
+                        });
+                    });
+                });
+        </script>
+    </main>
+    
+    
+
+    <footer>
+        <p><a href="galerie.html#top">[ Revenir en haut]</a></p>
+        <br>
+        <p>&copy2024 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a>  </p>
+    </footer>
+</body>
+
+</html>
