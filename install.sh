@@ -22,7 +22,7 @@ if ! grep -q "NEOCITIES_API_KEY" ~/.bash_profile && ! grep -q "NEOCITIES_API_KEY
         exit 1
     fi
 
-    echo "export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin/:$PATH"" >> "$PROFILE_FILE"
+    echo 'export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin/:$PATH"' >> "$PROFILE_FILE"
     echo "export NEOCITIES_API_KEY=\"$NEOCITIES_API_KEY\"" >> "$PROFILE_FILE"
 
     source "$PROFILE_FILE"
