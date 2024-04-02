@@ -15,7 +15,7 @@ git push -u origin master
 
 get_changed_files() {
     echo "Getting list of changed files in the commit..."
-    git diff --name-only HEAD^ HEAD | grep -v -E '^\s'
+    git diff --name-only --no-color HEAD^ HEAD | grep -v -E '^\s'
 }
 
 upload_changed_files() {
