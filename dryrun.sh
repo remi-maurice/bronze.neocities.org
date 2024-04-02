@@ -26,11 +26,11 @@ upload_changed_files() {
     fi
     
     echo "Dry run: Printing upload commands instead of executing..."
-    for file in $changed_files; do
+    while IFS= read -r file; do
         directory=$(dirname "$file")
         filename=$(basename "$file")
-        echo "Would upload $filename to directory $directory"
-    done
+        echo "Would upload \"$filename\" to directory \"$directory\""
+    done <<< "$changed_files"
 }
 
 upload_changed_files
