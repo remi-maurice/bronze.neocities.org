@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo pacman -S git
 sudo pacman -S github-cli
+sudo pacman -S imagemagick
 sudo pacman -S code
 sudo pacman -S ruby
 gem install neocities

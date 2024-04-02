@@ -1,4 +1,7 @@
 #!/bin/bash
+ 
+# Utility script to resize and compress images to a thumbnail and "big" image.
+
 input_folder="./original/"
 output_folder="./resized"
 

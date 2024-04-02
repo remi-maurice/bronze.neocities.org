@@ -9,10 +9,10 @@
 }
 :root,
 ::backdrop {
-  --sans-font:"jetbrains",-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+  --sans-font:"jetbrains","OpenDyslexic", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
     "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
     "Helvetica Neue", sans-serif;
-  --mono-font: "OpenDyslexic","jetbrains mono", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --standard-border-radius: 8px;
 
   /* Default (light) theme */
@@ -153,7 +153,6 @@ h6 {
 
 p {
   margin: 1.5rem ;
-  font-family: var(--mono-font);
 }
 
 /* Prevent long strings from overflowing container */
