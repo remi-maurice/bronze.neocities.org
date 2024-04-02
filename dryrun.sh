@@ -34,3 +34,4 @@ upload_changed_files() {
 }
 
 upload_changed_files
+azeaze
