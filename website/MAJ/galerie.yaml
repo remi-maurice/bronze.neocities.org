@@ -1,6 +1,132 @@
 base_url: "../img/gallerie/"
 images:
 
+- numero: 90
+  image_principale: 90b.webp
+  image_miniature: 90s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 89
+  image_principale: 89b.webp
+  image_miniature: 89s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 88
+  image_principale: 88b.webp
+  image_miniature: 88s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 87
+  image_principale: 87b.webp
+  image_miniature: 87s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 86
+  image_principale: 86b.webp
+  image_miniature: 86s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 85
+  image_principale: 85b.webp
+  image_miniature: 85s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 84
+  image_principale: 84b.webp
+  image_miniature: 84s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 83
+  image_principale: 83b.webp
+  image_miniature: 83s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 82
+  image_principale: 82b.webp
+  image_miniature: 82s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 81
+  image_principale: 81b.webp
+  image_miniature: 81s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 80
+  image_principale: 80b.webp
+  image_miniature: 80s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 79
+  image_principale: 79b.webp
+  image_miniature: 79s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 78
+  image_principale: 78b.webp
+  image_miniature: 78s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 77
+  image_principale: 77b.webp
+  image_miniature: 77s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 76
+  image_principale: 76b.webp
+  image_miniature: 76s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 75
+  image_principale: 75b.webp
+  image_miniature: 75s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 74
+  image_principale: 74b.webp
+  image_miniature: 74s.webp
+  taille: 
+  prix:
+  statut: 
+
+- numero: 73
+  image_principale: 73b.webp
+  image_miniature: 73s.webp
+  taille: 
+  prix:
+  statut: 
+
 - numero: 72 
   image_principale: 72b.webp
   image_miniature: 72s.webp
