@@ -2,7 +2,7 @@
 # Hook to easily git push and neocities push
 
 git add .
-read -p "Enter commit message:" commit_message
+read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
 git push -u origin master
 read -p "Upload to neocities? (y/n): " diff_confirm

@@ -2,18 +2,37 @@ news:
   - category: Expositions
     items:
 
-      - date: Du 5 au 15 août 2024
+      - date: Du 5 au 15 août 2024 
         titre_lien: Estivales Lagorre
         lien: https://estivaleslagorre.fr
         description: Je vous invite à me rencontrer aux estivales Lagorre à Seix du 5 au 15 août  
-        image: ""
+        image: "../img/news/La_Gazette_des_Estivales_en_Ariege_ete_2024.jpg"
+
+      - date: du 19 au 21 juillet 2024
+        titre_lien: 24 eme salon des Arts Plastiques
+        lien: https://amis-du-castillonnais.fr
+        description: exposition organisé par les Amis de Castillon et du Castillonais
+        image: "../img/news/Affiche_Castillon_2024.png"
+	
+
+      - date: d'Octobre à Décembre 2024
+        titre_lien: Atelier Gestes Toulouse
+        lien: https://www.ateliergestes.com/
+        description: exposition à l'Atelier Gestes à Toulouse
+        image: "../img/news/Logo_Geste.avif"
 
       - date: 
         titre_lien: 
         lien: 
-        description: 
+        description:
         image: 
+
+      - date: 
+        titre_lien: 
+        lien: 
+        description:
+        image: 
+
+
 	
-
-
 

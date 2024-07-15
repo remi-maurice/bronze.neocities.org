@@ -5,7 +5,7 @@ images:
   image_principale: 90b.webp
   image_miniature: 90s.webp
   taille: 
-  prix:
+  prix: 
   statut: 
 
 - numero: 89
@@ -42,6 +42,7 @@ images:
   taille: 
   prix:
   statut: 
+
 
 - numero: 84
   image_principale: 84b.webp
@@ -148,26 +149,6 @@ images:
   prix: 
   statut: 
 
-- numero: 69
-  image_principale: 69b.webp
-  image_miniature: 69s.webp
-  taille: 
-  prix: 
-  statut: 
-
-- numero: 
-  image_principale: 68b.webp
-  image_miniature: 68s.webp
-  taille: 
-  prix: 
-  statut: 
-
-- numero: 
-  image_principale: 67b.webp
-  image_miniature: 67s.webp
-  taille: 
-  prix: 
-  statut: 
 
 - numero: 66
   image_principale: 66b.webp
@@ -611,6 +592,27 @@ images:
   statut: 
 
 - numero: 1
+  image_principale: 1b.webp
+  image_miniature: 1s.webp
+  taille: 
+  prix: 
+  statut: 
+
+- numero: 69
+  image_principale: 69b.webp
+  image_miniature: 69s.webp
+  taille: 
+  prix: 
+  statut: 
+
+- numero: 69
+  image_principale: 68b.webp
+  image_miniature: 68s.webp
+  taille: 
+  prix: 
+  statut: 
+
+- numero: 69
   image_principale: 1b.webp
   image_miniature: 1s.webp
   taille: 
