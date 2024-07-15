@@ -4,7 +4,7 @@
 <head>
 	<!--Le titre de la page-->
 	<title>Victor Maurice - Art bronze</title>
-	<!--La description de la page dans content=""-->
+	<!--La description de la page (pour les moteurs de recherche) dans content=""-->
 	<meta name="description" content="page des nouvelles à propos de l'activité de victor maurice">
 	<!--Le logo-->
 	<link rel="icon" type="image/png" href="img/favicon.png">
@@ -57,7 +57,7 @@
 				// Loop through each category
 				data.news.forEach(category => {
 				  const categoryDiv = document.createElement('div');
-				  categoryDiv.innerHTML = `<hr><h4><u>${category.category}:</u></h4>`;
+				  categoryDiv.innerHTML = `<hr><h4><u> - ${category.category}:</u></h4>`;
 				  
 				  // Loop through each item in the category
 				  category.items.forEach(item => {
@@ -67,7 +67,7 @@
 					  newsItem.innerHTML = `
 						<p>
 						  ${item.image ? `<img src="${item.image}" alt="${item.description}"><br>` : ""}
-						  ${item.date ? `<u class="date">${item.date}</u><br>` : ""}
+						  ${item.date ? `<u class="date"> - ${item.date}</u><br>` : ""}
 						  ${item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : ""}
 						  ${item.description}
 						</p>
@@ -76,9 +76,9 @@
 					  // If no image is provided, exclude it from the news item
 					  newsItem.innerHTML = `
 						<p>
-						  ${item.date ? `<u class="date">${item.date}:</u><br>` : ""}
+						  ${item.date ? ` - ${item.date}:<br>` : ""}
 						  ${item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : ""}
-						  ${item.description}
+						  <br>${item.description}
 						</p>
 					  `;
 					}
@@ -94,8 +94,6 @@
 			
 	<footer>
 		<p><a href="news.html#top">[ Revenir en haut]</a></p>
-		<br>
-        <p>&copy2024 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a>  </p>
 	</footer>
 </body>
 

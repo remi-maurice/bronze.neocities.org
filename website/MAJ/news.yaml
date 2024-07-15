@@ -1,10 +1,19 @@
 news:
-  - category: expositions
+  - category: Expositions
     items:
 
       - date: Du 5 au 15 août 2024
         titre_lien: Estivales Lagorre
         lien: https://estivaleslagorre.fr
-        description: à Seix
+        description: Je vous invite à me rencontrer aux estivales Lagorre à Seix du 5 au 15 août  
+        image: ""
+
+      - date: 
+        titre_lien: 
+        lien: 
+        description: 
+        image: 
 	
+
+
 
