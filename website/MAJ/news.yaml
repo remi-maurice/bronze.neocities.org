@@ -21,11 +21,11 @@ news:
         description: exposition à l'Atelier Gestes à Toulouse
         image: "../img/news/Logo_Geste.avif"
 
-      - date: 
-        titre_lien: 
-        lien: 
-        description:
-        image: 
+      - date: 18 août et 22 septembre 2024
+        titre_lien: AMA 65
+        lien: http://ama65.canalblog.com/
+        description: Marché des Métiers d'Art
+        image: "../img/news/logo_ama65.jpg"
 
       - date: 
         titre_lien: 
