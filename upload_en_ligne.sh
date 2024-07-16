@@ -1,6 +1,8 @@
 #!/bin/sh
 # Hook to easily git push and neocities push
-source /home/velo/.bashrc
+
+export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin/:$PATH
+
 git add .
 read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
