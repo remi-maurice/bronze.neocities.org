@@ -14,7 +14,7 @@ if [ "$diff_confirm" != "y" ]; then
     echo "Not uploaded to neocities"
     exit 1
 fi
-neocities push website
+$HOME/.local/share/gem/ruby/3.0.0/bin/neocities push website
 echo "Upload finished!"
 echo "Press 'q' to quit."
 while true; do
