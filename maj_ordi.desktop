@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+Exec=sh -c 'source ~/.bashrc && .mise_a_jour_ordi.sh
+Name=mise_a_jour_ordi
+Comment= Fais un git pull..

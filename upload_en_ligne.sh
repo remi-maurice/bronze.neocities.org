@@ -1,10 +1,5 @@
 #!/bin/sh
 # Hook to easily git push and neocities push
-
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
-fi
-
 git add .
 read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
@@ -14,7 +9,9 @@ if [ "$diff_confirm" != "y" ]; then
     echo "Not uploaded to neocities"
     exit 1
 fi
+
 $HOME/.local/share/gem/ruby/3.0.0/bin/neocities push website
+
 echo "Upload finished!"
 echo "Press 'q' to quit."
 while true; do
