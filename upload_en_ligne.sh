@@ -1,7 +1,9 @@
 #!/bin/sh
 # Hook to easily git push and neocities push
 
-source /home/velo/.bashrc
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
 
 git add .
 read -p "Message pour l'historique( et appui sur entré):" commit_message
