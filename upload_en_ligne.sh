@@ -1,5 +1,7 @@
 #!/bin/sh
 # Hook to easily git push and neocities push
+
+cd /home/velo/bronze.neocities.org
 git add .
 read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
@@ -10,6 +12,7 @@ if [ "$diff_confirm" != "y" ]; then
     exit 1
 fi
 
+source ../.bashrc
 $HOME/.local/share/gem/ruby/3.0.0/bin/neocities push website
 
 echo "Upload finished!"
@@ -19,4 +22,4 @@ while true; do
     if [ "$key" = 'q' ]; then
         break
     fi
-done
+done"
