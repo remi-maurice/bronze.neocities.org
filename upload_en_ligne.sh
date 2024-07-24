@@ -22,4 +22,4 @@ while true; do
     if [ "$key" = 'q' ]; then
         break
     fi
-done"
+done

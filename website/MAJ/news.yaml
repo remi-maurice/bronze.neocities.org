@@ -8,12 +8,17 @@ news:
         description: Je vous invite à me rencontrer aux estivales Lagorre à Seix du 5 au 15 août  
         image: "../img/news/La_Gazette_des_Estivales_en_Ariege_ete_2024.jpg"
 
-      - date: du 19 au 21 juillet 2024
-        titre_lien: 24 eme salon des Arts Plastiques
-        lien: https://amis-du-castillonnais.fr
-        description: exposition organisé par les Amis de Castillon et du Castillonais
-        image: "../img/news/Affiche_Castillon_2024.png"
-	
+      - date: 18 août 2024
+        titre_lien: AMA 65
+        lien: http://ama65.canalblog.com/
+        description: Marché des Métiers d'Art
+        image: "../img/news/AMA65 marche des metiers d-art 18 aout 2024 Bagneres de Bigorre.jpg"
+
+      - date: 22 septembre 2024
+        titre_lien: AMA 65
+        lien: http://ama65.canalblog.com/
+        description: Marché des Métiers d'Art à Beaudéan
+        image: "../img/news/logo_ama65.jpg"
 
       - date: d'Octobre à Décembre 2024
         titre_lien: Atelier Gestes Toulouse
@@ -21,11 +26,11 @@ news:
         description: exposition à l'Atelier Gestes à Toulouse
         image: "../img/news/Logo_Geste.avif"
 
-      - date: 18 août et 22 septembre 2024
-        titre_lien: AMA 65
-        lien: http://ama65.canalblog.com/
-        description: Marché des Métiers d'Art
-        image: "../img/news/logo_ama65.jpg"
+      - date: du 19 au 21 juillet 2024
+        titre_lien: 24 eme salon des Arts Plastiques
+        lien: https://amis-du-castillonnais.fr
+        description: exposition organisé par les Amis de Castillon et du Castillonais
+        image: "../img/news/Affiche_Castillon_2024.png"
 
       - date: 
         titre_lien: 
