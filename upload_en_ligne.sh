@@ -12,7 +12,12 @@ if [ "$diff_confirm" != "y" ]; then
     exit 1
 fi
 
-source ../.bashrc
+if [ -f "$HOME/.bashrc" ]; then
+    source "$HOME/.bashrc"
+else
+    source "$HOME/.zprofile"
+fi
+
 $HOME/.local/share/gem/ruby/3.0.0/bin/neocities push website
 
 echo "Upload finished!"
