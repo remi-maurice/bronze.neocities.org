@@ -1,7 +1,7 @@
 #!/bin/sh
 # Hook to easily git push and neocities push
 
-cd /home/velo/bronze.neocities.org
+cd $HOME/bronze.neocities.org
 git add .
 read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
