@@ -56,15 +56,15 @@
         <!--sa c'est le bouton pour revenir en haut.-->
         <a href="galerie.html#top" class="scrollToTopBtn">↑</a>
         <!--On met toute la page ici!-->
+        
         <!-- Nanogallery intégré avec une database yaml-->
         <div id="ngy2p">
         </div>
         <script type="text/javascript" src="nanogallery/js-yaml.min.js"></script>
         <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js"></script>
         <script>
-            jQuery(document).ready(function() {
+            jQuery(document).ready(async function() {
                 const folderPath = 'img/gallerie/';
-                const imagePrefix = ''; // S'il y a un préfixe avant le numéro, sinon laissez vide
                 const imageSuffixLarge = 'b'; // Suffixe pour la grande image
                 const imageSuffixThumbnail = 's'; // Suffixe pour la miniature
                 const imageExtension = '.webp'; // Extension du fichier
@@ -73,42 +73,45 @@
 
                 let i = 1; // Démarrer avec la première image
 
-                function checkImageExists(url, callback) {
-                    const img = new Image();
-                    img.onload = () => callback(true);
-                    img.onerror = () => callback(false);
-                    img.src = url;
+                // Fonction pour vérifier si une image existe
+                function checkImageExists(url) {
+                    return new Promise((resolve) => {
+                        const img = new Image();
+                        img.onload = () => resolve(true);
+                        img.onerror = () => resolve(false);
+                        img.src = url;
+                    });
                 }
 
-                function addNextImage() {
-                    const largeImageFileName = `${imagePrefix}${i}${imageSuffixLarge}${imageExtension}`;
-                    const thumbnailFileName = `${imagePrefix}${i}${imageSuffixThumbnail}${imageExtension}`;
+                // Fonction pour ajouter une image à la galerie
+                async function addNextImage() {
+                    const largeImageFileName = `${i}${imageSuffixLarge}${imageExtension}`;
+                    const thumbnailFileName = `${i}${imageSuffixThumbnail}${imageExtension}`;
 
                     const largeImagePath = folderPath + largeImageFileName;
                     const thumbnailPath = folderPath + thumbnailFileName;
 
-                    checkImageExists(largeImagePath, function(exists) {
-                        if (exists) {
-                            // Si l'image existe, on l'ajoute à la galerie
-                            galleryItems.push({
-                                src: largeImagePath,  // Grande image
-                                srct: thumbnailPath,  // Miniature
-                                title: `${i}`,  // Titre basé sur le numéro
-                                numero: i
-                            });
+                    const exists = await checkImageExists(largeImagePath);
+                    if (exists) {
+                        // Si l'image existe, on l'ajoute à la galerie
+                        galleryItems.push({
+                            src: largeImagePath,  // Grande image
+                            srct: thumbnailPath,  // Miniature
+                            title: `${i}`,  // Titre basé sur le numéro
+                            numero: i
+                        });
 
-                            i++;
-                            addNextImage(); // Continuer avec l'image suivante
-                        } else {
-                            // Si l'image n'existe pas, on inverse l'ordre des images et on initialise la galerie
-                            galleryItems.reverse(); // Inverser l'ordre pour obtenir un tri décroissant
-                            initializeGallery();
-                        }
-                    });
+                        i++;
+                        await addNextImage(); // Continuer avec l'image suivante
+                    } else {
+                        // Si l'image n'existe pas, on inverse l'ordre des images et on initialise la galerie
+                        galleryItems.reverse(); // Inverser l'ordre pour obtenir un tri décroissant
+                        initializeGallery();
+                    }
                 }
 
+                // Fonction pour initialiser la galerie
                 function initializeGallery() {
-                    // Initialiser la galerie avec les images triées
                     jQuery("#ngy2p").nanogallery2({
                         items: galleryItems,
                         thumbnailWidth: "300",
@@ -121,7 +124,6 @@
                             titleMultiLine: "true",
                             titleFontSize: "0.9em",                   
                         },
-
                         thumbnailDisplayTransition: 'SLIDEAPPEAR',
                         thumbnailDisplayTransitionDuration: 100,
                         thumbnailDisplayInterval: 30,
@@ -130,7 +132,6 @@
                         thumbnailGutterWidth: 10,
                         thumbnailGutterHeight: 10,
                         thumbnailOpenImage: true,
-                        
                         imageTransition: "slideUP",
                         viewerHideToolsDelay: "2000",
                         viewerGallery: "none",
@@ -148,7 +149,7 @@
                 }
 
                 // Démarrer l'ajout d'images
-                addNextImage();
+                await addNextImage();
             });
         </script>
 
