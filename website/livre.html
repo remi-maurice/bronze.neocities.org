@@ -14,6 +14,11 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<!-- Controle du cache -->		
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+
 	<!-- le css -->
 	<link rel="stylesheet" href="css/simple.css">
 </head>
@@ -101,7 +106,7 @@
 
 			#input {
 				color: #dcdcdc;
-				background-color: #2b2b2b;
+				background-color: #00514c;
 				border-radius: 0px;
 				font-family: Jetbrains mono;
 				font-size: 18px;
@@ -110,7 +115,7 @@
 				}
 
 			#input:empty:before {
-			content: "Clique ici pour écrire un message publique";
+			content: "Clique ici pour pouvoir écire un message publique";
 			  color: #dcdcdc;
 			  font-weight: bold;
 			  text-decoration: underline;
@@ -152,11 +157,7 @@
 			}
 			}
 		  `, '*');
-		  window.xp_popup("vict'or chat", "Vous pouver changer votre nom dans le menu ⚙ en haut a droite, (et cliquez sur save changes, puis close.).", {
-          "OK" : function(){
 
-		  	}
-		  })
 		  }</script>
 		<!--fin de la page-->
 	</main>
