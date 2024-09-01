@@ -21,6 +21,18 @@
 
 	<!-- le css -->
 	<link rel="stylesheet" href="css/simple.css">
+
+	<style>
+        .news-item img {
+            display: block; /* S'assure que l'image se comporte comme un bloc */
+            max-height: 40vh; /* Limite la hauteur à 50% de la hauteur de la vue */
+            width: auto; /* Conserve les proportions de l'image */
+            margin-left: 0; /* Aligne à gauche*/
+            margin-top: 10px; /* Espacement au-dessus de l'image */
+            margin-bottom: 10px; /* Espacement en dessous de l'image */
+        }
+    </style>
+	
 </head>
 
 <body id="top">
@@ -30,29 +42,28 @@
 				<!--La barre de navigation avec class="current" qui indique ou on est.-->
 				<li><a href="index.html">accueil</a></li>
 				<li><a href="galerie.html">galerie</a></li>
-				<li><a href="fabrication.html">fabrication</a></li>
+				<li><a class="current" href="news.html">expositions</a></li>
+				<li><a href="contact.html">contact</a></li>
 				<div class="dropdown" style="float:right;">
-					<button class="dropbtn-current">+</button>
-					<div class="dropdown-content">
-						<a href="contact.html">contact</a>
-						<a class="current" href="news.html" >expositions</a>
+					<button class="dropbtn">+</button>
+					<div class="dropdown-content">						
+						<a href="fabrication.html">fabrication</a>
 						<a href="about.html">à propos</a>
 						<a href="livre.html">livre d'or</a>
 						<a href="fun.html">fun</a>
 						<a href="webring.html">Artistes</a>
-
 					</div>
 				</div>
 			</ul>
 		</nav>
 	</header>
+
 	<main>
-		<!--On met toute la page ici!-->
 		<p id="newsContainer"></p>
 		<script type="text/javascript" src="nanogallery/js-yaml.min.js"></script>
 		<script>
 			// Fetch the YAML data
-			fetch('MAJ/news.yaml')
+			fetch('news.yaml')
 			  .then(response => response.text())
 			  .then(yamlData => {
 				const data = jsyaml.load(yamlData); // Convert YAML to JavaScript object
@@ -62,11 +73,13 @@
 				// Loop through each category
 				data.news.forEach(category => {
 				  const categoryDiv = document.createElement('div');
-				  categoryDiv.innerHTML = `<hr><h4><u> - ${category.category}:</u></h4>`;
+				  categoryDiv.innerHTML = `<h4><u>- ${category.category}:</u></h4>`;
 				  
 				  // Loop through each item in the category
 				  category.items.forEach(item => {
 					const newsItem = document.createElement('div');
+					newsItem.classList.add('news-item'); // Ajoute une classe pour appliquer les styles
+
 					if (item.image) {
 					  // If an image is provided, include it in the news item
 					  newsItem.innerHTML = `
@@ -74,7 +87,7 @@
 						  ${item.date ? `<u class="date"> - ${item.date}</u><br>` : ""}
 						  ${item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : ""}
 						  ${item.description}
-						  ${item.image ? `<img src="${item.image}" alt="${item.description}" br>` : ""}
+						  ${item.image ? `<img src="${item.image}" alt="${item.description}">` : ""}
 						</p>
 					  `;
 					} else {
@@ -94,7 +107,6 @@
 				});
 			  });
 		  </script>
-		<!--fin de la page-->
 	</main>
 			
 	<footer>

@@ -30,28 +30,28 @@
 </head>
 
 <body id="top" style="background-color: #808080;">
-    <header>
-        <nav>
-            <ul>
-                <!--La barre de navigation avec class="current" qui indique ou on est.-->
-                <li><a href="index.html">accueil</a></li>
-                <li><a class="current" href="galerie.html">galerie</a></li>
-                <li><a href="fabrication.html">fabrication</a></li>
-                <div class="dropdown" style="float:right;">
-                    <button class="dropbtn">+</button>
-                    <div class="dropdown-content">
-                        <a href="contact.html">contact</a>
-                        <a href="news.html">expositions</a>
-                        <a href="about.html">à propos</a>
-                        <a href="livre.html">livre d'or</a>
-                        <a href="fun.html">fun</a>
-                        <a href="webring.html">Artistes</a>
+	<header>
+		<nav>
+			<ul>
+				<!--La barre de navigation avec class="current" qui indique ou on est.-->
+				<li><a href="index.html">accueil</a></li>
+				<li><a class="current" href="galerie.html">galerie</a></li>
+				<li><a href="news.html">expositions</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<div class="dropdown" style="float:right;">
+					<button class="dropbtn">+</button>
+					<div class="dropdown-content">						
+						<a href="fabrication.html">fabrication</a>
+						<a href="about.html">à propos</a>
+						<a href="livre.html">livre d'or</a>
+						<a href="fun.html">fun</a>
+						<a href="webring.html">Artistes</a>
+					</div>
+				</div>
+			</ul>
+		</nav>
+	</header>
 
-                    </div>
-                </div>
-            </ul>
-        </nav>
-    </header>
     <main>
         <!--sa c'est le bouton pour revenir en haut.-->
         <a href="galerie.html#top" class="scrollToTopBtn">↑</a>
@@ -62,66 +62,97 @@
         <script type="text/javascript" src="nanogallery/js-yaml.min.js"></script>
         <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js"></script>
         <script>
-            // Charger les données YAML et initialiser nanogallery2
-            fetch('MAJ/galerie.yaml')
-                .then(response => response.text())
-                .then(yamlData => {
-                    const data = jsyaml.load(yamlData); // Convertir YAML en objet JavaScript
-                    
-                    const galleryItems = data.images.map(item => {
+            jQuery(document).ready(function() {
+                const folderPath = 'img/gallerie/';
+                const imagePrefix = ''; // S'il y a un préfixe avant le numéro, sinon laissez vide
+                const imageSuffixLarge = 'b'; // Suffixe pour la grande image
+                const imageSuffixThumbnail = 's'; // Suffixe pour la miniature
+                const imageExtension = '.webp'; // Extension du fichier
 
-                // On construit le titre...
-                const title = `${item.numero ? item.numero + ': ' : ''}${item.taille ? item.taille + 'cm/ ' : ''}${item.prix ? item.prix + '€' : ''}${item.statut ? ' /' + item.statut : ''}`;
-                    
-                    return {
-                        src: data.base_url + item.image_principale,
-                        srct: data.base_url + item.image_miniature,
-                        title: title, 
-                        };
-                    });
-                    
-                    // Les options de  nanogallery2
-                    jQuery(document).ready(function() {
-                        jQuery("#ngy2p").nanogallery2({
-                            items: galleryItems,
-                            thumbnailWidth: "300",
-                            thumbnailHeight: "auto",
-                            thumbnailBorderVertical: 4,
-                            thumbnailBorderHorizontal: 4,
-                            thumbnailLabel: {
-                                position: "overImage",
-                                align: "left",
-                                // position: "onBottom" is not compatible with titleMultiLine!
-                                titleMultiLine: "true",
-                                titleFontSize: "0.9em",                   
-                            },
+                const galleryItems = [];
 
-                            thumbnailDisplayTransition:   'SLIDEAPPEAR',
-                            thumbnailDisplayTransitionDuration:  100,
-                            thumbnailDisplayInterval:            30,
-                            thumbnailHoverEffect2: "image_sepia_0%_100%_400|borderLighter",
-                            thumbnailAlignment: "center",
-                            thumbnailGutterWidth: 10,
-                            thumbnailGutterHeight: 10,
-                            thumbnailOpenImage: true,
-                            
-                            imageTransition:"slideUP",
-                            viewerHideToolsDelay: "2000",
-                            viewerGallery:"none",
-                            viewerTools:{
-                                topLeft:    'zoomButton',
-                                topRight:   'fullscreenButton, closeButton'
-                            }, 
-                            viewerToolbar:{
-                                display:false,
-                                position:'bottom',
-                                align:'left',
-                                standard: 'label',
-                            },
-                        });
+                let i = 1; // Démarrer avec la première image
+
+                function checkImageExists(url, callback) {
+                    const img = new Image();
+                    img.onload = () => callback(true);
+                    img.onerror = () => callback(false);
+                    img.src = url;
+                }
+
+                function addNextImage() {
+                    const largeImageFileName = `${imagePrefix}${i}${imageSuffixLarge}${imageExtension}`;
+                    const thumbnailFileName = `${imagePrefix}${i}${imageSuffixThumbnail}${imageExtension}`;
+
+                    const largeImagePath = folderPath + largeImageFileName;
+                    const thumbnailPath = folderPath + thumbnailFileName;
+
+                    checkImageExists(largeImagePath, function(exists) {
+                        if (exists) {
+                            // Si l'image existe, on l'ajoute à la galerie
+                            galleryItems.push({
+                                src: largeImagePath,  // Grande image
+                                srct: thumbnailPath,  // Miniature
+                                title: `${i}`,  // Titre basé sur le numéro
+                                numero: i
+                            });
+
+                            i++;
+                            addNextImage(); // Continuer avec l'image suivante
+                        } else {
+                            // Si l'image n'existe pas, on inverse l'ordre des images et on initialise la galerie
+                            galleryItems.reverse(); // Inverser l'ordre pour obtenir un tri décroissant
+                            initializeGallery();
+                        }
                     });
-                });
+                }
+
+                function initializeGallery() {
+                    // Initialiser la galerie avec les images triées
+                    jQuery("#ngy2p").nanogallery2({
+                        items: galleryItems,
+                        thumbnailWidth: "300",
+                        thumbnailHeight: "auto",
+                        thumbnailBorderVertical: 4,
+                        thumbnailBorderHorizontal: 4,
+                        thumbnailLabel: {
+                            position: "overImage",
+                            align: "left",
+                            titleMultiLine: "true",
+                            titleFontSize: "0.9em",                   
+                        },
+
+                        thumbnailDisplayTransition: 'SLIDEAPPEAR',
+                        thumbnailDisplayTransitionDuration: 100,
+                        thumbnailDisplayInterval: 30,
+                        thumbnailHoverEffect2: "image_sepia_0%_100%_400|borderLighter",
+                        thumbnailAlignment: "center",
+                        thumbnailGutterWidth: 10,
+                        thumbnailGutterHeight: 10,
+                        thumbnailOpenImage: true,
+                        
+                        imageTransition: "slideUP",
+                        viewerHideToolsDelay: "2000",
+                        viewerGallery: "none",
+                        viewerTools: {
+                            topLeft: 'zoomButton',
+                            topRight: 'fullscreenButton, closeButton'
+                        }, 
+                        viewerToolbar: {
+                            display: false,
+                            position: 'bottom',
+                            align: 'left',
+                            standard: 'label',
+                        },
+                    });
+                }
+
+                // Démarrer l'ajout d'images
+                addNextImage();
+            });
         </script>
+
+        
     </main>
     
     
