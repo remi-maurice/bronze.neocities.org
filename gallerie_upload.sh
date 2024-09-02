@@ -21,9 +21,10 @@ resize_and_compress_images() {
             large_image="${next_number}b.webp"
             small_image="${next_number}s.webp"
 
-            magick "$file" -auto-orient -resize '1920x1080>' -quality 75 -define webp:lossless=false \
-                -define webp:auto-filter=true -define webp:filter-strength=25 -define webp:method=4 \
+            magick "$file" -auto-orient -resize '3840x2160>' -quality 100 -define webp:lossless=true \
+                -define webp:auto-filter=true -define webp:filter-strength=0 -define webp:method=4 \
                 -define webp:partition-limit=0 -define webp:sns-strength=0 "$RESIZED_DIR/$large_image"
+
 
             magick "$file" -auto-orient -resize '300x>' -quality 75 -define webp:lossless=false \
                 -define webp:auto-filter=true -define webp:filter-strength=25 -define webp:method=4 \
