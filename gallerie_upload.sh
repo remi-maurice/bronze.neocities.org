@@ -5,7 +5,7 @@ BASE_DIR="$HOME/bronze.neocities.org/website"
 IMAGE_DIR="$BASE_DIR/img/gallerie"
 ORIGINAL_DIR="./original"
 RESIZED_DIR="$IMAGE_DIR"
-OUTPUT_FILE="$IMAGE_DIR/image_list.yaml"
+OUTPUT_FILE="$HOME/bronze.neocities.org/website/galerie_list.yaml"
 NEOCITIES_PATH="$HOME/.local/share/gem/ruby/3.0.0/bin/neocities"
 PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
 
@@ -21,7 +21,7 @@ resize_and_compress_images() {
             large_image="${next_number}b.webp"
             small_image="${next_number}s.webp"
 
-            magick "$file" -auto-orient -resize '3840x2160>' -quality 100 -define webp:lossless=true \
+            magick "$file" -auto-orient -resize '1920x1080>' -quality 100 -define webp:lossless=true \
                 -define webp:auto-filter=true -define webp:filter-strength=0 -define webp:method=4 \
                 -define webp:partition-limit=0 -define webp:sns-strength=0 "$RESIZED_DIR/$large_image"
 
@@ -40,9 +40,9 @@ resize_and_compress_images() {
     echo "Conversion terminée."
 }
 
-# Fonction pour générer image_list.yaml
+# Fonction pour générer galerie_list.yaml
 generate_image_list() {
-    echo "Génération de image_list.yaml..."
+    echo "Génération de galerie_list.yaml..."
     echo "images:" > $OUTPUT_FILE
 
     for image in $(ls $IMAGE_DIR/*b.webp | sort -Vr); do
@@ -62,7 +62,7 @@ start_time=$(date +%s)
 # Redimensionner et compresser les images
 resize_and_compress_images
 
-# Générer image_list.yaml
+# Générer galerie_list.yaml
 generate_image_list
 
 echo "Suppression des images originales..."
@@ -82,13 +82,13 @@ if [[ -d $IMAGE_DIR ]]; then
     # Upload only new images
     while IFS= read -r file; do
         if [[ -f "$IMAGE_DIR/$file" ]]; then
-            $NEOCITIES_PATH upload "$IMAGE_DIR/$file"
+            $NEOCITIES_PATH upload -d img/gallerie "$IMAGE_DIR/$file"
         else
             echo "ERREUR : $IMAGE_DIR/$file n'existe pas localement."
         fi
     done < $PROCESSED_FILE
 
-    # Always upload image_list.yaml
+    # Always upload galerie_list.yaml
     $NEOCITIES_PATH upload "$OUTPUT_FILE"
 else
     echo "ERREUR : Le répertoire $IMAGE_DIR n'existe pas."
