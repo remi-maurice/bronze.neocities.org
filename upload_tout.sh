@@ -40,8 +40,6 @@ resize_and_compress_images() {
             next_number=$((next_number + 1))
         fi
     done
-
-    echo "Conversion terminée."
 }
 
 # Fonction pour générer galerie_list.yaml
@@ -56,8 +54,6 @@ generate_image_list() {
         echo "    title: \"$base_name\"" >> $OUTPUT_FILE
         echo "    numero: $base_name" >> $OUTPUT_FILE
     done
-
-    echo "Liste d'images générée dans $OUTPUT_FILE."
 }
 
 # Début du chronomètre
@@ -74,6 +70,8 @@ rm -f "$ORIGINAL_DIR"/*
 
 #______________________________________________________________________________________
 #Envoi vers github
+echo"______________________________________________"
+echo "Envoi vers Github"
 cd $HOME/bronze.neocities.org
 git add .
 git commit -m "$commit_message" 
@@ -85,5 +83,6 @@ end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
 # Message final
+echo"______________________________________________"
 echo "MAJ terminé en $elapsed_time secondes !"
 rm $PROCESSED_FILE
