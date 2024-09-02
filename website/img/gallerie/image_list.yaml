@@ -1,4 +1,12 @@
 images:
+  - src: /home/rem/bronze.neocities.org/website/img/gallerie/100b.webp
+    srct: /home/rem/bronze.neocities.org/website/img/gallerie/100s.webp
+    title: "100"
+    numero: 100
+  - src: /home/rem/bronze.neocities.org/website/img/gallerie/99b.webp
+    srct: /home/rem/bronze.neocities.org/website/img/gallerie/99s.webp
+    title: "99"
+    numero: 99
   - src: /home/rem/bronze.neocities.org/website/img/gallerie/98b.webp
     srct: /home/rem/bronze.neocities.org/website/img/gallerie/98s.webp
     title: "98"
