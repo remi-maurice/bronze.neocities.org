@@ -8,12 +8,6 @@ read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
 git push -u origin master
 
-#Envoi vers neocities
-read -p "Upload to neocities? (y/n): " diff_confirm
-if [ "$diff_confirm" != "y" ]; then
-    echo "Not uploaded to neocities"
-    exit 1
-fi
 
 if [ -f "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"

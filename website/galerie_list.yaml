@@ -1,32 +1,4 @@
 images:
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/101b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/101s.webp
-    title: "101"
-    numero: 101
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/100b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/100s.webp
-    title: "100"
-    numero: 100
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/99b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/99s.webp
-    title: "99"
-    numero: 99
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/98b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/98s.webp
-    title: "98"
-    numero: 98
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/97b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/97s.webp
-    title: "97"
-    numero: 97
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/96b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/96s.webp
-    title: "96"
-    numero: 96
-  - src: /home/rem/bronze.neocities.org/website/img/gallerie/95b.webp
-    srct: /home/rem/bronze.neocities.org/website/img/gallerie/95s.webp
-    title: "95"
-    numero: 95
   - src: /home/rem/bronze.neocities.org/website/img/gallerie/94b.webp
     srct: /home/rem/bronze.neocities.org/website/img/gallerie/94s.webp
     title: "94"

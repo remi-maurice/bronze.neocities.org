@@ -1,6 +1,2 @@
-99b.webp
-99s.webp
-100b.webp
-100s.webp
-101b.webp
-101s.webp
+95b.webp
+95s.webp
