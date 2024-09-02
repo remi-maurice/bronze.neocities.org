@@ -84,4 +84,4 @@ elapsed_time=$((end_time - start_time))
 
 # Message final
 echo "______________________________________________"
-echo "MAJ terminé en $elapsed_time secondes !"
+echo "MAJ du site terminée en $elapsed_time secondes !"

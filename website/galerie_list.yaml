@@ -1,16 +1,4 @@
 images:
-  - src: img/gallerie/97b.webp
-    srct: img/gallerie/97s.webp
-    title: "97"
-    numero: 97
-  - src: img/gallerie/96b.webp
-    srct: img/gallerie/96s.webp
-    title: "96"
-    numero: 96
-  - src: img/gallerie/95b.webp
-    srct: img/gallerie/95s.webp
-    title: "95"
-    numero: 95
   - src: img/gallerie/94b.webp
     srct: img/gallerie/94s.webp
     title: "94"
