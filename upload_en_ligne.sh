@@ -8,15 +8,15 @@ read -p "Message pour l'historique( et appui sur entré):" commit_message
 git commit -m "$commit_message" 
 git push -u origin master
 
-if [ -f "$HOME/.bashrc" ]; then
-    source "$HOME/.bashrc"
-else
-    source "$HOME/.zprofile"
-fi
+#if [ -f "$HOME/.bashrc" ]; then
+#    source "$HOME/.bashrc"
+#else
+#    source "$HOME/.zprofile"
+#fi
 
 #Push vers neo
-start_time=$(date +%s)
-$HOME/.local/share/gem/ruby/3.0.0/bin/neocities push --prune website
+#start_time=$(date +%s)
+#$HOME/.local/share/gem/ruby/3.0.0/bin/neocities push --prune website
 
 # Fin du chronomètre et calcul du temps écoulé
 end_time=$(date +%s)
