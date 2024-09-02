@@ -2,3 +2,5 @@
 96s.webp
 97b.webp
 97s.webp
+98b.webp
+98s.webp
