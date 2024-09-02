@@ -70,7 +70,7 @@ rm -f "$ORIGINAL_DIR"/*
 
 #______________________________________________________________________________________
 #Envoi vers github
-echo"______________________________________________"
+echo "______________________________________________"
 echo "Envoi vers Github"
 cd $HOME/bronze.neocities.org
 git add .
@@ -83,6 +83,6 @@ end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
 # Message final
-echo"______________________________________________"
+echo "______________________________________________"
 echo "MAJ terminé en $elapsed_time secondes !"
 rm $PROCESSED_FILE
