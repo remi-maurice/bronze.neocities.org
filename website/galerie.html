@@ -27,30 +27,33 @@
 
     <!-- le css -->
     <link rel="stylesheet" href="css/simple.css">
+
+    <!-- js-yaml pour lire les fichiers YAML -->
+    <script src="nanogallery/js-yaml.min.js"></script>
 </head>
 
 <body id="top" style="background-color: #808080;">
-	<header>
-		<nav>
-			<ul>
-				<!--La barre de navigation avec class="current" qui indique ou on est.-->
-				<li><a href="index.html">accueil</a></li>
-				<li><a class="current" href="galerie.html">galerie</a></li>
-				<li><a href="news.html">expositions</a></li>
-				<li><a href="contact.html">contact</a></li>
-				<div class="dropdown" style="float:right;">
-					<button class="dropbtn">+</button>
-					<div class="dropdown-content">						
-						<a href="fabrication.html">fabrication</a>
-						<a href="about.html">à propos</a>
-						<a href="livre.html">livre d'or</a>
-						<a href="fun.html">fun</a>
-						<a href="webring.html">Artistes</a>
-					</div>
-				</div>
-			</ul>
-		</nav>
-	</header>
+    <header>
+        <nav>
+            <ul>
+                <!--La barre de navigation avec class="current" qui indique ou on est.-->
+                <li><a href="index.html">accueil</a></li>
+                <li><a class="current" href="galerie.html">galerie</a></li>
+                <li><a href="news.html">expositions</a></li>
+                <li><a href="contact.html">contact</a></li>
+                <div class="dropdown" style="float:right;">
+                    <button class="dropbtn">+</button>
+                    <div class="dropdown-content">						
+                        <a href="fabrication.html">fabrication</a>
+                        <a href="about.html">à propos</a>
+                        <a href="livre.html">livre d'or</a>
+                        <a href="fun.html">fun</a>
+                        <a href="webring.html">Artistes</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <!--sa c'est le bouton pour revenir en haut.-->
@@ -60,60 +63,22 @@
         <!-- Nanogallery intégré avec une database yaml-->
         <div id="ngy2p">
         </div>
-        <script type="text/javascript" src="nanogallery/js-yaml.min.js"></script>
-        <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js"></script>
-        <script>
+        <script type="text/javascript">
             jQuery(document).ready(async function() {
-                const folderPath = 'img/gallerie/';
-                const imageSuffixLarge = 'b'; // Suffixe pour la grande image
-                const imageSuffixThumbnail = 's'; // Suffixe pour la miniature
-                const imageExtension = '.webp'; // Extension du fichier
+                const yamlFile = 'img/gallerie/image_list.yaml'; // Chemin vers le fichier YAML
+                const folderPath = 'img/gallerie/'; // Répertoire des images
 
-                const galleryItems = [];
-
-                let i = 1; // Démarrer avec la première image
-
-                // Fonction pour vérifier si une image existe
-                function checkImageExists(url) {
-                    return new Promise((resolve) => {
-                        const img = new Image();
-                        img.onload = () => resolve(true);
-                        img.onerror = () => resolve(false);
-                        img.src = url;
-                    });
-                }
-
-                // Fonction pour ajouter une image à la galerie
-                async function addNextImage() {
-                    const largeImageFileName = `${i}${imageSuffixLarge}${imageExtension}`;
-                    const thumbnailFileName = `${i}${imageSuffixThumbnail}${imageExtension}`;
-
-                    const largeImagePath = folderPath + largeImageFileName;
-                    const thumbnailPath = folderPath + thumbnailFileName;
-
-                    const exists = await checkImageExists(largeImagePath);
-                    if (exists) {
-                        // Si l'image existe, on l'ajoute à la galerie
-                        galleryItems.push({
-                            src: largeImagePath,  // Grande image
-                            srct: thumbnailPath,  // Miniature
-                            title: `${i}`,  // Titre basé sur le numéro
-                            numero: i
-                        });
-
-                        i++;
-                        await addNextImage(); // Continuer avec l'image suivante
-                    } else {
-                        // Si l'image n'existe pas, on inverse l'ordre des images et on initialise la galerie
-                        galleryItems.reverse(); // Inverser l'ordre pour obtenir un tri décroissant
-                        initializeGallery();
-                    }
+                // Fonction pour lire le fichier YAML
+                async function loadYAML(url) {
+                    const response = await fetch(url);
+                    const text = await response.text();
+                    return jsyaml.load(text);
                 }
 
                 // Fonction pour initialiser la galerie
-                function initializeGallery() {
+                function initializeGallery(items) {
                     jQuery("#ngy2p").nanogallery2({
-                        items: galleryItems,
+                        items: items,
                         thumbnailWidth: "300",
                         thumbnailHeight: "auto",
                         thumbnailBorderVertical: 4,
@@ -148,16 +113,21 @@
                     });
                 }
 
-                // Démarrer l'ajout d'images
-                await addNextImage();
+                // Charger et traiter les données YAML
+                const yamlData = await loadYAML(yamlFile);
+                const galleryItems = yamlData.images.map(image => ({
+                    src: folderPath + image.src.split('/').pop(),  // Grande image
+                    srct: folderPath + image.srct.split('/').pop(),  // Miniature
+                    title: image.title,  // Titre
+                    numero: image.numero  // Numéro
+                }));
+
+                // Initialiser la galerie avec les données YAML
+                initializeGallery(galleryItems);
             });
         </script>
-
-        
     </main>
     
-    
-
     <footer>
         <p><a href="galerie.html#top">[ Revenir en haut]</a></p>
     </footer>
