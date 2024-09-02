@@ -75,25 +75,6 @@ git add .
 git commit -m "gallery update"
 git push -u origin master
 
-# Opérations Neocities
-if [[ -d $IMAGE_DIR ]]; then
-    echo "Envoi des nouvelles images vers Neocities..."
-
-    # Upload only new images
-    while IFS= read -r file; do
-        if [[ -f "$IMAGE_DIR/$file" ]]; then
-            $NEOCITIES_PATH upload -d img/gallerie "$IMAGE_DIR/$file"
-        else
-            echo "ERREUR : $IMAGE_DIR/$file n'existe pas localement."
-        fi
-    done < $PROCESSED_FILE
-
-    # Always upload galerie_list.yaml
-    $NEOCITIES_PATH upload "$OUTPUT_FILE"
-else
-    echo "ERREUR : Le répertoire $IMAGE_DIR n'existe pas."
-fi
-
 rm $PROCESSED_FILE
 
 # Fin du chronomètre et calcul du temps écoulé
@@ -101,4 +82,4 @@ end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
 # Message final
-echo "MAJ terminé en $elapsed_time secondes !"
+echo "MAJ Galerie terminé en $elapsed_time secondes !"

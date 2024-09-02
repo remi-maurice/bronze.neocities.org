@@ -1,2 +1,2 @@
-For the pictures, all rights reserved to Victor Maurice except for editorial use, please contact me.
-For everything else: https://victor-maurice.mit-license.org
+For the pictures, text and media all rights reserved to Victor Maurice.
+The source code is MIT licensed: https://victor-maurice.mit-license.org
