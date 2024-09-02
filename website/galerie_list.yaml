@@ -1,4 +1,8 @@
 images:
+  - src: img/gallerie/97b.webp
+    srct: img/gallerie/97s.webp
+    title: "97"
+    numero: 97
   - src: img/gallerie/96b.webp
     srct: img/gallerie/96s.webp
     title: "96"
