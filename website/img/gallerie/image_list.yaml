@@ -1,393 +1,393 @@
 images:
-  - src: ./website/img/gallerie/98b.webp
-    srct: ./website/img/gallerie/98s.webp
+  - src: ./website/img/gallerie//98b.webp
+    srct: ./website/img/gallerie//98s.webp
     title: "98"
     numero: 98
-  - src: ./website/img/gallerie/97b.webp
-    srct: ./website/img/gallerie/97s.webp
+  - src: ./website/img/gallerie//97b.webp
+    srct: ./website/img/gallerie//97s.webp
     title: "97"
     numero: 97
-  - src: ./website/img/gallerie/96b.webp
-    srct: ./website/img/gallerie/96s.webp
+  - src: ./website/img/gallerie//96b.webp
+    srct: ./website/img/gallerie//96s.webp
     title: "96"
     numero: 96
-  - src: ./website/img/gallerie/95b.webp
-    srct: ./website/img/gallerie/95s.webp
+  - src: ./website/img/gallerie//95b.webp
+    srct: ./website/img/gallerie//95s.webp
     title: "95"
     numero: 95
-  - src: ./website/img/gallerie/94b.webp
-    srct: ./website/img/gallerie/94s.webp
+  - src: ./website/img/gallerie//94b.webp
+    srct: ./website/img/gallerie//94s.webp
     title: "94"
     numero: 94
-  - src: ./website/img/gallerie/93b.webp
-    srct: ./website/img/gallerie/93s.webp
+  - src: ./website/img/gallerie//93b.webp
+    srct: ./website/img/gallerie//93s.webp
     title: "93"
     numero: 93
-  - src: ./website/img/gallerie/92b.webp
-    srct: ./website/img/gallerie/92s.webp
+  - src: ./website/img/gallerie//92b.webp
+    srct: ./website/img/gallerie//92s.webp
     title: "92"
     numero: 92
-  - src: ./website/img/gallerie/91b.webp
-    srct: ./website/img/gallerie/91s.webp
+  - src: ./website/img/gallerie//91b.webp
+    srct: ./website/img/gallerie//91s.webp
     title: "91"
     numero: 91
-  - src: ./website/img/gallerie/90b.webp
-    srct: ./website/img/gallerie/90s.webp
+  - src: ./website/img/gallerie//90b.webp
+    srct: ./website/img/gallerie//90s.webp
     title: "90"
     numero: 90
-  - src: ./website/img/gallerie/89b.webp
-    srct: ./website/img/gallerie/89s.webp
+  - src: ./website/img/gallerie//89b.webp
+    srct: ./website/img/gallerie//89s.webp
     title: "89"
     numero: 89
-  - src: ./website/img/gallerie/88b.webp
-    srct: ./website/img/gallerie/88s.webp
+  - src: ./website/img/gallerie//88b.webp
+    srct: ./website/img/gallerie//88s.webp
     title: "88"
     numero: 88
-  - src: ./website/img/gallerie/87b.webp
-    srct: ./website/img/gallerie/87s.webp
+  - src: ./website/img/gallerie//87b.webp
+    srct: ./website/img/gallerie//87s.webp
     title: "87"
     numero: 87
-  - src: ./website/img/gallerie/86b.webp
-    srct: ./website/img/gallerie/86s.webp
+  - src: ./website/img/gallerie//86b.webp
+    srct: ./website/img/gallerie//86s.webp
     title: "86"
     numero: 86
-  - src: ./website/img/gallerie/85b.webp
-    srct: ./website/img/gallerie/85s.webp
+  - src: ./website/img/gallerie//85b.webp
+    srct: ./website/img/gallerie//85s.webp
     title: "85"
     numero: 85
-  - src: ./website/img/gallerie/84b.webp
-    srct: ./website/img/gallerie/84s.webp
+  - src: ./website/img/gallerie//84b.webp
+    srct: ./website/img/gallerie//84s.webp
     title: "84"
     numero: 84
-  - src: ./website/img/gallerie/83b.webp
-    srct: ./website/img/gallerie/83s.webp
+  - src: ./website/img/gallerie//83b.webp
+    srct: ./website/img/gallerie//83s.webp
     title: "83"
     numero: 83
-  - src: ./website/img/gallerie/82b.webp
-    srct: ./website/img/gallerie/82s.webp
+  - src: ./website/img/gallerie//82b.webp
+    srct: ./website/img/gallerie//82s.webp
     title: "82"
     numero: 82
-  - src: ./website/img/gallerie/81b.webp
-    srct: ./website/img/gallerie/81s.webp
+  - src: ./website/img/gallerie//81b.webp
+    srct: ./website/img/gallerie//81s.webp
     title: "81"
     numero: 81
-  - src: ./website/img/gallerie/80b.webp
-    srct: ./website/img/gallerie/80s.webp
+  - src: ./website/img/gallerie//80b.webp
+    srct: ./website/img/gallerie//80s.webp
     title: "80"
     numero: 80
-  - src: ./website/img/gallerie/79b.webp
-    srct: ./website/img/gallerie/79s.webp
+  - src: ./website/img/gallerie//79b.webp
+    srct: ./website/img/gallerie//79s.webp
     title: "79"
     numero: 79
-  - src: ./website/img/gallerie/78b.webp
-    srct: ./website/img/gallerie/78s.webp
+  - src: ./website/img/gallerie//78b.webp
+    srct: ./website/img/gallerie//78s.webp
     title: "78"
     numero: 78
-  - src: ./website/img/gallerie/77b.webp
-    srct: ./website/img/gallerie/77s.webp
+  - src: ./website/img/gallerie//77b.webp
+    srct: ./website/img/gallerie//77s.webp
     title: "77"
     numero: 77
-  - src: ./website/img/gallerie/76b.webp
-    srct: ./website/img/gallerie/76s.webp
+  - src: ./website/img/gallerie//76b.webp
+    srct: ./website/img/gallerie//76s.webp
     title: "76"
     numero: 76
-  - src: ./website/img/gallerie/75b.webp
-    srct: ./website/img/gallerie/75s.webp
+  - src: ./website/img/gallerie//75b.webp
+    srct: ./website/img/gallerie//75s.webp
     title: "75"
     numero: 75
-  - src: ./website/img/gallerie/74b.webp
-    srct: ./website/img/gallerie/74s.webp
+  - src: ./website/img/gallerie//74b.webp
+    srct: ./website/img/gallerie//74s.webp
     title: "74"
     numero: 74
-  - src: ./website/img/gallerie/73b.webp
-    srct: ./website/img/gallerie/73s.webp
+  - src: ./website/img/gallerie//73b.webp
+    srct: ./website/img/gallerie//73s.webp
     title: "73"
     numero: 73
-  - src: ./website/img/gallerie/72b.webp
-    srct: ./website/img/gallerie/72s.webp
+  - src: ./website/img/gallerie//72b.webp
+    srct: ./website/img/gallerie//72s.webp
     title: "72"
     numero: 72
-  - src: ./website/img/gallerie/71b.webp
-    srct: ./website/img/gallerie/71s.webp
+  - src: ./website/img/gallerie//71b.webp
+    srct: ./website/img/gallerie//71s.webp
     title: "71"
     numero: 71
-  - src: ./website/img/gallerie/70b.webp
-    srct: ./website/img/gallerie/70s.webp
+  - src: ./website/img/gallerie//70b.webp
+    srct: ./website/img/gallerie//70s.webp
     title: "70"
     numero: 70
-  - src: ./website/img/gallerie/69b.webp
-    srct: ./website/img/gallerie/69s.webp
+  - src: ./website/img/gallerie//69b.webp
+    srct: ./website/img/gallerie//69s.webp
     title: "69"
     numero: 69
-  - src: ./website/img/gallerie/68b.webp
-    srct: ./website/img/gallerie/68s.webp
+  - src: ./website/img/gallerie//68b.webp
+    srct: ./website/img/gallerie//68s.webp
     title: "68"
     numero: 68
-  - src: ./website/img/gallerie/67b.webp
-    srct: ./website/img/gallerie/67s.webp
+  - src: ./website/img/gallerie//67b.webp
+    srct: ./website/img/gallerie//67s.webp
     title: "67"
     numero: 67
-  - src: ./website/img/gallerie/66b.webp
-    srct: ./website/img/gallerie/66s.webp
+  - src: ./website/img/gallerie//66b.webp
+    srct: ./website/img/gallerie//66s.webp
     title: "66"
     numero: 66
-  - src: ./website/img/gallerie/65b.webp
-    srct: ./website/img/gallerie/65s.webp
+  - src: ./website/img/gallerie//65b.webp
+    srct: ./website/img/gallerie//65s.webp
     title: "65"
     numero: 65
-  - src: ./website/img/gallerie/64b.webp
-    srct: ./website/img/gallerie/64s.webp
+  - src: ./website/img/gallerie//64b.webp
+    srct: ./website/img/gallerie//64s.webp
     title: "64"
     numero: 64
-  - src: ./website/img/gallerie/63b.webp
-    srct: ./website/img/gallerie/63s.webp
+  - src: ./website/img/gallerie//63b.webp
+    srct: ./website/img/gallerie//63s.webp
     title: "63"
     numero: 63
-  - src: ./website/img/gallerie/62b.webp
-    srct: ./website/img/gallerie/62s.webp
+  - src: ./website/img/gallerie//62b.webp
+    srct: ./website/img/gallerie//62s.webp
     title: "62"
     numero: 62
-  - src: ./website/img/gallerie/61b.webp
-    srct: ./website/img/gallerie/61s.webp
+  - src: ./website/img/gallerie//61b.webp
+    srct: ./website/img/gallerie//61s.webp
     title: "61"
     numero: 61
-  - src: ./website/img/gallerie/60b.webp
-    srct: ./website/img/gallerie/60s.webp
+  - src: ./website/img/gallerie//60b.webp
+    srct: ./website/img/gallerie//60s.webp
     title: "60"
     numero: 60
-  - src: ./website/img/gallerie/59b.webp
-    srct: ./website/img/gallerie/59s.webp
+  - src: ./website/img/gallerie//59b.webp
+    srct: ./website/img/gallerie//59s.webp
     title: "59"
     numero: 59
-  - src: ./website/img/gallerie/58b.webp
-    srct: ./website/img/gallerie/58s.webp
+  - src: ./website/img/gallerie//58b.webp
+    srct: ./website/img/gallerie//58s.webp
     title: "58"
     numero: 58
-  - src: ./website/img/gallerie/57b.webp
-    srct: ./website/img/gallerie/57s.webp
+  - src: ./website/img/gallerie//57b.webp
+    srct: ./website/img/gallerie//57s.webp
     title: "57"
     numero: 57
-  - src: ./website/img/gallerie/56b.webp
-    srct: ./website/img/gallerie/56s.webp
+  - src: ./website/img/gallerie//56b.webp
+    srct: ./website/img/gallerie//56s.webp
     title: "56"
     numero: 56
-  - src: ./website/img/gallerie/55b.webp
-    srct: ./website/img/gallerie/55s.webp
+  - src: ./website/img/gallerie//55b.webp
+    srct: ./website/img/gallerie//55s.webp
     title: "55"
     numero: 55
-  - src: ./website/img/gallerie/54b.webp
-    srct: ./website/img/gallerie/54s.webp
+  - src: ./website/img/gallerie//54b.webp
+    srct: ./website/img/gallerie//54s.webp
     title: "54"
     numero: 54
-  - src: ./website/img/gallerie/53b.webp
-    srct: ./website/img/gallerie/53s.webp
+  - src: ./website/img/gallerie//53b.webp
+    srct: ./website/img/gallerie//53s.webp
     title: "53"
     numero: 53
-  - src: ./website/img/gallerie/52b.webp
-    srct: ./website/img/gallerie/52s.webp
+  - src: ./website/img/gallerie//52b.webp
+    srct: ./website/img/gallerie//52s.webp
     title: "52"
     numero: 52
-  - src: ./website/img/gallerie/51b.webp
-    srct: ./website/img/gallerie/51s.webp
+  - src: ./website/img/gallerie//51b.webp
+    srct: ./website/img/gallerie//51s.webp
     title: "51"
     numero: 51
-  - src: ./website/img/gallerie/50b.webp
-    srct: ./website/img/gallerie/50s.webp
+  - src: ./website/img/gallerie//50b.webp
+    srct: ./website/img/gallerie//50s.webp
     title: "50"
     numero: 50
-  - src: ./website/img/gallerie/49b.webp
-    srct: ./website/img/gallerie/49s.webp
+  - src: ./website/img/gallerie//49b.webp
+    srct: ./website/img/gallerie//49s.webp
     title: "49"
     numero: 49
-  - src: ./website/img/gallerie/48b.webp
-    srct: ./website/img/gallerie/48s.webp
+  - src: ./website/img/gallerie//48b.webp
+    srct: ./website/img/gallerie//48s.webp
     title: "48"
     numero: 48
-  - src: ./website/img/gallerie/47b.webp
-    srct: ./website/img/gallerie/47s.webp
+  - src: ./website/img/gallerie//47b.webp
+    srct: ./website/img/gallerie//47s.webp
     title: "47"
     numero: 47
-  - src: ./website/img/gallerie/46b.webp
-    srct: ./website/img/gallerie/46s.webp
+  - src: ./website/img/gallerie//46b.webp
+    srct: ./website/img/gallerie//46s.webp
     title: "46"
     numero: 46
-  - src: ./website/img/gallerie/45b.webp
-    srct: ./website/img/gallerie/45s.webp
+  - src: ./website/img/gallerie//45b.webp
+    srct: ./website/img/gallerie//45s.webp
     title: "45"
     numero: 45
-  - src: ./website/img/gallerie/44b.webp
-    srct: ./website/img/gallerie/44s.webp
+  - src: ./website/img/gallerie//44b.webp
+    srct: ./website/img/gallerie//44s.webp
     title: "44"
     numero: 44
-  - src: ./website/img/gallerie/43b.webp
-    srct: ./website/img/gallerie/43s.webp
+  - src: ./website/img/gallerie//43b.webp
+    srct: ./website/img/gallerie//43s.webp
     title: "43"
     numero: 43
-  - src: ./website/img/gallerie/42b.webp
-    srct: ./website/img/gallerie/42s.webp
+  - src: ./website/img/gallerie//42b.webp
+    srct: ./website/img/gallerie//42s.webp
     title: "42"
     numero: 42
-  - src: ./website/img/gallerie/41b.webp
-    srct: ./website/img/gallerie/41s.webp
+  - src: ./website/img/gallerie//41b.webp
+    srct: ./website/img/gallerie//41s.webp
     title: "41"
     numero: 41
-  - src: ./website/img/gallerie/40b.webp
-    srct: ./website/img/gallerie/40s.webp
+  - src: ./website/img/gallerie//40b.webp
+    srct: ./website/img/gallerie//40s.webp
     title: "40"
     numero: 40
-  - src: ./website/img/gallerie/39b.webp
-    srct: ./website/img/gallerie/39s.webp
+  - src: ./website/img/gallerie//39b.webp
+    srct: ./website/img/gallerie//39s.webp
     title: "39"
     numero: 39
-  - src: ./website/img/gallerie/38b.webp
-    srct: ./website/img/gallerie/38s.webp
+  - src: ./website/img/gallerie//38b.webp
+    srct: ./website/img/gallerie//38s.webp
     title: "38"
     numero: 38
-  - src: ./website/img/gallerie/37b.webp
-    srct: ./website/img/gallerie/37s.webp
+  - src: ./website/img/gallerie//37b.webp
+    srct: ./website/img/gallerie//37s.webp
     title: "37"
     numero: 37
-  - src: ./website/img/gallerie/36b.webp
-    srct: ./website/img/gallerie/36s.webp
+  - src: ./website/img/gallerie//36b.webp
+    srct: ./website/img/gallerie//36s.webp
     title: "36"
     numero: 36
-  - src: ./website/img/gallerie/35b.webp
-    srct: ./website/img/gallerie/35s.webp
+  - src: ./website/img/gallerie//35b.webp
+    srct: ./website/img/gallerie//35s.webp
     title: "35"
     numero: 35
-  - src: ./website/img/gallerie/34b.webp
-    srct: ./website/img/gallerie/34s.webp
+  - src: ./website/img/gallerie//34b.webp
+    srct: ./website/img/gallerie//34s.webp
     title: "34"
     numero: 34
-  - src: ./website/img/gallerie/33b.webp
-    srct: ./website/img/gallerie/33s.webp
+  - src: ./website/img/gallerie//33b.webp
+    srct: ./website/img/gallerie//33s.webp
     title: "33"
     numero: 33
-  - src: ./website/img/gallerie/32b.webp
-    srct: ./website/img/gallerie/32s.webp
+  - src: ./website/img/gallerie//32b.webp
+    srct: ./website/img/gallerie//32s.webp
     title: "32"
     numero: 32
-  - src: ./website/img/gallerie/31b.webp
-    srct: ./website/img/gallerie/31s.webp
+  - src: ./website/img/gallerie//31b.webp
+    srct: ./website/img/gallerie//31s.webp
     title: "31"
     numero: 31
-  - src: ./website/img/gallerie/30b.webp
-    srct: ./website/img/gallerie/30s.webp
+  - src: ./website/img/gallerie//30b.webp
+    srct: ./website/img/gallerie//30s.webp
     title: "30"
     numero: 30
-  - src: ./website/img/gallerie/29b.webp
-    srct: ./website/img/gallerie/29s.webp
+  - src: ./website/img/gallerie//29b.webp
+    srct: ./website/img/gallerie//29s.webp
     title: "29"
     numero: 29
-  - src: ./website/img/gallerie/28b.webp
-    srct: ./website/img/gallerie/28s.webp
+  - src: ./website/img/gallerie//28b.webp
+    srct: ./website/img/gallerie//28s.webp
     title: "28"
     numero: 28
-  - src: ./website/img/gallerie/27b.webp
-    srct: ./website/img/gallerie/27s.webp
+  - src: ./website/img/gallerie//27b.webp
+    srct: ./website/img/gallerie//27s.webp
     title: "27"
     numero: 27
-  - src: ./website/img/gallerie/26b.webp
-    srct: ./website/img/gallerie/26s.webp
+  - src: ./website/img/gallerie//26b.webp
+    srct: ./website/img/gallerie//26s.webp
     title: "26"
     numero: 26
-  - src: ./website/img/gallerie/25b.webp
-    srct: ./website/img/gallerie/25s.webp
+  - src: ./website/img/gallerie//25b.webp
+    srct: ./website/img/gallerie//25s.webp
     title: "25"
     numero: 25
-  - src: ./website/img/gallerie/24b.webp
-    srct: ./website/img/gallerie/24s.webp
+  - src: ./website/img/gallerie//24b.webp
+    srct: ./website/img/gallerie//24s.webp
     title: "24"
     numero: 24
-  - src: ./website/img/gallerie/23b.webp
-    srct: ./website/img/gallerie/23s.webp
+  - src: ./website/img/gallerie//23b.webp
+    srct: ./website/img/gallerie//23s.webp
     title: "23"
     numero: 23
-  - src: ./website/img/gallerie/22b.webp
-    srct: ./website/img/gallerie/22s.webp
+  - src: ./website/img/gallerie//22b.webp
+    srct: ./website/img/gallerie//22s.webp
     title: "22"
     numero: 22
-  - src: ./website/img/gallerie/21b.webp
-    srct: ./website/img/gallerie/21s.webp
+  - src: ./website/img/gallerie//21b.webp
+    srct: ./website/img/gallerie//21s.webp
     title: "21"
     numero: 21
-  - src: ./website/img/gallerie/20b.webp
-    srct: ./website/img/gallerie/20s.webp
+  - src: ./website/img/gallerie//20b.webp
+    srct: ./website/img/gallerie//20s.webp
     title: "20"
     numero: 20
-  - src: ./website/img/gallerie/19b.webp
-    srct: ./website/img/gallerie/19s.webp
+  - src: ./website/img/gallerie//19b.webp
+    srct: ./website/img/gallerie//19s.webp
     title: "19"
     numero: 19
-  - src: ./website/img/gallerie/18b.webp
-    srct: ./website/img/gallerie/18s.webp
+  - src: ./website/img/gallerie//18b.webp
+    srct: ./website/img/gallerie//18s.webp
     title: "18"
     numero: 18
-  - src: ./website/img/gallerie/17b.webp
-    srct: ./website/img/gallerie/17s.webp
+  - src: ./website/img/gallerie//17b.webp
+    srct: ./website/img/gallerie//17s.webp
     title: "17"
     numero: 17
-  - src: ./website/img/gallerie/16b.webp
-    srct: ./website/img/gallerie/16s.webp
+  - src: ./website/img/gallerie//16b.webp
+    srct: ./website/img/gallerie//16s.webp
     title: "16"
     numero: 16
-  - src: ./website/img/gallerie/15b.webp
-    srct: ./website/img/gallerie/15s.webp
+  - src: ./website/img/gallerie//15b.webp
+    srct: ./website/img/gallerie//15s.webp
     title: "15"
     numero: 15
-  - src: ./website/img/gallerie/14b.webp
-    srct: ./website/img/gallerie/14s.webp
+  - src: ./website/img/gallerie//14b.webp
+    srct: ./website/img/gallerie//14s.webp
     title: "14"
     numero: 14
-  - src: ./website/img/gallerie/13b.webp
-    srct: ./website/img/gallerie/13s.webp
+  - src: ./website/img/gallerie//13b.webp
+    srct: ./website/img/gallerie//13s.webp
     title: "13"
     numero: 13
-  - src: ./website/img/gallerie/12b.webp
-    srct: ./website/img/gallerie/12s.webp
+  - src: ./website/img/gallerie//12b.webp
+    srct: ./website/img/gallerie//12s.webp
     title: "12"
     numero: 12
-  - src: ./website/img/gallerie/11b.webp
-    srct: ./website/img/gallerie/11s.webp
+  - src: ./website/img/gallerie//11b.webp
+    srct: ./website/img/gallerie//11s.webp
     title: "11"
     numero: 11
-  - src: ./website/img/gallerie/10b.webp
-    srct: ./website/img/gallerie/10s.webp
+  - src: ./website/img/gallerie//10b.webp
+    srct: ./website/img/gallerie//10s.webp
     title: "10"
     numero: 10
-  - src: ./website/img/gallerie/9b.webp
-    srct: ./website/img/gallerie/9s.webp
+  - src: ./website/img/gallerie//9b.webp
+    srct: ./website/img/gallerie//9s.webp
     title: "9"
     numero: 9
-  - src: ./website/img/gallerie/8b.webp
-    srct: ./website/img/gallerie/8s.webp
+  - src: ./website/img/gallerie//8b.webp
+    srct: ./website/img/gallerie//8s.webp
     title: "8"
     numero: 8
-  - src: ./website/img/gallerie/7b.webp
-    srct: ./website/img/gallerie/7s.webp
+  - src: ./website/img/gallerie//7b.webp
+    srct: ./website/img/gallerie//7s.webp
     title: "7"
     numero: 7
-  - src: ./website/img/gallerie/6b.webp
-    srct: ./website/img/gallerie/6s.webp
+  - src: ./website/img/gallerie//6b.webp
+    srct: ./website/img/gallerie//6s.webp
     title: "6"
     numero: 6
-  - src: ./website/img/gallerie/5b.webp
-    srct: ./website/img/gallerie/5s.webp
+  - src: ./website/img/gallerie//5b.webp
+    srct: ./website/img/gallerie//5s.webp
     title: "5"
     numero: 5
-  - src: ./website/img/gallerie/4b.webp
-    srct: ./website/img/gallerie/4s.webp
+  - src: ./website/img/gallerie//4b.webp
+    srct: ./website/img/gallerie//4s.webp
     title: "4"
     numero: 4
-  - src: ./website/img/gallerie/3b.webp
-    srct: ./website/img/gallerie/3s.webp
+  - src: ./website/img/gallerie//3b.webp
+    srct: ./website/img/gallerie//3s.webp
     title: "3"
     numero: 3
-  - src: ./website/img/gallerie/2b.webp
-    srct: ./website/img/gallerie/2s.webp
+  - src: ./website/img/gallerie//2b.webp
+    srct: ./website/img/gallerie//2s.webp
     title: "2"
     numero: 2
-  - src: ./website/img/gallerie/1b.webp
-    srct: ./website/img/gallerie/1s.webp
+  - src: ./website/img/gallerie//1b.webp
+    srct: ./website/img/gallerie//1s.webp
     title: "1"
     numero: 1
