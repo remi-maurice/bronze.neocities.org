@@ -67,7 +67,7 @@ generate_image_list
 
 echo "Suppression des images originales..."
 rm -f "$ORIGINAL_DIR"/*
-rm $PROCESSED_FILE
+rm -f $PROCESSED_FILE
 #______________________________________________________________________________________
 #Envoi vers github:
 echo "______________________________________________"
