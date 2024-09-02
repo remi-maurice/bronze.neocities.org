@@ -24,4 +24,3 @@ elapsed_time=$((end_time - start_time))
 
 # Message final
 echo "MAJ terminé en $elapsed_time secondes !"
-done
