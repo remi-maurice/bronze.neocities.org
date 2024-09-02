@@ -22,7 +22,7 @@ else
 fi
 
 #Push vers neo
-$HOME/.local/share/gem/ruby/3.0.0/bin/neocities push website
+$HOME/.local/share/gem/ruby/3.0.0/bin/neocities push --prune website
 
 # Message de fin
 echo "Upload finished!"
