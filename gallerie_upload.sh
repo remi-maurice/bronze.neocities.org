@@ -47,8 +47,8 @@ generate_image_list() {
 
     for image in $(ls $IMAGE_DIR/*b.webp | sort -Vr); do
         base_name=$(basename "$image" b.webp)
-        echo "  - src: $IMAGE_DIR/${base_name}b.webp" >> $OUTPUT_FILE
-        echo "    srct: $IMAGE_DIR/${base_name}s.webp" >> $OUTPUT_FILE
+        echo "  - src: img/gallerie/${base_name}b.webp" >> $OUTPUT_FILE
+        echo "    srct: img/gallerie/${base_name}s.webp" >> $OUTPUT_FILE
         echo "    title: \"$base_name\"" >> $OUTPUT_FILE
         echo "    numero: $base_name" >> $OUTPUT_FILE
     done
@@ -93,6 +93,8 @@ if [[ -d $IMAGE_DIR ]]; then
 else
     echo "ERREUR : Le répertoire $IMAGE_DIR n'existe pas."
 fi
+
+rm $PROCESSED_FILE
 
 # Fin du chronomètre et calcul du temps écoulé
 end_time=$(date +%s)
