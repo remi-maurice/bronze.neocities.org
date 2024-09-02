@@ -1,6 +1,6 @@
 #!/bin/sh
 # Hook to easily git push and neocities push
-read -p "Message pour l'historique( et appui sur entré):" commit_message
+read -p "Message pour l'historique(obligatoire):" commit_message
 #______________________________________________________________________________________
 #Image processing
 
