@@ -67,9 +67,9 @@ generate_image_list
 
 echo "Suppression des images originales..."
 rm -f "$ORIGINAL_DIR"/*
-
+rm $PROCESSED_FILE
 #______________________________________________________________________________________
-#Envoi vers github
+#Envoi vers github:
 echo "______________________________________________"
 echo "Envoi vers Github"
 cd $HOME/bronze.neocities.org
@@ -85,4 +85,3 @@ elapsed_time=$((end_time - start_time))
 # Message final
 echo "______________________________________________"
 echo "MAJ terminé en $elapsed_time secondes !"
-rm $PROCESSED_FILE
