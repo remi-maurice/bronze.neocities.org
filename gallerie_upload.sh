@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Directories
-BASE_DIR="./website"
+BASE_DIR="$HOME/bronze.neocities.org/website"
 IMAGE_DIR="$BASE_DIR/img/gallerie"
 ORIGINAL_DIR="./original"
 RESIZED_DIR="$IMAGE_DIR"
 OUTPUT_FILE="$IMAGE_DIR/image_list.yaml"
 NEOCITIES_PATH="$HOME/.local/share/gem/ruby/3.0.0/bin/neocities"
+PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
 
 # Fonction pour redimensionner et compresser les images
 resize_and_compress_images() {
@@ -29,6 +30,8 @@ resize_and_compress_images() {
                 -define webp:partition-limit=0 -define webp:sns-strength=0 "$RESIZED_DIR/$small_image"
 
             echo "$file converti en $large_image et $small_image"
+            echo "$large_image" >> $PROCESSED_FILE
+            echo "$small_image" >> $PROCESSED_FILE
             next_number=$((next_number + 1))
         fi
     done
@@ -74,24 +77,18 @@ git push -u origin master
 # Opérations Neocities
 if [[ -d $IMAGE_DIR ]]; then
     echo "Envoi des nouvelles images vers Neocities..."
-    
-    # Upload large images
-    find $IMAGE_DIR -maxdepth 1 -name '*b.webp' -print0 | while IFS= read -r -d '' file; do
-        if [[ -f "$file" ]]; then
-            $NEOCITIES_PATH upload "$file"
-        else
-            echo "ERREUR : $file n'existe pas localement."
-        fi
-    done
 
-    # Upload small images
-    find $IMAGE_DIR -maxdepth 1 -name '*s.webp' -print0 | while IFS= read -r -d '' file; do
-        if [[ -f "$file" ]]; then
-            $NEOCITIES_PATH upload "$file"
+    # Upload only new images
+    while IFS= read -r file; do
+        if [[ -f "$IMAGE_DIR/$file" ]]; then
+            $NEOCITIES_PATH upload "$IMAGE_DIR/$file"
         else
-            echo "ERREUR : $file n'existe pas localement."
+            echo "ERREUR : $IMAGE_DIR/$file n'existe pas localement."
         fi
-    done
+    done < $PROCESSED_FILE
+
+    # Always upload image_list.yaml
+    $NEOCITIES_PATH upload "$OUTPUT_FILE"
 else
     echo "ERREUR : Le répertoire $IMAGE_DIR n'existe pas."
 fi
