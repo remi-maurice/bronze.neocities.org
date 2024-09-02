@@ -59,6 +59,9 @@
 	</header>
 
 	<main>
+		<!--sa c'est le bouton pour revenir en haut.-->
+        <a href="#top" class="scrollToTopBtn">↑</a>
+
 		<p id="newsContainer"></p>
 		<script type="text/javascript" src="nanogallery/js-yaml.min.js"></script>
 		<script>
@@ -73,7 +76,6 @@
 					// Loop through each category
 					data.news.forEach(category => {
 						const categoryDiv = document.createElement('div');
-						categoryDiv.innerHTML = `<h4><u>- ${category.category}:</u></h4>`;
 						
 						// Loop through each item in the category
 						category.items.forEach(item => {
@@ -82,7 +84,7 @@
 		
 							// Vérifie si chaque champ est défini avant de l'inclure
 							let imageSize = item.taille_image || 'auto'; // Utilise la taille par défaut si non spécifiée
-							let date = item.date ? `<u class="date"> - ${item.date}</u><br>` : "";
+							let date = item.date ? `<u><strong class="date"> - ${item.date}</strong><br></u>` : ""; // Met la date en gras
 							let lien = item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : "";
 							let description = item.description || "";
 							let image = item.image ? `<img src="${item.image}" alt="${item.description}" style="max-height:${imageSize}; width:auto;">` : "";
@@ -92,9 +94,10 @@
 								newsItem.innerHTML = `
 									<p>
 										${date}
-										${lien}
+										${lien}🔗
 										${description}
 										${image}
+										<hr>
 									</p>
 								`;
 								categoryDiv.appendChild(newsItem);
@@ -105,6 +108,7 @@
 					});
 				});
 		</script>
+		
 		
 		
 	</main>
