@@ -2,11 +2,40 @@ news:
   - category: Expositions
     items:
 
+       - date: 
+         titre_lien: 
+         lien: 
+         description:
+         image: 
+         taille_image: "50vh"
+         
+       - date: 
+         titre_lien: 
+         lien: 
+         description:
+         image: 
+         taille_image: "50vh"   
+
+       - date: 
+         titre_lien: 
+         lien: 
+         description:
+         image: 
+         taille_image: "50vh"
+
+       - date: 
+         titre_lien: 
+         lien: 
+         description:
+         image: 
+         taille_image: "50vh"       
+
        - date: 22 septembre 2024
          titre_lien: AMA 65
          lien: http://ama65.canalblog.com/
          description: Marché des Métiers d'Art à Beaudéan
          image: "img/news/AMA65_22_septembre_2024.jpg"
+         taille_image: "50vh"
 
 
        - date: d'Octobre à Décembre 2024
@@ -14,6 +43,7 @@ news:
          lien: https://www.ateliergestes.com/
          description: exposition à l'Atelier Gestes à Toulouse
          image: "img/news/Logo_Geste.avif"
+         taille_image: "10vh"
 
 
        - date: 18 août 2024
@@ -21,26 +51,22 @@ news:
          lien: http://ama65.canalblog.com/
          description: Marché des Métiers d'Art
          image: "img/news/AMA65_18_aout_2024.jpg"
-
+         taille_image: "50vh"
 
        - date: Du 5 au 15 août 2024 
          titre_lien: Estivales Lagorre
          lien: https://estivaleslagorre.fr
          description: Je vous invite à me rencontrer aux estivales Lagorre à Seix du 5 au 15 août  
          image: "img/news/La_Gazette_des_Estivales_en_Ariege_ete_2024.jpg"
-
+         taille_image: "50vh"
 
        - date: du 19 au 21 juillet 2024
          titre_lien: 24 eme salon des Arts Plastiques
          lien: https://amis-du-castillonnais.fr
          description: exposition organisé par les Amis de Castillon et du Castillonais
          image: "img/news/Affiche_Castillon_2024.png"
+         taille_image: "50vh"
 
-       - date: 
-         titre_lien: 
-         lien: 
-         description:
-         image: "img/news/"
 
 
 

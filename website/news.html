@@ -64,49 +64,49 @@
 		<script>
 			// Fetch the YAML data
 			fetch('news.yaml')
-			  .then(response => response.text())
-			  .then(yamlData => {
-				const data = jsyaml.load(yamlData); // Convert YAML to JavaScript object
-				
-				const newsContainer = document.getElementById('newsContainer');
-				
-				// Loop through each category
-				data.news.forEach(category => {
-				  const categoryDiv = document.createElement('div');
-				  categoryDiv.innerHTML = `<h4><u>- ${category.category}:</u></h4>`;
-				  
-				  // Loop through each item in the category
-				  category.items.forEach(item => {
-					const newsItem = document.createElement('div');
-					newsItem.classList.add('news-item'); // Ajoute une classe pour appliquer les styles
-
-					if (item.image) {
-					  // If an image is provided, include it in the news item
-					  newsItem.innerHTML = `
-						<p> 
-						  ${item.date ? `<u class="date"> - ${item.date}</u><br>` : ""}
-						  ${item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : ""}
-						  ${item.description}
-						  ${item.image ? `<img src="${item.image}" alt="${item.description}">` : ""}
-						</p>
-					  `;
-					} else {
-					  // If no image is provided, exclude it from the news item
-					  newsItem.innerHTML = `
-						<p>
-						  ${item.date ? ` - ${item.date}:<br>` : ""}
-						  ${item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : ""}
-						  <br>${item.description}
-						</p>
-					  `;
-					}
-					categoryDiv.appendChild(newsItem);
-				  });
-				  
-				  newsContainer.appendChild(categoryDiv);
+				.then(response => response.text())
+				.then(yamlData => {
+					const data = jsyaml.load(yamlData); // Convert YAML to JavaScript object
+					
+					const newsContainer = document.getElementById('newsContainer');
+					
+					// Loop through each category
+					data.news.forEach(category => {
+						const categoryDiv = document.createElement('div');
+						categoryDiv.innerHTML = `<h4><u>- ${category.category}:</u></h4>`;
+						
+						// Loop through each item in the category
+						category.items.forEach(item => {
+							const newsItem = document.createElement('div');
+							newsItem.classList.add('news-item'); // Ajoute une classe pour appliquer les styles
+		
+							// Vérifie si chaque champ est défini avant de l'inclure
+							let imageSize = item.taille_image || 'auto'; // Utilise la taille par défaut si non spécifiée
+							let date = item.date ? `<u class="date"> - ${item.date}</u><br>` : "";
+							let lien = item.lien ? `<a href="${item.lien}" target="_blank">${item.linkText ? item.linkText : item.titre_lien}</a>` : "";
+							let description = item.description || "";
+							let image = item.image ? `<img src="${item.image}" alt="${item.description}" style="max-height:${imageSize}; width:auto;">` : "";
+		
+							// Si tous les champs sont vides, ne pas afficher cet élément
+							if (date || lien || description || image) {
+								newsItem.innerHTML = `
+									<p>
+										${date}
+										${lien}
+										${description}
+										${image}
+									</p>
+								`;
+								categoryDiv.appendChild(newsItem);
+							}
+						});
+						
+						newsContainer.appendChild(categoryDiv);
+					});
 				});
-			  });
-		  </script>
+		</script>
+		
+		
 	</main>
 			
 	<footer>
