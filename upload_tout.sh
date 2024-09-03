@@ -48,7 +48,7 @@ generate_image_list() {
     echo "images:" > $OUTPUT_FILE
 
     for image in $(ls $IMAGE_DIR/*b.webp | sort -Vr); do
-        base_name=$(basename "$image" .webp)
+        base_name=$(basename "$image" b.webp)
         status="disponible"
 
         if [[ "$base_name" == *_vendu ]]; then
