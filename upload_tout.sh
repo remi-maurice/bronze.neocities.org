@@ -2,7 +2,7 @@
 # Hook to easily git push and neocities push
 read -p "Message pour l'historique(obligatoire):" commit_message
 #______________________________________________________________________________________
-#Image processing
+# Image processing
 
 # Directories
 BASE_DIR="$HOME/bronze.neocities.org/website"
@@ -13,11 +13,11 @@ OUTPUT_FILE="$HOME/bronze.neocities.org/website/galerie_list.yaml"
 NEOCITIES_PATH="$HOME/.local/share/gem/ruby/3.0.0/bin/neocities"
 PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
 
-# Fonction pour redimensionner et compresser les images
+# Function to resize and compress images
 resize_and_compress_images() {
     echo "Redimensionnement et compression des images..."
     max_number=$(ls -1 $IMAGE_DIR/*b.webp 2>/dev/null | awk -F '/' '{print $NF}' | awk -F 'b.webp' '{print $1}' | sort -nr | head -n1)
-    max_number=${max_number:-0} # Définir à 0 si aucune image trouvée
+    max_number=${max_number:-0} # Set to 0 if no image found
     next_number=$((max_number + 1))
 
     for file in "$ORIGINAL_DIR"/*; do
@@ -42,34 +42,42 @@ resize_and_compress_images() {
     done
 }
 
-# Fonction pour générer galerie_list.yaml
+# Function to generate galerie_list.yaml
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
     echo "images:" > $OUTPUT_FILE
 
     for image in $(ls $IMAGE_DIR/*b.webp | sort -Vr); do
-        base_name=$(basename "$image" b.webp)
+        base_name=$(basename "$image" .webp)
+        status="disponible"
+
+        if [[ "$base_name" == *_vendu ]]; then
+            status="vendu"
+            base_name="${base_name%_vendu}" # Remove the _vendu part
+        fi
+
+        # Add status as a tag in the title
         echo "  - src: img/gallerie/${base_name}b.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${base_name}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$base_name\"" >> $OUTPUT_FILE
+        echo "    title: \"$base_name #$status\"" >> $OUTPUT_FILE
         echo "    numero: $base_name" >> $OUTPUT_FILE
     done
 }
 
-# Début du chronomètre
+# Start the timer
 start_time=$(date +%s)
 
-# Redimensionner et compresser les images
+# Resize and compress images
 resize_and_compress_images
 
-# Générer galerie_list.yaml
+# Generate galerie_list.yaml
 generate_image_list
 
 echo "Suppression des images originales..."
 rm -f "$ORIGINAL_DIR"/*
 rm -f $PROCESSED_FILE
 #______________________________________________________________________________________
-#Envoi vers github:
+# Push to GitHub:
 echo "______________________________________________"
 echo "Envoi vers Github"
 cd $HOME/bronze.neocities.org
@@ -77,11 +85,10 @@ git add .
 git commit -m "$commit_message" 
 git push -u origin master
 
-
-# Fin du chronomètre et calcul du temps écoulé
+# End the timer and calculate elapsed time
 end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
-# Message final
+# Final message
 echo "______________________________________________"
 echo "MAJ du site terminée en $elapsed_time secondes !"
