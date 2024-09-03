@@ -1,7 +1,7 @@
 images:
-  - src: img/gallerie/94b_vendu.webp
+  - src: img/gallerie/94b.webp
     srct: img/gallerie/94s.webp
-    title: "94 #vendu"
+    title: "94 #disponible"
     numero: 94
   - src: img/gallerie/93b.webp
     srct: img/gallerie/93s.webp
