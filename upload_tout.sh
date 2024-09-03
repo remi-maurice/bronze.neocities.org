@@ -58,7 +58,7 @@ generate_image_list() {
         if [[ "$base_name" == *"_vendu"* ]]; then
             status="vendu"
         else
-            status="non vendu"
+            status="non_vendu"
         fi
 
         # Remove any "_vendu" from the base name for the title and numero fields
