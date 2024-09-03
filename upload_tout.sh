@@ -56,8 +56,8 @@ generate_image_list() {
             base_name="${base_name%_vendu}" # Remove the _vendu part
         fi
 
-        echo "  - src: img/gallerie/${base_name}b.webp" >> $OUTPUT_FILE
-        echo "    srct: img/gallerie/${base_name}s.webp" >> $OUTPUT_FILE
+        echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
+        echo "    srct: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    title: \"$base_name\"" >> $OUTPUT_FILE
         echo "    numero: $base_name" >> $OUTPUT_FILE
         echo "    statut: $status" >> $OUTPUT_FILE
