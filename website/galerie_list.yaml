@@ -1,9 +1,4 @@
 images:
-  - src: img/gallerie/94b.webp
-    srct: img/gallerie/94b.webp
-    title: "94b"
-    numero: 94b
-    statut: disponible
   - src: img/gallerie/93b.webp
     srct: img/gallerie/93b.webp
     title: "93b"
