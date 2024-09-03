@@ -22,7 +22,6 @@ resize_and_compress_images() {
 
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-            # Determine if the image is sold by checking if the file name contains "_vendu"
             if [[ "$file" == *"_vendu"* ]]; then
                 large_image="${next_number}b_vendu.webp"
                 small_image="${next_number}s_vendu.webp"
@@ -65,11 +64,14 @@ generate_image_list() {
         # Remove any "_vendu" from the base name for the title and numero fields
         clean_base_name="${base_name%_vendu}"
 
+        # Remove the trailing "b" to get the core number
+        image_number="${clean_base_name%b}"
+
         # Add status as a tag in the title
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
-        echo "    srct: img/gallerie/${clean_base_name}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$clean_base_name #$status\"" >> $OUTPUT_FILE
-        echo "    numero: $clean_base_name" >> $OUTPUT_FILE
+        echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
+        echo "    title: \"$image_number #$status\"" >> $OUTPUT_FILE
+        echo "    numero: $image_number" >> $OUTPUT_FILE
     done
 }
 

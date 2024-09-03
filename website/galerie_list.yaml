@@ -1,373 +1,373 @@
 images:
   - src: img/gallerie/94b_vendu.webp
-    srct: img/gallerie/94bs.webp
-    title: "94b #vendu"
-    numero: 94b
+    srct: img/gallerie/94s.webp
+    title: "94 #vendu"
+    numero: 94
   - src: img/gallerie/93b.webp
-    srct: img/gallerie/93bs.webp
-    title: "93b #disponible"
-    numero: 93b
+    srct: img/gallerie/93s.webp
+    title: "93 #disponible"
+    numero: 93
   - src: img/gallerie/92b.webp
-    srct: img/gallerie/92bs.webp
-    title: "92b #disponible"
-    numero: 92b
+    srct: img/gallerie/92s.webp
+    title: "92 #disponible"
+    numero: 92
   - src: img/gallerie/91b.webp
-    srct: img/gallerie/91bs.webp
-    title: "91b #disponible"
-    numero: 91b
+    srct: img/gallerie/91s.webp
+    title: "91 #disponible"
+    numero: 91
   - src: img/gallerie/90b.webp
-    srct: img/gallerie/90bs.webp
-    title: "90b #disponible"
-    numero: 90b
+    srct: img/gallerie/90s.webp
+    title: "90 #disponible"
+    numero: 90
   - src: img/gallerie/89b.webp
-    srct: img/gallerie/89bs.webp
-    title: "89b #disponible"
-    numero: 89b
+    srct: img/gallerie/89s.webp
+    title: "89 #disponible"
+    numero: 89
   - src: img/gallerie/88b.webp
-    srct: img/gallerie/88bs.webp
-    title: "88b #disponible"
-    numero: 88b
+    srct: img/gallerie/88s.webp
+    title: "88 #disponible"
+    numero: 88
   - src: img/gallerie/87b.webp
-    srct: img/gallerie/87bs.webp
-    title: "87b #disponible"
-    numero: 87b
+    srct: img/gallerie/87s.webp
+    title: "87 #disponible"
+    numero: 87
   - src: img/gallerie/86b.webp
-    srct: img/gallerie/86bs.webp
-    title: "86b #disponible"
-    numero: 86b
+    srct: img/gallerie/86s.webp
+    title: "86 #disponible"
+    numero: 86
   - src: img/gallerie/85b.webp
-    srct: img/gallerie/85bs.webp
-    title: "85b #disponible"
-    numero: 85b
+    srct: img/gallerie/85s.webp
+    title: "85 #disponible"
+    numero: 85
   - src: img/gallerie/84b.webp
-    srct: img/gallerie/84bs.webp
-    title: "84b #disponible"
-    numero: 84b
+    srct: img/gallerie/84s.webp
+    title: "84 #disponible"
+    numero: 84
   - src: img/gallerie/83b.webp
-    srct: img/gallerie/83bs.webp
-    title: "83b #disponible"
-    numero: 83b
+    srct: img/gallerie/83s.webp
+    title: "83 #disponible"
+    numero: 83
   - src: img/gallerie/82b.webp
-    srct: img/gallerie/82bs.webp
-    title: "82b #disponible"
-    numero: 82b
+    srct: img/gallerie/82s.webp
+    title: "82 #disponible"
+    numero: 82
   - src: img/gallerie/81b.webp
-    srct: img/gallerie/81bs.webp
-    title: "81b #disponible"
-    numero: 81b
+    srct: img/gallerie/81s.webp
+    title: "81 #disponible"
+    numero: 81
   - src: img/gallerie/80b.webp
-    srct: img/gallerie/80bs.webp
-    title: "80b #disponible"
-    numero: 80b
+    srct: img/gallerie/80s.webp
+    title: "80 #disponible"
+    numero: 80
   - src: img/gallerie/79b.webp
-    srct: img/gallerie/79bs.webp
-    title: "79b #disponible"
-    numero: 79b
+    srct: img/gallerie/79s.webp
+    title: "79 #disponible"
+    numero: 79
   - src: img/gallerie/78b.webp
-    srct: img/gallerie/78bs.webp
-    title: "78b #disponible"
-    numero: 78b
+    srct: img/gallerie/78s.webp
+    title: "78 #disponible"
+    numero: 78
   - src: img/gallerie/77b.webp
-    srct: img/gallerie/77bs.webp
-    title: "77b #disponible"
-    numero: 77b
+    srct: img/gallerie/77s.webp
+    title: "77 #disponible"
+    numero: 77
   - src: img/gallerie/76b.webp
-    srct: img/gallerie/76bs.webp
-    title: "76b #disponible"
-    numero: 76b
+    srct: img/gallerie/76s.webp
+    title: "76 #disponible"
+    numero: 76
   - src: img/gallerie/75b.webp
-    srct: img/gallerie/75bs.webp
-    title: "75b #disponible"
-    numero: 75b
+    srct: img/gallerie/75s.webp
+    title: "75 #disponible"
+    numero: 75
   - src: img/gallerie/74b.webp
-    srct: img/gallerie/74bs.webp
-    title: "74b #disponible"
-    numero: 74b
+    srct: img/gallerie/74s.webp
+    title: "74 #disponible"
+    numero: 74
   - src: img/gallerie/73b.webp
-    srct: img/gallerie/73bs.webp
-    title: "73b #disponible"
-    numero: 73b
+    srct: img/gallerie/73s.webp
+    title: "73 #disponible"
+    numero: 73
   - src: img/gallerie/72b.webp
-    srct: img/gallerie/72bs.webp
-    title: "72b #disponible"
-    numero: 72b
+    srct: img/gallerie/72s.webp
+    title: "72 #disponible"
+    numero: 72
   - src: img/gallerie/71b.webp
-    srct: img/gallerie/71bs.webp
-    title: "71b #disponible"
-    numero: 71b
+    srct: img/gallerie/71s.webp
+    title: "71 #disponible"
+    numero: 71
   - src: img/gallerie/70b.webp
-    srct: img/gallerie/70bs.webp
-    title: "70b #disponible"
-    numero: 70b
+    srct: img/gallerie/70s.webp
+    title: "70 #disponible"
+    numero: 70
   - src: img/gallerie/69b.webp
-    srct: img/gallerie/69bs.webp
-    title: "69b #disponible"
-    numero: 69b
+    srct: img/gallerie/69s.webp
+    title: "69 #disponible"
+    numero: 69
   - src: img/gallerie/68b.webp
-    srct: img/gallerie/68bs.webp
-    title: "68b #disponible"
-    numero: 68b
+    srct: img/gallerie/68s.webp
+    title: "68 #disponible"
+    numero: 68
   - src: img/gallerie/67b.webp
-    srct: img/gallerie/67bs.webp
-    title: "67b #disponible"
-    numero: 67b
+    srct: img/gallerie/67s.webp
+    title: "67 #disponible"
+    numero: 67
   - src: img/gallerie/66b.webp
-    srct: img/gallerie/66bs.webp
-    title: "66b #disponible"
-    numero: 66b
+    srct: img/gallerie/66s.webp
+    title: "66 #disponible"
+    numero: 66
   - src: img/gallerie/65b.webp
-    srct: img/gallerie/65bs.webp
-    title: "65b #disponible"
-    numero: 65b
+    srct: img/gallerie/65s.webp
+    title: "65 #disponible"
+    numero: 65
   - src: img/gallerie/64b.webp
-    srct: img/gallerie/64bs.webp
-    title: "64b #disponible"
-    numero: 64b
+    srct: img/gallerie/64s.webp
+    title: "64 #disponible"
+    numero: 64
   - src: img/gallerie/63b.webp
-    srct: img/gallerie/63bs.webp
-    title: "63b #disponible"
-    numero: 63b
+    srct: img/gallerie/63s.webp
+    title: "63 #disponible"
+    numero: 63
   - src: img/gallerie/62b.webp
-    srct: img/gallerie/62bs.webp
-    title: "62b #disponible"
-    numero: 62b
+    srct: img/gallerie/62s.webp
+    title: "62 #disponible"
+    numero: 62
   - src: img/gallerie/61b.webp
-    srct: img/gallerie/61bs.webp
-    title: "61b #disponible"
-    numero: 61b
+    srct: img/gallerie/61s.webp
+    title: "61 #disponible"
+    numero: 61
   - src: img/gallerie/60b.webp
-    srct: img/gallerie/60bs.webp
-    title: "60b #disponible"
-    numero: 60b
+    srct: img/gallerie/60s.webp
+    title: "60 #disponible"
+    numero: 60
   - src: img/gallerie/59b.webp
-    srct: img/gallerie/59bs.webp
-    title: "59b #disponible"
-    numero: 59b
+    srct: img/gallerie/59s.webp
+    title: "59 #disponible"
+    numero: 59
   - src: img/gallerie/58b.webp
-    srct: img/gallerie/58bs.webp
-    title: "58b #disponible"
-    numero: 58b
+    srct: img/gallerie/58s.webp
+    title: "58 #disponible"
+    numero: 58
   - src: img/gallerie/57b.webp
-    srct: img/gallerie/57bs.webp
-    title: "57b #disponible"
-    numero: 57b
+    srct: img/gallerie/57s.webp
+    title: "57 #disponible"
+    numero: 57
   - src: img/gallerie/56b.webp
-    srct: img/gallerie/56bs.webp
-    title: "56b #disponible"
-    numero: 56b
+    srct: img/gallerie/56s.webp
+    title: "56 #disponible"
+    numero: 56
   - src: img/gallerie/55b.webp
-    srct: img/gallerie/55bs.webp
-    title: "55b #disponible"
-    numero: 55b
+    srct: img/gallerie/55s.webp
+    title: "55 #disponible"
+    numero: 55
   - src: img/gallerie/54b.webp
-    srct: img/gallerie/54bs.webp
-    title: "54b #disponible"
-    numero: 54b
+    srct: img/gallerie/54s.webp
+    title: "54 #disponible"
+    numero: 54
   - src: img/gallerie/53b.webp
-    srct: img/gallerie/53bs.webp
-    title: "53b #disponible"
-    numero: 53b
+    srct: img/gallerie/53s.webp
+    title: "53 #disponible"
+    numero: 53
   - src: img/gallerie/52b.webp
-    srct: img/gallerie/52bs.webp
-    title: "52b #disponible"
-    numero: 52b
+    srct: img/gallerie/52s.webp
+    title: "52 #disponible"
+    numero: 52
   - src: img/gallerie/51b.webp
-    srct: img/gallerie/51bs.webp
-    title: "51b #disponible"
-    numero: 51b
+    srct: img/gallerie/51s.webp
+    title: "51 #disponible"
+    numero: 51
   - src: img/gallerie/50b.webp
-    srct: img/gallerie/50bs.webp
-    title: "50b #disponible"
-    numero: 50b
+    srct: img/gallerie/50s.webp
+    title: "50 #disponible"
+    numero: 50
   - src: img/gallerie/49b.webp
-    srct: img/gallerie/49bs.webp
-    title: "49b #disponible"
-    numero: 49b
+    srct: img/gallerie/49s.webp
+    title: "49 #disponible"
+    numero: 49
   - src: img/gallerie/48b.webp
-    srct: img/gallerie/48bs.webp
-    title: "48b #disponible"
-    numero: 48b
+    srct: img/gallerie/48s.webp
+    title: "48 #disponible"
+    numero: 48
   - src: img/gallerie/47b.webp
-    srct: img/gallerie/47bs.webp
-    title: "47b #disponible"
-    numero: 47b
+    srct: img/gallerie/47s.webp
+    title: "47 #disponible"
+    numero: 47
   - src: img/gallerie/46b.webp
-    srct: img/gallerie/46bs.webp
-    title: "46b #disponible"
-    numero: 46b
+    srct: img/gallerie/46s.webp
+    title: "46 #disponible"
+    numero: 46
   - src: img/gallerie/45b.webp
-    srct: img/gallerie/45bs.webp
-    title: "45b #disponible"
-    numero: 45b
+    srct: img/gallerie/45s.webp
+    title: "45 #disponible"
+    numero: 45
   - src: img/gallerie/44b.webp
-    srct: img/gallerie/44bs.webp
-    title: "44b #disponible"
-    numero: 44b
+    srct: img/gallerie/44s.webp
+    title: "44 #disponible"
+    numero: 44
   - src: img/gallerie/43b.webp
-    srct: img/gallerie/43bs.webp
-    title: "43b #disponible"
-    numero: 43b
+    srct: img/gallerie/43s.webp
+    title: "43 #disponible"
+    numero: 43
   - src: img/gallerie/42b.webp
-    srct: img/gallerie/42bs.webp
-    title: "42b #disponible"
-    numero: 42b
+    srct: img/gallerie/42s.webp
+    title: "42 #disponible"
+    numero: 42
   - src: img/gallerie/41b.webp
-    srct: img/gallerie/41bs.webp
-    title: "41b #disponible"
-    numero: 41b
+    srct: img/gallerie/41s.webp
+    title: "41 #disponible"
+    numero: 41
   - src: img/gallerie/40b.webp
-    srct: img/gallerie/40bs.webp
-    title: "40b #disponible"
-    numero: 40b
+    srct: img/gallerie/40s.webp
+    title: "40 #disponible"
+    numero: 40
   - src: img/gallerie/39b.webp
-    srct: img/gallerie/39bs.webp
-    title: "39b #disponible"
-    numero: 39b
+    srct: img/gallerie/39s.webp
+    title: "39 #disponible"
+    numero: 39
   - src: img/gallerie/38b.webp
-    srct: img/gallerie/38bs.webp
-    title: "38b #disponible"
-    numero: 38b
+    srct: img/gallerie/38s.webp
+    title: "38 #disponible"
+    numero: 38
   - src: img/gallerie/37b.webp
-    srct: img/gallerie/37bs.webp
-    title: "37b #disponible"
-    numero: 37b
+    srct: img/gallerie/37s.webp
+    title: "37 #disponible"
+    numero: 37
   - src: img/gallerie/36b.webp
-    srct: img/gallerie/36bs.webp
-    title: "36b #disponible"
-    numero: 36b
+    srct: img/gallerie/36s.webp
+    title: "36 #disponible"
+    numero: 36
   - src: img/gallerie/35b.webp
-    srct: img/gallerie/35bs.webp
-    title: "35b #disponible"
-    numero: 35b
+    srct: img/gallerie/35s.webp
+    title: "35 #disponible"
+    numero: 35
   - src: img/gallerie/34b.webp
-    srct: img/gallerie/34bs.webp
-    title: "34b #disponible"
-    numero: 34b
+    srct: img/gallerie/34s.webp
+    title: "34 #disponible"
+    numero: 34
   - src: img/gallerie/33b.webp
-    srct: img/gallerie/33bs.webp
-    title: "33b #disponible"
-    numero: 33b
+    srct: img/gallerie/33s.webp
+    title: "33 #disponible"
+    numero: 33
   - src: img/gallerie/32b.webp
-    srct: img/gallerie/32bs.webp
-    title: "32b #disponible"
-    numero: 32b
+    srct: img/gallerie/32s.webp
+    title: "32 #disponible"
+    numero: 32
   - src: img/gallerie/31b.webp
-    srct: img/gallerie/31bs.webp
-    title: "31b #disponible"
-    numero: 31b
+    srct: img/gallerie/31s.webp
+    title: "31 #disponible"
+    numero: 31
   - src: img/gallerie/30b.webp
-    srct: img/gallerie/30bs.webp
-    title: "30b #disponible"
-    numero: 30b
+    srct: img/gallerie/30s.webp
+    title: "30 #disponible"
+    numero: 30
   - src: img/gallerie/29b.webp
-    srct: img/gallerie/29bs.webp
-    title: "29b #disponible"
-    numero: 29b
+    srct: img/gallerie/29s.webp
+    title: "29 #disponible"
+    numero: 29
   - src: img/gallerie/28b.webp
-    srct: img/gallerie/28bs.webp
-    title: "28b #disponible"
-    numero: 28b
+    srct: img/gallerie/28s.webp
+    title: "28 #disponible"
+    numero: 28
   - src: img/gallerie/27b.webp
-    srct: img/gallerie/27bs.webp
-    title: "27b #disponible"
-    numero: 27b
+    srct: img/gallerie/27s.webp
+    title: "27 #disponible"
+    numero: 27
   - src: img/gallerie/26b.webp
-    srct: img/gallerie/26bs.webp
-    title: "26b #disponible"
-    numero: 26b
+    srct: img/gallerie/26s.webp
+    title: "26 #disponible"
+    numero: 26
   - src: img/gallerie/25b.webp
-    srct: img/gallerie/25bs.webp
-    title: "25b #disponible"
-    numero: 25b
+    srct: img/gallerie/25s.webp
+    title: "25 #disponible"
+    numero: 25
   - src: img/gallerie/24b.webp
-    srct: img/gallerie/24bs.webp
-    title: "24b #disponible"
-    numero: 24b
+    srct: img/gallerie/24s.webp
+    title: "24 #disponible"
+    numero: 24
   - src: img/gallerie/23b.webp
-    srct: img/gallerie/23bs.webp
-    title: "23b #disponible"
-    numero: 23b
+    srct: img/gallerie/23s.webp
+    title: "23 #disponible"
+    numero: 23
   - src: img/gallerie/22b.webp
-    srct: img/gallerie/22bs.webp
-    title: "22b #disponible"
-    numero: 22b
+    srct: img/gallerie/22s.webp
+    title: "22 #disponible"
+    numero: 22
   - src: img/gallerie/21b.webp
-    srct: img/gallerie/21bs.webp
-    title: "21b #disponible"
-    numero: 21b
+    srct: img/gallerie/21s.webp
+    title: "21 #disponible"
+    numero: 21
   - src: img/gallerie/20b.webp
-    srct: img/gallerie/20bs.webp
-    title: "20b #disponible"
-    numero: 20b
+    srct: img/gallerie/20s.webp
+    title: "20 #disponible"
+    numero: 20
   - src: img/gallerie/19b.webp
-    srct: img/gallerie/19bs.webp
-    title: "19b #disponible"
-    numero: 19b
+    srct: img/gallerie/19s.webp
+    title: "19 #disponible"
+    numero: 19
   - src: img/gallerie/18b.webp
-    srct: img/gallerie/18bs.webp
-    title: "18b #disponible"
-    numero: 18b
+    srct: img/gallerie/18s.webp
+    title: "18 #disponible"
+    numero: 18
   - src: img/gallerie/17b.webp
-    srct: img/gallerie/17bs.webp
-    title: "17b #disponible"
-    numero: 17b
+    srct: img/gallerie/17s.webp
+    title: "17 #disponible"
+    numero: 17
   - src: img/gallerie/16b.webp
-    srct: img/gallerie/16bs.webp
-    title: "16b #disponible"
-    numero: 16b
+    srct: img/gallerie/16s.webp
+    title: "16 #disponible"
+    numero: 16
   - src: img/gallerie/15b.webp
-    srct: img/gallerie/15bs.webp
-    title: "15b #disponible"
-    numero: 15b
+    srct: img/gallerie/15s.webp
+    title: "15 #disponible"
+    numero: 15
   - src: img/gallerie/14b.webp
-    srct: img/gallerie/14bs.webp
-    title: "14b #disponible"
-    numero: 14b
+    srct: img/gallerie/14s.webp
+    title: "14 #disponible"
+    numero: 14
   - src: img/gallerie/13b.webp
-    srct: img/gallerie/13bs.webp
-    title: "13b #disponible"
-    numero: 13b
+    srct: img/gallerie/13s.webp
+    title: "13 #disponible"
+    numero: 13
   - src: img/gallerie/12b.webp
-    srct: img/gallerie/12bs.webp
-    title: "12b #disponible"
-    numero: 12b
+    srct: img/gallerie/12s.webp
+    title: "12 #disponible"
+    numero: 12
   - src: img/gallerie/11b.webp
-    srct: img/gallerie/11bs.webp
-    title: "11b #disponible"
-    numero: 11b
+    srct: img/gallerie/11s.webp
+    title: "11 #disponible"
+    numero: 11
   - src: img/gallerie/10b.webp
-    srct: img/gallerie/10bs.webp
-    title: "10b #disponible"
-    numero: 10b
+    srct: img/gallerie/10s.webp
+    title: "10 #disponible"
+    numero: 10
   - src: img/gallerie/9b.webp
-    srct: img/gallerie/9bs.webp
-    title: "9b #disponible"
-    numero: 9b
+    srct: img/gallerie/9s.webp
+    title: "9 #disponible"
+    numero: 9
   - src: img/gallerie/7b.webp
-    srct: img/gallerie/7bs.webp
-    title: "7b #disponible"
-    numero: 7b
+    srct: img/gallerie/7s.webp
+    title: "7 #disponible"
+    numero: 7
   - src: img/gallerie/6b.webp
-    srct: img/gallerie/6bs.webp
-    title: "6b #disponible"
-    numero: 6b
+    srct: img/gallerie/6s.webp
+    title: "6 #disponible"
+    numero: 6
   - src: img/gallerie/5b.webp
-    srct: img/gallerie/5bs.webp
-    title: "5b #disponible"
-    numero: 5b
+    srct: img/gallerie/5s.webp
+    title: "5 #disponible"
+    numero: 5
   - src: img/gallerie/4b.webp
-    srct: img/gallerie/4bs.webp
-    title: "4b #disponible"
-    numero: 4b
+    srct: img/gallerie/4s.webp
+    title: "4 #disponible"
+    numero: 4
   - src: img/gallerie/3b.webp
-    srct: img/gallerie/3bs.webp
-    title: "3b #disponible"
-    numero: 3b
+    srct: img/gallerie/3s.webp
+    title: "3 #disponible"
+    numero: 3
   - src: img/gallerie/2b.webp
-    srct: img/gallerie/2bs.webp
-    title: "2b #disponible"
-    numero: 2b
+    srct: img/gallerie/2s.webp
+    title: "2 #disponible"
+    numero: 2
   - src: img/gallerie/1b.webp
-    srct: img/gallerie/1bs.webp
-    title: "1b #disponible"
-    numero: 1b
+    srct: img/gallerie/1s.webp
+    title: "1 #disponible"
+    numero: 1
