@@ -22,13 +22,18 @@ resize_and_compress_images() {
 
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-            large_image="${next_number}b.webp"
-            small_image="${next_number}s.webp"
+            # Determine if the image is sold by checking if the file name contains "_vendu"
+            if [[ "$file" == *"_vendu"* ]]; then
+                large_image="${next_number}b_vendu.webp"
+                small_image="${next_number}s_vendu.webp"
+            else
+                large_image="${next_number}b.webp"
+                small_image="${next_number}s.webp"
+            fi
 
             magick "$file" -auto-orient -resize '1920x1080>' -quality 100 -define webp:lossless=true \
                 -define webp:auto-filter=true -define webp:filter-strength=0 -define webp:method=4 \
                 -define webp:partition-limit=0 -define webp:sns-strength=0 "$RESIZED_DIR/$large_image"
-
 
             magick "$file" -auto-orient -resize '300x>' -quality 75 -define webp:lossless=false \
                 -define webp:auto-filter=true -define webp:filter-strength=25 -define webp:method=4 \
@@ -47,20 +52,24 @@ generate_image_list() {
     echo "Génération de galerie_list.yaml..."
     echo "images:" > $OUTPUT_FILE
 
-    for image in $(ls $IMAGE_DIR/*b.webp | sort -Vr); do
-        base_name=$(basename "$image" b.webp)
-        status="disponible"
+    for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
+        base_name=$(basename "$image" .webp)
 
-        if [[ "$base_name" == *_vendu ]]; then
+        # Determine the status
+        if [[ "$base_name" == *"_vendu"* ]]; then
             status="vendu"
-            base_name="${base_name%_vendu}" # Remove the _vendu part
+        else
+            status="disponible"
         fi
 
+        # Remove any "_vendu" from the base name for the title and numero fields
+        clean_base_name="${base_name%_vendu}"
+
         # Add status as a tag in the title
-        echo "  - src: img/gallerie/${base_name}b.webp" >> $OUTPUT_FILE
-        echo "    srct: img/gallerie/${base_name}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$base_name #$status\"" >> $OUTPUT_FILE
-        echo "    numero: $base_name" >> $OUTPUT_FILE
+        echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
+        echo "    srct: img/gallerie/${clean_base_name}s.webp" >> $OUTPUT_FILE
+        echo "    title: \"$clean_base_name #$status\"" >> $OUTPUT_FILE
+        echo "    numero: $clean_base_name" >> $OUTPUT_FILE
     done
 }
 
