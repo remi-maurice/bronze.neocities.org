@@ -58,7 +58,7 @@ generate_image_list() {
         if [[ "$base_name" == *"_vendu"* ]]; then
             status="vendu"
         else
-            status="disponible"
+            status="non vendu"
         fi
 
         # Remove any "_vendu" from the base name for the title and numero fields
@@ -70,7 +70,7 @@ generate_image_list() {
         # Add status as a tag in the title
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$image_number #$status\"" >> $OUTPUT_FILE
+        echo "    title: \"$image_number: #$status\"" >> $OUTPUT_FILE
         echo "    numero: $image_number" >> $OUTPUT_FILE
     done
 }

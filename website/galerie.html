@@ -79,6 +79,7 @@
                 // Fonction pour initialiser la galerie
                 function initializeGallery(items) {
                     jQuery("#ngy2p").nanogallery2({
+                        
                         items: items,
                         thumbnailWidth: "300",
                         thumbnailHeight: "auto",
@@ -87,8 +88,8 @@
                         thumbnailLabel: {
                             position: "overImage",
                             align: "left",
-                            titleMultiLine: "true",
-                            titleFontSize: "0.9em",                   
+                            titleMultiLine: "false",
+                            titleFontSize: "0.6em",                 
                         },
                         thumbnailDisplayTransition: 'SLIDEAPPEAR',
                         thumbnailDisplayTransitionDuration: 100,
@@ -112,6 +113,8 @@
                             standard: 'label',
                         },
                         galleryFilterTags: 'title',
+                        galleryL1FilterTagsMode: 'multiple',
+                        navigationFontSize: '0.8em' 
                     });
                 }
 
