@@ -3,25 +3,25 @@ images:
     srct: img/gallerie/94s.webp
     title: "94: #en_vente"
     numero: 94
-  - src: img/gallerie/93b.webp
+  - src: img/gallerie/93b_vendu.webp
     srct: img/gallerie/93s.webp
-    title: "93: #en_vente"
+    title: "93: #vendu"
     numero: 93
-  - src: img/gallerie/92b.webp
+  - src: img/gallerie/92b_vendu.webp
     srct: img/gallerie/92s.webp
-    title: "92: #en_vente"
+    title: "92: #vendu"
     numero: 92
-  - src: img/gallerie/91b.webp
+  - src: img/gallerie/91b_vendu.webp
     srct: img/gallerie/91s.webp
-    title: "91: #en_vente"
+    title: "91: #vendu"
     numero: 91
   - src: img/gallerie/90b.webp
     srct: img/gallerie/90s.webp
     title: "90: #en_vente"
     numero: 90
-  - src: img/gallerie/89b.webp
+  - src: img/gallerie/89b_vendu.webp
     srct: img/gallerie/89s.webp
-    title: "89: #en_vente"
+    title: "89: #vendu"
     numero: 89
   - src: img/gallerie/88b_vendu.webp
     srct: img/gallerie/88s.webp
@@ -47,9 +47,9 @@ images:
     srct: img/gallerie/83s.webp
     title: "83: #vendu"
     numero: 83
-  - src: img/gallerie/82b_vendu.webp
+  - src: img/gallerie/82b.webp
     srct: img/gallerie/82s.webp
-    title: "82: #vendu"
+    title: "82: #en_vente"
     numero: 82
   - src: img/gallerie/81b_vendu.webp
     srct: img/gallerie/81s.webp
@@ -67,13 +67,13 @@ images:
     srct: img/gallerie/78s.webp
     title: "78: #vendu"
     numero: 78
-  - src: img/gallerie/77b_vendu.webp
+  - src: img/gallerie/77b.webp
     srct: img/gallerie/77s.webp
-    title: "77: #vendu"
+    title: "77: #en_vente"
     numero: 77
-  - src: img/gallerie/76b_vendu.webp
+  - src: img/gallerie/76b.webp
     srct: img/gallerie/76s.webp
-    title: "76: #vendu"
+    title: "76: #en_vente"
     numero: 76
   - src: img/gallerie/75b_vendu.webp
     srct: img/gallerie/75s.webp
@@ -87,29 +87,29 @@ images:
     srct: img/gallerie/73s.webp
     title: "73: #vendu"
     numero: 73
-  - src: img/gallerie/72b_vendu.webp
+  - src: img/gallerie/72b.webp
     srct: img/gallerie/72s.webp
-    title: "72: #vendu"
+    title: "72: #en_vente"
     numero: 72
-  - src: img/gallerie/71b_vendu.webp
+  - src: img/gallerie/71b.webp
     srct: img/gallerie/71s.webp
-    title: "71: #vendu"
+    title: "71: #en_vente"
     numero: 71
-  - src: img/gallerie/70b_vendu.webp
+  - src: img/gallerie/70b.webp
     srct: img/gallerie/70s.webp
-    title: "70: #vendu"
+    title: "70: #en_vente"
     numero: 70
-  - src: img/gallerie/69b_vendu.webp
+  - src: img/gallerie/69b.webp
     srct: img/gallerie/69s.webp
-    title: "69: #vendu"
+    title: "69: #en_vente"
     numero: 69
-  - src: img/gallerie/68b_vendu.webp
+  - src: img/gallerie/68b.webp
     srct: img/gallerie/68s.webp
-    title: "68: #vendu"
+    title: "68: #en_vente"
     numero: 68
-  - src: img/gallerie/67b_vendu.webp
+  - src: img/gallerie/67b.webp
     srct: img/gallerie/67s.webp
-    title: "67: #vendu"
+    title: "67: #en_vente"
     numero: 67
   - src: img/gallerie/66b_vendu.webp
     srct: img/gallerie/66s.webp
@@ -123,17 +123,17 @@ images:
     srct: img/gallerie/64s.webp
     title: "64: #vendu"
     numero: 64
-  - src: img/gallerie/63b_vendu.webp
+  - src: img/gallerie/63b.webp
     srct: img/gallerie/63s.webp
-    title: "63: #vendu"
+    title: "63: #en_vente"
     numero: 63
-  - src: img/gallerie/62b_vendu.webp
+  - src: img/gallerie/62b.webp
     srct: img/gallerie/62s.webp
-    title: "62: #vendu"
+    title: "62: #en_vente"
     numero: 62
-  - src: img/gallerie/61b_vendu.webp
+  - src: img/gallerie/61b.webp
     srct: img/gallerie/61s.webp
-    title: "61: #vendu"
+    title: "61: #en_vente"
     numero: 61
   - src: img/gallerie/60b_vendu.webp
     srct: img/gallerie/60s.webp
@@ -159,13 +159,13 @@ images:
     srct: img/gallerie/55s.webp
     title: "55: #vendu"
     numero: 55
-  - src: img/gallerie/54b_vendu.webp
+  - src: img/gallerie/54b.webp
     srct: img/gallerie/54s.webp
-    title: "54: #vendu"
+    title: "54: #en_vente"
     numero: 54
-  - src: img/gallerie/53b_vendu.webp
+  - src: img/gallerie/53b.webp
     srct: img/gallerie/53s.webp
-    title: "53: #vendu"
+    title: "53: #en_vente"
     numero: 53
   - src: img/gallerie/52b_vendu.webp
     srct: img/gallerie/52s.webp
@@ -179,25 +179,25 @@ images:
     srct: img/gallerie/50s.webp
     title: "50: #vendu"
     numero: 50
-  - src: img/gallerie/49b_vendu.webp
+  - src: img/gallerie/49b.webp
     srct: img/gallerie/49s.webp
-    title: "49: #vendu"
+    title: "49: #en_vente"
     numero: 49
-  - src: img/gallerie/48b_vendu.webp
+  - src: img/gallerie/48b.webp
     srct: img/gallerie/48s.webp
-    title: "48: #vendu"
+    title: "48: #en_vente"
     numero: 48
-  - src: img/gallerie/47b_vendu.webp
+  - src: img/gallerie/47b.webp
     srct: img/gallerie/47s.webp
-    title: "47: #vendu"
+    title: "47: #en_vente"
     numero: 47
   - src: img/gallerie/46b_vendu.webp
     srct: img/gallerie/46s.webp
     title: "46: #vendu"
     numero: 46
-  - src: img/gallerie/45b_vendu.webp
+  - src: img/gallerie/45b.webp
     srct: img/gallerie/45s.webp
-    title: "45: #vendu"
+    title: "45: #en_vente"
     numero: 45
   - src: img/gallerie/44b_vendu.webp
     srct: img/gallerie/44s.webp
@@ -207,9 +207,9 @@ images:
     srct: img/gallerie/43s.webp
     title: "43: #vendu"
     numero: 43
-  - src: img/gallerie/42b_vendu.webp
+  - src: img/gallerie/42b.webp
     srct: img/gallerie/42s.webp
-    title: "42: #vendu"
+    title: "42: #en_vente"
     numero: 42
   - src: img/gallerie/41b_vendu.webp
     srct: img/gallerie/41s.webp
@@ -231,9 +231,9 @@ images:
     srct: img/gallerie/37s.webp
     title: "37: #vendu"
     numero: 37
-  - src: img/gallerie/36b_vendu.webp
+  - src: img/gallerie/36b.webp
     srct: img/gallerie/36s.webp
-    title: "36: #vendu"
+    title: "36: #en_vente"
     numero: 36
   - src: img/gallerie/35b_vendu.webp
     srct: img/gallerie/35s.webp
@@ -271,9 +271,9 @@ images:
     srct: img/gallerie/27s.webp
     title: "27: #vendu"
     numero: 27
-  - src: img/gallerie/26b_vendu.webp
+  - src: img/gallerie/26b.webp
     srct: img/gallerie/26s.webp
-    title: "26: #vendu"
+    title: "26: #en_vente"
     numero: 26
   - src: img/gallerie/25b_vendu.webp
     srct: img/gallerie/25s.webp
@@ -283,13 +283,13 @@ images:
     srct: img/gallerie/24s.webp
     title: "24: #vendu"
     numero: 24
-  - src: img/gallerie/23b_vendu.webp
+  - src: img/gallerie/23b.webp
     srct: img/gallerie/23s.webp
-    title: "23: #vendu"
+    title: "23: #en_vente"
     numero: 23
-  - src: img/gallerie/22b_vendu.webp
+  - src: img/gallerie/22b.webp
     srct: img/gallerie/22s.webp
-    title: "22: #vendu"
+    title: "22: #en_vente"
     numero: 22
   - src: img/gallerie/21b_vendu.webp
     srct: img/gallerie/21s.webp
@@ -331,9 +331,9 @@ images:
     srct: img/gallerie/12s.webp
     title: "12: #vendu"
     numero: 12
-  - src: img/gallerie/11b_vendu.webp
+  - src: img/gallerie/11b.webp
     srct: img/gallerie/11s.webp
-    title: "11: #vendu"
+    title: "11: #en_vente"
     numero: 11
   - src: img/gallerie/10b_vendu.webp
     srct: img/gallerie/10s.webp
@@ -343,17 +343,17 @@ images:
     srct: img/gallerie/9s.webp
     title: "9: #vendu"
     numero: 9
-  - src: img/gallerie/7b_vendu.webp
+  - src: img/gallerie/7b.webp
     srct: img/gallerie/7s.webp
-    title: "7: #vendu"
+    title: "7: #en_vente"
     numero: 7
-  - src: img/gallerie/6b_vendu.webp
+  - src: img/gallerie/6b.webp
     srct: img/gallerie/6s.webp
-    title: "6: #vendu"
+    title: "6: #en_vente"
     numero: 6
-  - src: img/gallerie/5b_vendu.webp
+  - src: img/gallerie/5b.webp
     srct: img/gallerie/5s.webp
-    title: "5: #vendu"
+    title: "5: #en_vente"
     numero: 5
   - src: img/gallerie/4b_vendu.webp
     srct: img/gallerie/4s.webp
@@ -363,9 +363,9 @@ images:
     srct: img/gallerie/3s.webp
     title: "3: #vendu"
     numero: 3
-  - src: img/gallerie/2b_vendu.webp
+  - src: img/gallerie/2b.webp
     srct: img/gallerie/2s.webp
-    title: "2: #vendu"
+    title: "2: #en_vente"
     numero: 2
   - src: img/gallerie/1b_vendu.webp
     srct: img/gallerie/1s.webp
