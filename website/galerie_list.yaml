@@ -103,10 +103,6 @@ images:
     srct: img/gallerie/58s.webp
     title: "58: #vendu"
     numero: 58
-  - src: img/gallerie/48b.webp
-    srct: img/gallerie/48s.webp
-    title: "48: #en_vente"
-    numero: 48
   - src: img/gallerie/47b_vendu.webp
     srct: img/gallerie/47s.webp
     title: "47: #vendu"
@@ -115,6 +111,10 @@ images:
     srct: img/gallerie/46s.webp
     title: "46: #en_vente"
     numero: 46
+  - src: img/gallerie/43b.webp
+    srct: img/gallerie/43s.webp
+    title: "43: #en_vente"
+    numero: 43
   - src: img/gallerie/42b_vendu.webp
     srct: img/gallerie/42s.webp
     title: "42: #vendu"
