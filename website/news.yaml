@@ -21,7 +21,7 @@ news:
          titre_lien: 
          lien: 
          description: Marché de Noël de St Girons
-         image: "img/news/mn_st_gi24.jpg"
+         image: 
          taille_image: "50vh"       
 
        - date: 18 décembre
@@ -42,7 +42,7 @@ news:
          titre_lien: 
          lien: 
          description: Marché de Noël du Carla Bayle
-         image: "img/news/marche_Noel_carla_bayle_2024-1.pdf"
+         image: 
          taille_image: "50vh"   
 
        - date: 6 décembre
