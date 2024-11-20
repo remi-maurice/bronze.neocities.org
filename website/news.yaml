@@ -16,19 +16,42 @@ news:
          image: 
          taille_image: "50vh"   
 
-       - date: 
+
+       - date: 22 décembre 2024
          titre_lien: 
          lien: 
-         description:
-         image: 
+         description: Marché de Noël de St Girons
+         image: "img/news/mn_st_gi24.jpg"
+         taille_image: "50vh"       
+
+       - date: 18 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël de Soueix
+         image: "img/news/mn_soueix_24.webp"
          taille_image: "50vh"
 
-       - date: 
+       - date: 15 décembre
          titre_lien: 
          lien: 
-         description:
+         description: Marché de Noël de Massat
          image: 
-         taille_image: "50vh"       
+         taille_image: "50vh"   
+
+       - date: 8 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël du Carla Bayle
+         image: "img/news/marche_Noel_carla_bayle_2024-1.pdf"
+         taille_image: "50vh"   
+
+       - date: 6 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël de Soulan
+         image: 
+         taille_image: "50vh"   
+
 
        - date: 22 septembre 2024
          titre_lien: AMA 65
