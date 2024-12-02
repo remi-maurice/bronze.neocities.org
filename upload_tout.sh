@@ -97,4 +97,4 @@ elapsed_time=$((end_time - start_time))
 # Final message
 echo "______________________________________________"
 echo "MAJ du site terminée en $elapsed_time secondes !"
-echo "Il faudra une petite minute pour que les changements soient visibles en ligne."
+echo "Il faut en général une petite minute pour que les changements soient visibles en ligne."
