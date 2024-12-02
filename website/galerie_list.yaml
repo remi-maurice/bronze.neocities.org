@@ -1,4 +1,96 @@
 images:
+  - src: img/gallerie/117b.webp
+    srct: img/gallerie/117s.webp
+    title: "117: #en_vente"
+    numero: 117
+  - src: img/gallerie/116b.webp
+    srct: img/gallerie/116s.webp
+    title: "116: #en_vente"
+    numero: 116
+  - src: img/gallerie/115b.webp
+    srct: img/gallerie/115s.webp
+    title: "115: #en_vente"
+    numero: 115
+  - src: img/gallerie/114b.webp
+    srct: img/gallerie/114s.webp
+    title: "114: #en_vente"
+    numero: 114
+  - src: img/gallerie/113b.webp
+    srct: img/gallerie/113s.webp
+    title: "113: #en_vente"
+    numero: 113
+  - src: img/gallerie/112b.webp
+    srct: img/gallerie/112s.webp
+    title: "112: #en_vente"
+    numero: 112
+  - src: img/gallerie/111b.webp
+    srct: img/gallerie/111s.webp
+    title: "111: #en_vente"
+    numero: 111
+  - src: img/gallerie/110b.webp
+    srct: img/gallerie/110s.webp
+    title: "110: #en_vente"
+    numero: 110
+  - src: img/gallerie/109b.webp
+    srct: img/gallerie/109s.webp
+    title: "109: #en_vente"
+    numero: 109
+  - src: img/gallerie/108b.webp
+    srct: img/gallerie/108s.webp
+    title: "108: #en_vente"
+    numero: 108
+  - src: img/gallerie/107b.webp
+    srct: img/gallerie/107s.webp
+    title: "107: #en_vente"
+    numero: 107
+  - src: img/gallerie/106b.webp
+    srct: img/gallerie/106s.webp
+    title: "106: #en_vente"
+    numero: 106
+  - src: img/gallerie/105b.webp
+    srct: img/gallerie/105s.webp
+    title: "105: #en_vente"
+    numero: 105
+  - src: img/gallerie/104b.webp
+    srct: img/gallerie/104s.webp
+    title: "104: #en_vente"
+    numero: 104
+  - src: img/gallerie/103b.webp
+    srct: img/gallerie/103s.webp
+    title: "103: #en_vente"
+    numero: 103
+  - src: img/gallerie/102b.webp
+    srct: img/gallerie/102s.webp
+    title: "102: #en_vente"
+    numero: 102
+  - src: img/gallerie/101b.webp
+    srct: img/gallerie/101s.webp
+    title: "101: #en_vente"
+    numero: 101
+  - src: img/gallerie/100b.webp
+    srct: img/gallerie/100s.webp
+    title: "100: #en_vente"
+    numero: 100
+  - src: img/gallerie/99b.webp
+    srct: img/gallerie/99s.webp
+    title: "99: #en_vente"
+    numero: 99
+  - src: img/gallerie/98b.webp
+    srct: img/gallerie/98s.webp
+    title: "98: #en_vente"
+    numero: 98
+  - src: img/gallerie/97b.webp
+    srct: img/gallerie/97s.webp
+    title: "97: #en_vente"
+    numero: 97
+  - src: img/gallerie/96b.webp
+    srct: img/gallerie/96s.webp
+    title: "96: #en_vente"
+    numero: 96
+  - src: img/gallerie/95b.webp
+    srct: img/gallerie/95s.webp
+    title: "95: #en_vente"
+    numero: 95
   - src: img/gallerie/94b.webp
     srct: img/gallerie/94s.webp
     title: "94: #en_vente"
