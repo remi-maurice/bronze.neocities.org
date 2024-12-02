@@ -1,5 +1,5 @@
 #!/bin/sh
-# This script is to easily git push and neocities push as well as modifying new images and stuff
+# This script is to easily git push and neocities push as well as modifyfing new images and stuff
 read -p "Message pour l'historique(obligatoire):" commit_message
 # Directories
 IMAGE_DIR="./website/img/gallerie"
@@ -13,8 +13,6 @@ resize_and_compress_images() {
     max_number=$(ls -1 $IMAGE_DIR/*b.webp 2>/dev/null | awk -F '/' '{print $NF}' | awk -F 'b.webp' '{print $1}' | sort -nr | head -n1)
     max_number=${max_number:-0} # Set to 0 if no image found
     next_number=$((max_number + 1))
-
-    images_modified=false
 
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
@@ -38,23 +36,14 @@ resize_and_compress_images() {
             echo "$large_image" >> $PROCESSED_FILE
             echo "$small_image" >> $PROCESSED_FILE
             next_number=$((next_number + 1))
-
-            images_modified=true
         fi
     done
-
-    # Only print the message if images were modified
-    if $images_modified; then
-        echo "Redimensionnement et compression des images terminés."
-    fi
 }
 
 # Function to generate galerie_list.yaml
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
     echo "images:" > $OUTPUT_FILE
-
-    images_generated=false
 
     for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
         base_name=$(basename "$image" .webp)
@@ -77,14 +66,7 @@ generate_image_list() {
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
         echo "    title: \"$image_number: #$status\"" >> $OUTPUT_FILE
         echo "    numero: $image_number" >> $OUTPUT_FILE
-
-        images_generated=true
     done
-
-    # Only print the message if images were generated
-    if $images_generated; then
-        echo "Génération de galerie_list.yaml terminée."
-    fi
 }
 
 # Start the timer
@@ -97,10 +79,8 @@ resize_and_compress_images
 generate_image_list
 
 echo "Suppression des images originales..."
-# Suppression des fichiers sauf .gitkeep
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
-
 #______________________________________________________________________________________
 # Push to GitHub:
 echo "______________________________________________"
