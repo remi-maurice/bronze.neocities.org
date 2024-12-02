@@ -85,7 +85,7 @@ resize_and_compress_images
 generate_image_list
 
 echo "Suppression des images originales..."
-rm -f "$ORIGINAL_DIR"/*
+find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
 #______________________________________________________________________________________
 # Push to GitHub:
