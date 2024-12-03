@@ -110,7 +110,11 @@ while ((timeout > 0)); do
         gh run watch --run-id "$latest_run_id"
         break
     else
-       
+        echo "Aucun workflow détecté. Nouvelle tentative dans 5 secondes..."
+        sleep 5
+        timeout=$((timeout - 5))
+    fi
+done
+
 echo "______________________________________________"
 echo "bronze.neocities.org a été mis à jour avec succès !"
-
