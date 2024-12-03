@@ -106,8 +106,7 @@ timeout=30
 while ((timeout > 0)); do
     latest_run_id=$(gh run list --repo remi-maurice/bronze.neocities.org --limit 1 --json databaseId --jq '.[0].databaseId')
     if [ -n "$latest_run_id" ]; then
-        echo "Suivi de l'exécution du workflow avec l'ID : $latest_run_id"
-        gh run watch --run-id "$latest_run_id"
+        gh run watch "$latest_run_id"
         break
     else
         echo "Aucun workflow détecté. Nouvelle tentative dans 5 secondes..."
