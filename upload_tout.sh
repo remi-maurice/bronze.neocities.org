@@ -89,15 +89,6 @@ cd $HOME/bronze.neocities.org
 git add .
 git commit -m "$commit_message" 
 git push -u origin master
-
-# End the timer and calculate elapsed time
-end_time=$(date +%s)
-elapsed_time=$((end_time - start_time))
-
-# Final message
-echo "______________________________________________"
-echo "MAJ du dépôt GitHub terminée en $elapsed_time secondes !"
-
 # Vérifier les workflows GitHub Actions
 echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
@@ -110,11 +101,16 @@ while ((timeout > 0)); do
         gh run watch "$latest_run_id"
         break
     else
-        echo "Aucun workflow détecté. Nouvelle tentative dans 5 secondes..."
-        sleep 5
-        timeout=$((timeout - 5))
+        echo "Aucun workflow détecté. Nouvelle tentative dans 1 secondes..."
+        sleep 1
+        timeout=$((timeout - 1))
     fi
 done
 
+# End the timer and calculate elapsed time
+end_time=$(date +%s)
+elapsed_time=$((end_time - start_time))
+
+# Final message
 echo "______________________________________________"
-echo "bronze.neocities.org a été mis à jour avec succès !"
+echo "MAJ terminée en $elapsed_time secondes !"
