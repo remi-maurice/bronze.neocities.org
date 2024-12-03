@@ -20,11 +20,3 @@ fi
 # Mettre à jour le dépôt local
 git pull
 
-# Attente pour quitter le script
-echo "Appuyez sur 'q' pour quitter."
-while true; do
-    read -n 1 -r key
-    if [ "$key" = 'q' ]; then
-        break
-    fi
-done
