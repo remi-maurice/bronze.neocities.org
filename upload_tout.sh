@@ -96,5 +96,11 @@ elapsed_time=$((end_time - start_time))
 
 # Final message
 echo "______________________________________________"
-echo "MAJ du site terminée en $elapsed_time secondes !"
-echo "Il faut en général une petite minute pour que les changements soient visibles en ligne."
+echo "MAJ du dêpot Github terminée en $elapsed_time secondes !"
+
+# Vérifier les workflows GitHub Actions
+echo "______________________________________________"
+echo "Suivi des Actions Github en cours..."
+gh run watch --repo remi-maurice/bronze.neocities.org
+echo "______________________________________________"
+echo "bronze.neocities.org à été mis à jour avec succés!"
