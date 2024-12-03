@@ -97,7 +97,7 @@ body::before {
   background-image: url('../img/snow_slow.gif');
   background-size: repeat;
   background-position: center;
-  opacity: 0.2; /* 20% opacity */
+  opacity: 0.1; /* 10% opacity */
   pointer-events: none; /* Ensures it doesn't interfere with user interactions */
   z-index: -1; /* Places it behind the content */
 }
