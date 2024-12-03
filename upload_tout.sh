@@ -104,7 +104,8 @@ echo "Suivi des Actions GitHub en cours..."
 # Vérifier les workflows toutes les 5 secondes (max 60 secondes)
 timeout=30
 while ((timeout > 0)); do
-    latest_run_id=$(gh run list --repo remi-maurice/bronze.neocities.org --limit 1 --json databaseId --jq '.[0].databaseId')
+    latest_run_id=$(gh run list --repo remi-maurice/bronze.neocities.org --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
+
     if [ -n "$latest_run_id" ]; then
         gh run watch "$latest_run_id"
         break
