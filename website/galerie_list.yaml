@@ -1,4 +1,8 @@
 images:
+  - src: img/gallerie/122b.webp
+    srct: img/gallerie/122s.webp
+    title: "122: #en_vente"
+    numero: 122
   - src: img/gallerie/121b.webp
     srct: img/gallerie/121s.webp
     title: "121: #en_vente"
