@@ -96,11 +96,20 @@ elapsed_time=$((end_time - start_time))
 
 # Final message
 echo "______________________________________________"
-echo "MAJ du dêpot Github terminée en $elapsed_time secondes !"
+echo "MAJ du dépôt GitHub terminée en $elapsed_time secondes !"
 
 # Vérifier les workflows GitHub Actions
 echo "______________________________________________"
-echo "Suivi des Actions Github en cours..."
-gh run watch --repo remi-maurice/bronze.neocities.org
+echo "Suivi des Actions GitHub en cours..."
+# Vérifier les workflows toutes les 5 secondes (max 60 secondes)
+timeout=30
+while ((timeout > 0)); do
+    gh run watch --repo remi-maurice/bronze.neocities.org && break
+    echo "Aucun workflow détecté. Nouvelle tentative dans 5 secondes..."
+    sleep 5
+    timeout=$((timeout - 5))
+done
+
 echo "______________________________________________"
-echo "bronze.neocities.org à été mis à jour avec succés!"
+echo "bronze.neocities.org a été mis à jour avec succès !"
+
