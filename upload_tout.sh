@@ -104,7 +104,7 @@ echo "Suivi des Actions GitHub en cours..."
 # Vérifier les workflows toutes les 5 secondes (max 60 secondes)
 timeout=30
 while ((timeout > 0)); do
-    gh run watch --repo remi-maurice/bronze.neocities.org && break
+    gh run watch --repo remi-maurice/bronze.neocities.org --json databaseId --jq '.[0].databaseId' | xargs -I {} gh run watch --run-id {} && break
     echo "Aucun workflow détecté. Nouvelle tentative dans 5 secondes..."
     sleep 5
     timeout=$((timeout - 5))
