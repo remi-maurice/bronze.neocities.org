@@ -1,20 +1,20 @@
 images:
-  - src: img/gallerie/117b_new_best.webp
-    srct: img/gallerie/117b_new_bests.webp
-    title: "117b_new_best: #en_vente"
-    numero: 117b_new_best
-  - src: img/gallerie/116b_new_test.webp
-    srct: img/gallerie/116b_new_tests.webp
-    title: "116b_new_test: #en_vente"
-    numero: 116b_new_test
-  - src: img/gallerie/115b_animal_new.webp
-    srct: img/gallerie/115b_animal_news.webp
-    title: "115b_animal_new: #en_vente"
-    numero: 115b_animal_new
-  - src: img/gallerie/114b_best_animal.webp
-    srct: img/gallerie/114b_best_animals.webp
-    title: "114b_best_animal: #en_vente"
-    numero: 114b_best_animal
+  - src: img/gallerie/117b.webp
+    srct: img/gallerie/117s.webp
+    title: "117: #en_vente"
+    numero: 117
+  - src: img/gallerie/116b.webp
+    srct: img/gallerie/116s.webp
+    title: "116: #en_vente"
+    numero: 116
+  - src: img/gallerie/115b.webp
+    srct: img/gallerie/115s.webp
+    title: "115: #en_vente"
+    numero: 115
+  - src: img/gallerie/114b.webp
+    srct: img/gallerie/114s.webp
+    title: "114: #en_vente"
+    numero: 114
   - src: img/gallerie/113b_vendu.webp
     srct: img/gallerie/113s.webp
     title: "113: #vendu"
