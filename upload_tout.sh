@@ -18,6 +18,7 @@ resize_and_compress_images() {
 
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
+            # Extract tags from filename and format them
             tags=$(basename "$file" | grep -oP '_[^.]+(?=\.)' | tr '_' ',')
             tag_suffix=$(echo "$tags" | sed 's/,/_/g')
 
@@ -52,10 +53,12 @@ generate_image_list() {
 
     for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
         base_name=$(basename "$image" .webp)
-        tags=$(echo "$base_name" | grep -oP '_[^b]+(?=b)' | tr '_' ',' | sed 's/^,//')
+        # Extract tags before 'b' and format them
+        tags=$(echo "$base_name" | grep -oP '_[^b]+(?=b)' | tr '_' ',')
         clean_base_name="${base_name%b}"
         image_number=$(echo "$clean_base_name" | sed 's/_[^_]*$//')
 
+        # Set tags for image
         if [[ -n "$tags" ]]; then
             tag_list="#$(echo "$tags" | tr ',' ' #')"
         else
@@ -64,10 +67,11 @@ generate_image_list() {
 
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$image_number: $tag_list\"" >> $OUTPUT_FILE
-        echo "    numero: $image_number" >> $OUTPUT_FILE
+        echo "    title: \"${base_name}: $tag_list\"" >> $OUTPUT_FILE
+        echo "    numero: $base_name" >> $OUTPUT_FILE
     done
 }
+
 
 # Start the timer
 start_time=$(date +%s)
