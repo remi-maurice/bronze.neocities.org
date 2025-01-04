@@ -1,8 +1,6 @@
 #!/bin/sh
-# This script automates git pushes, neocities updates, and image processing for the gallery.
-
-read -p "Message pour l'historique (obligatoire) : " commit_message
-
+# This script is to easily git push and neocities push as well as modifyfing new images and stuff
+read -p "Message pour l'historique(obligatoire):" commit_message
 # Directories
 IMAGE_DIR="./website/img/gallerie"
 ORIGINAL_DIR="./original"
@@ -18,13 +16,9 @@ resize_and_compress_images() {
 
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-            # Extract tags from filename and format them
-            tags=$(basename "$file" | grep -oP '_[^.]+(?=\.)' | tr '_' ',')
-            tag_suffix=$(echo "$tags" | sed 's/,/_/g')
-
-            if [[ -n "$tag_suffix" ]]; then
-                large_image="${next_number}b_${tag_suffix}.webp"
-                small_image="${next_number}s_${tag_suffix}.webp"
+            if [[ "$file" == *"_vendu"* ]]; then
+                large_image="${next_number}b_vendu.webp"
+                small_image="${next_number}s_vendu.webp"
             else
                 large_image="${next_number}b.webp"
                 small_image="${next_number}s.webp"
@@ -53,25 +47,27 @@ generate_image_list() {
 
     for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
         base_name=$(basename "$image" .webp)
-        # Extract tags before 'b' and format them
-        tags=$(echo "$base_name" | grep -oP '_[^b]+(?=b)' | tr '_' ',')
-        clean_base_name="${base_name%b}"
-        image_number=$(echo "$clean_base_name" | sed 's/_[^_]*$//')
 
-        # Set tags for image
-        if [[ -n "$tags" ]]; then
-            tag_list="#$(echo "$tags" | tr ',' ' #')"
+        # Determine the status
+        if [[ "$base_name" == *"_vendu"* ]]; then
+            status="vendu"
         else
-            tag_list="en_vente"
+            status="en_vente"
         fi
 
+        # Remove any "_vendu" from the base name for the title and numero fields
+        clean_base_name="${base_name%_vendu}"
+
+        # Remove the trailing "b" to get the core number
+        image_number="${clean_base_name%b}"
+
+        # Add status as a tag in the title
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"${base_name}: $tag_list\"" >> $OUTPUT_FILE
-        echo "    numero: $base_name" >> $OUTPUT_FILE
+        echo "    title: \"$image_number: #$status\"" >> $OUTPUT_FILE
+        echo "    numero: $image_number" >> $OUTPUT_FILE
     done
 }
-
 
 # Start the timer
 start_time=$(date +%s)
@@ -82,22 +78,21 @@ resize_and_compress_images
 # Generate galerie_list.yaml
 generate_image_list
 
-# Clean up original images
 echo "Suppression des images originales..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
-
-# Push to GitHub
+#______________________________________________________________________________________
+# Push to GitHub:
 echo "______________________________________________"
-echo "Envoi vers GitHub"
+echo "Envoi vers Github"
 cd $HOME/bronze.neocities.org
 git add .
-git commit -m "$commit_message"
+git commit -m "$commit_message" 
 git push -u origin master
-
-# Monitor GitHub Actions
+# Vérifier les workflows GitHub Actions
 echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
+# Vérifier les workflows toutes les 5 secondes (max 60 secondes)
 timeout=30
 while ((timeout > 0)); do
     latest_run_id=$(gh run list --repo remi-maurice/bronze.neocities.org --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
