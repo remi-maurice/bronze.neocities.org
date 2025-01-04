@@ -1,5 +1,3 @@
-// This script is heavily inspired by https://github.com/alessiomaddaluno/bouncing-dvd-logo . Thank you Alessio!
-
 let speed = 1;  // Image speed, you will need to tweak xspeed & yspeed too, I made a comment.
 let scale = 100; // Image scale
 let canvas;
@@ -11,7 +9,7 @@ let currentHue = 0; // Initial hue value
     canvas = document.getElementById("tv-screen");
     ctx = canvas.getContext("2d");
 
-    //Draw the "tv screen"
+    // Draw the "tv screen"
     canvas.width  = 400;
     canvas.height = 400;
     initIcons(1);
@@ -20,7 +18,7 @@ let currentHue = 0; // Initial hue value
 
 function update() {
     // Change fill hue here
-    ctx.fillStyle = `hsl(${currentHue},20%, 60%)`;
+    ctx.fillStyle = `hsl(${currentHue}, 20%, 60%)`;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     icons.forEach((icon, index) => {
@@ -32,7 +30,7 @@ function update() {
         icon.x += icon.xspeed * speed;
         icon.y += icon.yspeed * speed;
 
-        // Check for collision
+        // Check for collision with boundaries
         checkHitBox(icon);
 
         // Check for collision with other icons
@@ -72,6 +70,9 @@ function initIcons(numIcons) {
 
     shuffleArray(images);
 
+    // Clear existing icons before adding new ones
+    icons = [];
+
     for (let i = 0; i < numIcons; i++) {
         const icon = {
             x: Math.random() * (canvas.width - 300),
@@ -81,10 +82,14 @@ function initIcons(numIcons) {
             img: new Image(),
             width: 1,
             height: 1,
-            hue: 0 // Initial hue, 0 is gud.
+            hue: 0 // Initial hue, 0 is good.
         };
         const randomImage = images[i % images.length];
         icon.img.src = folderPath + '/' + randomImage;
+        icon.img.onload = () => {
+            icon.width = icon.img.width;  // Set width based on image size
+            icon.height = icon.img.height; // Set height based on image size
+        };
         icons.push(icon);
     }
 }
@@ -99,20 +104,20 @@ function shuffleArray(array) {
 function checkHitBox(icon) {
     let hitBoundary = false;
 
-    if (icon.x + icon.width * scale  >= canvas.width || icon.x <= 0) {
-        icon.xspeed *= -1;
+    if (icon.x + icon.width * scale >= canvas.width || icon.x <= 0) {
+        icon.xspeed *= -1 + Math.random() * 0.1;  // Add randomness
         hitBoundary = true;
-        icon.hue += 100; // Change hue on collision 
+        icon.hue += 5; // Gradual hue change
     }
 
     if (icon.y + icon.height * scale >= canvas.height || icon.y <= 0) {
-        icon.yspeed *= -1;
+        icon.yspeed *= -1 + Math.random() * 0.1;  // Add randomness
         hitBoundary = true;
-        icon.hue += 100; // Change hue on collision 
+        icon.hue += 5; // Gradual hue change
     }
 
     if (hitBoundary) {
-        currentHue += 18; // Change hue when the first icon hits the boundary
+        currentHue += 5; // Gradual change when the first icon hits the boundary
     }
 }
 
@@ -123,16 +128,15 @@ function checkIconCollision(icon1, icon2) {
     const distance = Math.sqrt(dx * dx + dy * dy);
 
     // Check if the icons are colliding
-    if (distance < scale* Math.sqrt(1)) {
+    if (distance < (icon1.width * scale + icon2.width * scale) / 2) {
         // Swap speeds to simulate bouncing off each other
         const tempXSpeed = icon1.xspeed - 0.5;
         const tempYSpeed = icon1.yspeed - 0.25;
         icon1.xspeed = icon2.xspeed + 0.5;
         icon1.yspeed = icon2.yspeed + 0.25;
-        icon2.xspeed = tempXSpeed ;
-        icon2.yspeed = tempYSpeed ;
+        icon2.xspeed = tempXSpeed;
+        icon2.yspeed = tempYSpeed;
     }
-
 }
 
 // Popup
@@ -168,45 +172,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Button to increase icon count
     document.getElementById("increaseIconCountButton").addEventListener("click", function() {
-        initialIconCount + 1; // Increase icon count by 1
+        initialIconCount += 1; // Increase icon count by 1
         initIcons(initialIconCount); // Reinitialize icons with the new count
     });
 
-
-
     // Speed control buttons
     document.getElementById("increaseSpeedButton").addEventListener("click", function() {
-        speed += 0.3; // Increase speed by 0.3
+        if (speed < 10) speed += 0.3; // Max speed limit
     });
 
     document.getElementById("decreaseSpeedButton").addEventListener("click", function() {
-        speed -= 0.3; // Decrease speed by 0.3
-        if (speed < 0.1) {
-            speed = 0.1; // Ensure speed doesn't go below 0.1
-        }
+        if (speed > 0.1) speed -= 0.3; // Min speed limit
     });
 
     // Scale control
     document.getElementById("increaseScaleButton").addEventListener("click", function() {
-    scale += 10;
+        scale += 10;
     });
+
     document.getElementById("decreaseScaleButton").addEventListener("click", function() {
         scale -= 10;
-        });
+    });
+
     // Button to reset icon count and restart script
     document.getElementById("resetIconCountButton").addEventListener("click", function() {
-        location.reload();
+        icons = []; // Clear existing icons
+        initIcons(initialIconCount); // Reinitialize icons with the new count
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
