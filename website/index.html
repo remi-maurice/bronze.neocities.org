@@ -31,7 +31,7 @@ The source code is under MIT license: https://victor-maurice.mit-license.org
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Controle du cache -->		
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Cache-Control" convtent="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
 
@@ -40,131 +40,6 @@ The source code is under MIT license: https://victor-maurice.mit-license.org
 
 	<!-- balise google -->
 	<meta name="google-site-verification" content="nVmpPdFGrPKbloUWmymXnAAvizUcrBK1wvOOhEG_KoI" />
-	
-	<!-- CLICKSPLOSION - Updated -->
-	<script type="text/javascript">
-		// <![CDATA[
-		var sparks = 75; // how many sparks per clicksplosion
-		var speed = 33; // how fast - smaller is faster
-		var bangs = 5; // how many can be launched simultaneously (note that using too many can slow the script down)
-		var colours = ['#FFD700', '#FFA62B', '#FFFD74', '#FFFFCC', '#f93', '#EC5800']; 
-	
-		var intensity = new Array();
-		var Xpos = new Array();
-		var Ypos = new Array();
-		var dX = new Array();
-		var dY = new Array();
-		var stars = new Array();
-		var decay = new Array();
-		var timers = new Array();
-		var swide = 0;
-		var shigh = 0;
-		var count = 0;
-	
-		function addLoadEvent(funky) {
-			var oldonload = window.onload;
-			if (typeof(oldonload) != 'function') {
-				window.onload = funky;
-			} else {
-				window.onload = function() {
-					if (oldonload) oldonload();
-					funky();
-				};
-			}
-		}
-	
-		addLoadEvent(clicksplode);
-	
-		function clicksplode() {
-			if (document.getElementById) {
-				var i, j;
-				window.onscroll = set_scroll;
-				window.onresize = set_width;
-				document.onclick = eksplode;
-				set_width();
-				set_scroll();
-				for (i = 0; i < bangs; i++) {
-					for (j = sparks * i; j < sparks + sparks * i; j++) {
-						stars[j] = createDiv('*', 0);
-						document.body.appendChild(stars[j]);
-					}
-				}
-			}
-		}
-	
-		function createDiv(char, size) {
-			var div, sty;
-			div = document.createElement('div');
-			sty = div.style;
-			sty.font = size + 'px monospace';
-			sty.position = 'absolute';
-			sty.backgroundColor = 'transparent';
-			sty.visibility = 'hidden';
-			sty.zIndex = '1000';
-			div.appendChild(document.createTextNode(char));
-			return div;
-		}
-	
-		function bang(N) {
-			var i, Z, A = 0;
-			for (i = sparks * N; i < sparks * (N + 1); i++) {
-				if (decay[i]) {
-					Z = stars[i].style;
-					Xpos[i] += dX[i];
-					Ypos[i] += (dY[i] += 1.25 / intensity[N]);
-					if (Xpos[i] >= swide || Xpos[i] < 0 || Ypos[i] >= shigh || Ypos[i] < 0) {
-						decay[i] = 1;
-					} else {
-						Z.left = Xpos[i] + 'px';
-						Z.top = Ypos[i] + 'px';
-					}
-					if (decay[i] == 15) Z.fontSize = '7px';
-					else if (decay[i] == 7) Z.fontSize = '2px';
-					else if (decay[i] == 1) Z.visibility = 'hidden';
-					decay[i]--;
-				} else A++;
-			}
-			if (A != sparks) timers[N] = setTimeout(function() { bang(N); }, speed);
-		}
-	
-		function eksplode(e) {
-			var x = e.clientX + window.scrollX;
-			var y = e.clientY + window.scrollY;
-			var i, M, Z, N;
-	
-			N = ++count % bangs;
-			M = Math.floor(Math.random() * 3 * colours.length);
-			intensity[N] = 100 + Math.random() * 4;
-	
-			for (i = N * sparks; i < (N + 1) * sparks; i++) {
-				Xpos[i] = x;
-				Ypos[i] = y - 5;
-				dY[i] = (Math.random() - 0.5) * intensity[N];
-				dX[i] = (Math.random() - 0.5) * (intensity[N] - Math.abs(dY[i])) * 1.25;
-				decay[i] = 32 + Math.floor(Math.random() * 32);
-				Z = stars[i].style;
-				if (M < colours.length) Z.color = colours[i % 2 ? count % colours.length : M];
-				else if (M < 2 * colours.length) Z.color = colours[count % colours.length];
-				else Z.color = colours[i % colours.length];
-				Z.fontSize = '20px';
-				Z.visibility = 'visible';
-			}
-	
-			clearTimeout(timers[N]);
-			bang(N);
-		}
-	
-		function set_width() {
-			swide = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-			shigh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-		}
-	
-		function set_scroll() {
-			// Scroll positions handled automatically by modern browsers
-		}
-		// ]]>
-	</script>
-	
 
 </head>
 
@@ -197,8 +72,7 @@ The source code is under MIT license: https://victor-maurice.mit-license.org
 		
 		<!--On met toute la page ici!-->
 
-		<!--deco noel! --><div style="background: url('https://graphic.neocities.org/tumblr_lx4f02UUbk1r2mwkp.gif') repeat-x; height:30px; background-size: auto 30px;"></div>
-		<!--deco noel! --><div style="background: url('https://pixelsafari.neocities.org/dividers/more/hangingstars.gif') repeat-x; height:60px; background-size: auto 60px;"></div>		
+		
 				
 		<header>
 			<h1>Victor Maurice - Sculpteur fondeur en Ariège</h1>
@@ -212,8 +86,7 @@ The source code is under MIT license: https://victor-maurice.mit-license.org
 		    </aside>
 
 	        <h2><u>Les dernières nouvelles:</u></h2>   
-			Je vais bientôt participer aux marchés de Noël de Soulan,Carla Bayle,Massat,Soueix et St Girons,<br>
-			vous pouvez également voir quelque unes de mes statues à St Girons,dans la Bijouterie
+			Vous pouvez voir quelque unes de mes statues à St Girons,dans la Bijouterie
 			<a href="https://www.facebook.com/eldoradobijoux/?locale=fr_FR" target="_blank"> El Dorado</a>.<br> 
 			Pour la vente en ligne contactez moi par mail ou téléphone.
 			<hr>
