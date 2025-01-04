@@ -4,6 +4,7 @@ let canvas;
 let ctx;
 let icons = [];
 let currentHue = 0; // Initial hue value
+let friction = 0.99; // Small friction value to prevent excessive acceleration
 
 (function main(){
     canvas = document.getElementById("tv-screen");
@@ -29,6 +30,10 @@ function update() {
         // Move the icon
         icon.x += icon.xspeed * speed;
         icon.y += icon.yspeed * speed;
+
+        // Apply friction to reduce speed gradually
+        icon.xspeed *= friction;
+        icon.yspeed *= friction;
 
         // Check for collision with boundaries
         checkHitBox(icon);
@@ -105,13 +110,13 @@ function checkHitBox(icon) {
     let hitBoundary = false;
 
     if (icon.x + icon.width * scale >= canvas.width || icon.x <= 0) {
-        icon.xspeed *= -1 + Math.random() * 0.1;  // Add randomness
+        icon.xspeed *= -1;  // Reverse speed, no extra acceleration
         hitBoundary = true;
         icon.hue += 5; // Gradual hue change
     }
 
     if (icon.y + icon.height * scale >= canvas.height || icon.y <= 0) {
-        icon.yspeed *= -1 + Math.random() * 0.1;  // Add randomness
+        icon.yspeed *= -1;  // Reverse speed, no extra acceleration
         hitBoundary = true;
         icon.hue += 5; // Gradual hue change
     }
@@ -129,11 +134,11 @@ function checkIconCollision(icon1, icon2) {
 
     // Check if the icons are colliding
     if (distance < (icon1.width * scale + icon2.width * scale) / 2) {
-        // Swap speeds to simulate bouncing off each other
-        const tempXSpeed = icon1.xspeed - 0.5;
-        const tempYSpeed = icon1.yspeed - 0.25;
-        icon1.xspeed = icon2.xspeed + 0.5;
-        icon1.yspeed = icon2.yspeed + 0.25;
+        // Swap speeds to simulate bouncing off each other, but without additional acceleration
+        const tempXSpeed = icon1.xspeed;
+        const tempYSpeed = icon1.yspeed;
+        icon1.xspeed = icon2.xspeed;
+        icon1.yspeed = icon2.yspeed;
         icon2.xspeed = tempXSpeed;
         icon2.yspeed = tempYSpeed;
     }
