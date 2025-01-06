@@ -67,9 +67,9 @@ images:
     srct: img/gallerie/101s.webp
     title: "101: #en_vente"
     numero: 101
-  - src: img/gallerie/100b.webp
+  - src: img/gallerie/100b_vendu.webp
     srct: img/gallerie/100s.webp
-    title: "100: #en_vente"
+    title: "100: #vendu"
     numero: 100
   - src: img/gallerie/99b.webp
     srct: img/gallerie/99s.webp
