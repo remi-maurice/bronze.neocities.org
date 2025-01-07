@@ -74,9 +74,9 @@ generate_image_list() {
 
         # Construire la description
         description=""
-        [[ "$price" != "x" ]] && description+="$price €"
-        [[ "$dimensions" != "x" ]] && description+="${description:+, }$dimensions cm"
-        [[ "$weight" != "x" ]] && description+="${description:+, }$weight kg"
+        [[ "$price" != "x" ]] && description+="$price"€""
+        [[ "$dimensions" != "x" ]] && description+="${description:+, }$dimensions"cm""
+        [[ "$weight" != "x" ]] && description+="${description:+, }$weight"kg""
 
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
