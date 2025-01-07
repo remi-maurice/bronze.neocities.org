@@ -90,6 +90,8 @@ generate_image_list() {
 
 
 
+
+
 # Start the timer
 start_time=$(date +%s)
 
