@@ -73,16 +73,13 @@ generate_image_list() {
         fi
 
         # Construire la description
-        if [[ "$status" == "en_vente" ]]; then
-            description="Prix: $price, Dimensions: $dimensions, Poids: $weight"
-        else
-            description="Statut: $status"
-        fi
+
+        description="Prix: $price, Dimensions: $dimensions, Poids: $weight"
 
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$image_number\"" >> $OUTPUT_FILE
+        echo "    title: \"$image_number #$status\"" >> $OUTPUT_FILE
         echo "    numero: $image_number" >> $OUTPUT_FILE
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
