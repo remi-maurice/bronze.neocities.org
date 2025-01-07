@@ -57,8 +57,8 @@ generate_image_list() {
 
         # Nettoyer le nom de base pour extraire les informations
         clean_base_name="${base_name%_vendu}"
-        
-        # Extraire uniquement le numéro, sans le 'b' ou autres caractères
+
+        # Extraire uniquement le numéro principal, sans 'b' ni autres caractères
         image_number=$(echo "$clean_base_name" | sed 's/[^0-9]*//g')
 
         # Variables par défaut
@@ -83,11 +83,12 @@ generate_image_list() {
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE  # Miniature avec uniquement le numéro
-        echo "    title: \"$image_number:#$status\"" >> $OUTPUT_FILE
+        echo "    title: \"$image_number:#$status\"" >> $OUTPUT_FILE  # Titre avec uniquement le numéro
         echo "    numero: $image_number" >> $OUTPUT_FILE
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 
 
 
