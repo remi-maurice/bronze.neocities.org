@@ -1,8 +1,8 @@
 images:
   - src: img/gallerie/117b_100_30x20x20_1,5.webp
-    srct: img/gallerie/117bs.webp
-    title: "117b:#en_vente"
-    numero: 117b
+    srct: img/gallerie/117b_100_30x20x20_1,5s.webp
+    title: "117b_100_30x20x20_1,5:#en_vente"
+    numero: 117b_100_30x20x20_1,5
     description: "100 €, 30x20x20 cm, 1,5 kg"
   - src: img/gallerie/116b.webp
     srct: img/gallerie/116s.webp

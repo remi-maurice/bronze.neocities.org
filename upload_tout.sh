@@ -57,8 +57,7 @@ generate_image_list() {
 
         # Nettoyer le nom de base pour extraire les informations
         clean_base_name="${base_name%_vendu}"
-        core_name="${clean_base_name%b}"
-        image_number="${core_name%%_*}" # Ne conserver que la partie avant le premier '_'
+        image_number="${clean_base_name%b}"  # Enlever le 'b' du numéro
 
         # Variables par défaut
         price="x"
@@ -66,8 +65,8 @@ generate_image_list() {
         weight="x"
 
         # Extraire les informations à partir du nom du fichier
-        if [[ "$core_name" == *"_"* ]]; then
-            IFS='_' read -r -a parts <<< "$core_name"
+        if [[ "$clean_base_name" == *"_"* ]]; then
+            IFS='_' read -r -a parts <<< "$clean_base_name"
             price="${parts[1]}"
             dimensions="${parts[2]}"
             weight="${parts[3]}"
