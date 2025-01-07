@@ -74,7 +74,7 @@ generate_image_list() {
 
         # Construire la description
 
-        description="$price $dimensions $weight"
+        description="$price € $dimensions cm $weight gr"
 
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
