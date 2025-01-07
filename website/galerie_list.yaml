@@ -1,377 +1,471 @@
 images:
   - src: img/gallerie/117b.webp
     srct: img/gallerie/117s.webp
-    title: "117: #en_vente"
+    title: "Image 117"
     numero: 117
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/116b.webp
     srct: img/gallerie/116s.webp
-    title: "116: #en_vente"
+    title: "Image 116"
     numero: 116
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/115b.webp
     srct: img/gallerie/115s.webp
-    title: "115: #en_vente"
+    title: "Image 115"
     numero: 115
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/114b.webp
     srct: img/gallerie/114s.webp
-    title: "114: #en_vente"
+    title: "Image 114"
     numero: 114
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/113b_vendu.webp
     srct: img/gallerie/113s.webp
-    title: "113: #vendu"
+    title: "Image 113"
     numero: 113
+    description: "Statut: vendu"
   - src: img/gallerie/112b_vendu.webp
     srct: img/gallerie/112s.webp
-    title: "112: #vendu"
+    title: "Image 112"
     numero: 112
+    description: "Statut: vendu"
   - src: img/gallerie/111b.webp
     srct: img/gallerie/111s.webp
-    title: "111: #en_vente"
+    title: "Image 111"
     numero: 111
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/110b.webp
     srct: img/gallerie/110s.webp
-    title: "110: #en_vente"
+    title: "Image 110"
     numero: 110
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/109b.webp
     srct: img/gallerie/109s.webp
-    title: "109: #en_vente"
+    title: "Image 109"
     numero: 109
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/108b_vendu.webp
     srct: img/gallerie/108s.webp
-    title: "108: #vendu"
+    title: "Image 108"
     numero: 108
+    description: "Statut: vendu"
   - src: img/gallerie/107b_vendu.webp
     srct: img/gallerie/107s.webp
-    title: "107: #vendu"
+    title: "Image 107"
     numero: 107
+    description: "Statut: vendu"
   - src: img/gallerie/106b.webp
     srct: img/gallerie/106s.webp
-    title: "106: #en_vente"
+    title: "Image 106"
     numero: 106
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/105b.webp
     srct: img/gallerie/105s.webp
-    title: "105: #en_vente"
+    title: "Image 105"
     numero: 105
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/104b.webp
     srct: img/gallerie/104s.webp
-    title: "104: #en_vente"
+    title: "Image 104"
     numero: 104
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/103b.webp
     srct: img/gallerie/103s.webp
-    title: "103: #en_vente"
+    title: "Image 103"
     numero: 103
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/102b_vendu.webp
     srct: img/gallerie/102s.webp
-    title: "102: #vendu"
+    title: "Image 102"
     numero: 102
+    description: "Statut: vendu"
   - src: img/gallerie/101b.webp
     srct: img/gallerie/101s.webp
-    title: "101: #en_vente"
+    title: "Image 101"
     numero: 101
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/100b.webp
     srct: img/gallerie/100s.webp
-    title: "100: #en_vente"
+    title: "Image 100"
     numero: 100
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/99b_vendu.webp
     srct: img/gallerie/99s.webp
-    title: "99: #vendu"
+    title: "Image 99"
     numero: 99
+    description: "Statut: vendu"
   - src: img/gallerie/98b.webp
     srct: img/gallerie/98s.webp
-    title: "98: #en_vente"
+    title: "Image 98"
     numero: 98
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/97b.webp
     srct: img/gallerie/97s.webp
-    title: "97: #en_vente"
+    title: "Image 97"
     numero: 97
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/96b.webp
     srct: img/gallerie/96s.webp
-    title: "96: #en_vente"
+    title: "Image 96"
     numero: 96
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/95b.webp
     srct: img/gallerie/95s.webp
-    title: "95: #en_vente"
+    title: "Image 95"
     numero: 95
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/94b.webp
     srct: img/gallerie/94s.webp
-    title: "94: #en_vente"
+    title: "Image 94"
     numero: 94
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/93b_vendu.webp
     srct: img/gallerie/93s.webp
-    title: "93: #vendu"
+    title: "Image 93"
     numero: 93
+    description: "Statut: vendu"
   - src: img/gallerie/92b_vendu.webp
     srct: img/gallerie/92s.webp
-    title: "92: #vendu"
+    title: "Image 92"
     numero: 92
+    description: "Statut: vendu"
   - src: img/gallerie/91b_vendu.webp
     srct: img/gallerie/91s.webp
-    title: "91: #vendu"
+    title: "Image 91"
     numero: 91
+    description: "Statut: vendu"
   - src: img/gallerie/90b.webp
     srct: img/gallerie/90s.webp
-    title: "90: #en_vente"
+    title: "Image 90"
     numero: 90
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/89b_vendu.webp
     srct: img/gallerie/89s.webp
-    title: "89: #vendu"
+    title: "Image 89"
     numero: 89
+    description: "Statut: vendu"
   - src: img/gallerie/88b_vendu.webp
     srct: img/gallerie/88s.webp
-    title: "88: #vendu"
+    title: "Image 88"
     numero: 88
+    description: "Statut: vendu"
   - src: img/gallerie/87b_vendu.webp
     srct: img/gallerie/87s.webp
-    title: "87: #vendu"
+    title: "Image 87"
     numero: 87
+    description: "Statut: vendu"
   - src: img/gallerie/86b_vendu.webp
     srct: img/gallerie/86s.webp
-    title: "86: #vendu"
+    title: "Image 86"
     numero: 86
+    description: "Statut: vendu"
   - src: img/gallerie/85b_vendu.webp
     srct: img/gallerie/85s.webp
-    title: "85: #vendu"
+    title: "Image 85"
     numero: 85
+    description: "Statut: vendu"
   - src: img/gallerie/84b_vendu.webp
     srct: img/gallerie/84s.webp
-    title: "84: #vendu"
+    title: "Image 84"
     numero: 84
+    description: "Statut: vendu"
   - src: img/gallerie/83b_vendu.webp
     srct: img/gallerie/83s.webp
-    title: "83: #vendu"
+    title: "Image 83"
     numero: 83
+    description: "Statut: vendu"
   - src: img/gallerie/82b.webp
     srct: img/gallerie/82s.webp
-    title: "82: #en_vente"
+    title: "Image 82"
     numero: 82
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/81b_vendu.webp
     srct: img/gallerie/81s.webp
-    title: "81: #vendu"
+    title: "Image 81"
     numero: 81
+    description: "Statut: vendu"
   - src: img/gallerie/80b_vendu.webp
     srct: img/gallerie/80s.webp
-    title: "80: #vendu"
+    title: "Image 80"
     numero: 80
+    description: "Statut: vendu"
   - src: img/gallerie/79b_vendu.webp
     srct: img/gallerie/79s.webp
-    title: "79: #vendu"
+    title: "Image 79"
     numero: 79
+    description: "Statut: vendu"
   - src: img/gallerie/78b_vendu.webp
     srct: img/gallerie/78s.webp
-    title: "78: #vendu"
+    title: "Image 78"
     numero: 78
+    description: "Statut: vendu"
   - src: img/gallerie/77b.webp
     srct: img/gallerie/77s.webp
-    title: "77: #en_vente"
+    title: "Image 77"
     numero: 77
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/76b_vendu.webp
     srct: img/gallerie/76s.webp
-    title: "76: #vendu"
+    title: "Image 76"
     numero: 76
+    description: "Statut: vendu"
   - src: img/gallerie/64b_vendu.webp
     srct: img/gallerie/64s.webp
-    title: "64: #vendu"
+    title: "Image 64"
     numero: 64
+    description: "Statut: vendu"
   - src: img/gallerie/63b.webp
     srct: img/gallerie/63s.webp
-    title: "63: #en_vente"
+    title: "Image 63"
     numero: 63
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/62b_vendu.webp
     srct: img/gallerie/62s.webp
-    title: "62: #vendu"
+    title: "Image 62"
     numero: 62
+    description: "Statut: vendu"
   - src: img/gallerie/61b_vendu.webp
     srct: img/gallerie/61s.webp
-    title: "61: #vendu"
+    title: "Image 61"
     numero: 61
+    description: "Statut: vendu"
   - src: img/gallerie/60b_vendu.webp
     srct: img/gallerie/60s.webp
-    title: "60: #vendu"
+    title: "Image 60"
     numero: 60
+    description: "Statut: vendu"
   - src: img/gallerie/59b.webp
     srct: img/gallerie/59s.webp
-    title: "59: #en_vente"
+    title: "Image 59"
     numero: 59
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/58b_vendu.webp
     srct: img/gallerie/58s.webp
-    title: "58: #vendu"
+    title: "Image 58"
     numero: 58
+    description: "Statut: vendu"
   - src: img/gallerie/47b_vendu.webp
     srct: img/gallerie/47s.webp
-    title: "47: #vendu"
+    title: "Image 47"
     numero: 47
+    description: "Statut: vendu"
   - src: img/gallerie/46b.webp
     srct: img/gallerie/46s.webp
-    title: "46: #en_vente"
+    title: "Image 46"
     numero: 46
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/43b.webp
     srct: img/gallerie/43s.webp
-    title: "43: #en_vente"
+    title: "Image 43"
     numero: 43
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/42b_vendu.webp
     srct: img/gallerie/42s.webp
-    title: "42: #vendu"
+    title: "Image 42"
     numero: 42
+    description: "Statut: vendu"
   - src: img/gallerie/41b_vendu.webp
     srct: img/gallerie/41s.webp
-    title: "41: #vendu"
+    title: "Image 41"
     numero: 41
+    description: "Statut: vendu"
   - src: img/gallerie/40b_vendu.webp
     srct: img/gallerie/40s.webp
-    title: "40: #vendu"
+    title: "Image 40"
     numero: 40
+    description: "Statut: vendu"
   - src: img/gallerie/39b_vendu.webp
     srct: img/gallerie/39s.webp
-    title: "39: #vendu"
+    title: "Image 39"
     numero: 39
+    description: "Statut: vendu"
   - src: img/gallerie/38b_vendu.webp
     srct: img/gallerie/38s.webp
-    title: "38: #vendu"
+    title: "Image 38"
     numero: 38
+    description: "Statut: vendu"
   - src: img/gallerie/37b_vendu.webp
     srct: img/gallerie/37s.webp
-    title: "37: #vendu"
+    title: "Image 37"
     numero: 37
+    description: "Statut: vendu"
   - src: img/gallerie/36b.webp
     srct: img/gallerie/36s.webp
-    title: "36: #en_vente"
+    title: "Image 36"
     numero: 36
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/35b_vendu.webp
     srct: img/gallerie/35s.webp
-    title: "35: #vendu"
+    title: "Image 35"
     numero: 35
+    description: "Statut: vendu"
   - src: img/gallerie/34b_vendu.webp
     srct: img/gallerie/34s.webp
-    title: "34: #vendu"
+    title: "Image 34"
     numero: 34
+    description: "Statut: vendu"
   - src: img/gallerie/33b_vendu.webp
     srct: img/gallerie/33s.webp
-    title: "33: #vendu"
+    title: "Image 33"
     numero: 33
+    description: "Statut: vendu"
   - src: img/gallerie/32b.webp
     srct: img/gallerie/32s.webp
-    title: "32: #en_vente"
+    title: "Image 32"
     numero: 32
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/31b.webp
     srct: img/gallerie/31s.webp
-    title: "31: #en_vente"
+    title: "Image 31"
     numero: 31
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/30b_vendu.webp
     srct: img/gallerie/30s.webp
-    title: "30: #vendu"
+    title: "Image 30"
     numero: 30
+    description: "Statut: vendu"
   - src: img/gallerie/29b_vendu.webp
     srct: img/gallerie/29s.webp
-    title: "29: #vendu"
+    title: "Image 29"
     numero: 29
+    description: "Statut: vendu"
   - src: img/gallerie/28b_vendu.webp
     srct: img/gallerie/28s.webp
-    title: "28: #vendu"
+    title: "Image 28"
     numero: 28
+    description: "Statut: vendu"
   - src: img/gallerie/27b_vendu.webp
     srct: img/gallerie/27s.webp
-    title: "27: #vendu"
+    title: "Image 27"
     numero: 27
+    description: "Statut: vendu"
   - src: img/gallerie/26b.webp
     srct: img/gallerie/26s.webp
-    title: "26: #en_vente"
+    title: "Image 26"
     numero: 26
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/25b_vendu.webp
     srct: img/gallerie/25s.webp
-    title: "25: #vendu"
+    title: "Image 25"
     numero: 25
+    description: "Statut: vendu"
   - src: img/gallerie/24b_vendu.webp
     srct: img/gallerie/24s.webp
-    title: "24: #vendu"
+    title: "Image 24"
     numero: 24
+    description: "Statut: vendu"
   - src: img/gallerie/23b_vendu.webp
     srct: img/gallerie/23s.webp
-    title: "23: #vendu"
+    title: "Image 23"
     numero: 23
+    description: "Statut: vendu"
   - src: img/gallerie/22b_vendu.webp
     srct: img/gallerie/22s.webp
-    title: "22: #vendu"
+    title: "Image 22"
     numero: 22
+    description: "Statut: vendu"
   - src: img/gallerie/21b_vendu.webp
     srct: img/gallerie/21s.webp
-    title: "21: #vendu"
+    title: "Image 21"
     numero: 21
+    description: "Statut: vendu"
   - src: img/gallerie/20b_vendu.webp
     srct: img/gallerie/20s.webp
-    title: "20: #vendu"
+    title: "Image 20"
     numero: 20
+    description: "Statut: vendu"
   - src: img/gallerie/19b.webp
     srct: img/gallerie/19s.webp
-    title: "19: #en_vente"
+    title: "Image 19"
     numero: 19
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/18b.webp
     srct: img/gallerie/18s.webp
-    title: "18: #en_vente"
+    title: "Image 18"
     numero: 18
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/17b_vendu.webp
     srct: img/gallerie/17s.webp
-    title: "17: #vendu"
+    title: "Image 17"
     numero: 17
+    description: "Statut: vendu"
   - src: img/gallerie/16b_vendu.webp
     srct: img/gallerie/16s.webp
-    title: "16: #vendu"
+    title: "Image 16"
     numero: 16
+    description: "Statut: vendu"
   - src: img/gallerie/15b_vendu.webp
     srct: img/gallerie/15s.webp
-    title: "15: #vendu"
+    title: "Image 15"
     numero: 15
+    description: "Statut: vendu"
   - src: img/gallerie/14b_vendu.webp
     srct: img/gallerie/14s.webp
-    title: "14: #vendu"
+    title: "Image 14"
     numero: 14
+    description: "Statut: vendu"
   - src: img/gallerie/13b_vendu.webp
     srct: img/gallerie/13s.webp
-    title: "13: #vendu"
+    title: "Image 13"
     numero: 13
+    description: "Statut: vendu"
   - src: img/gallerie/12b_vendu.webp
     srct: img/gallerie/12s.webp
-    title: "12: #vendu"
+    title: "Image 12"
     numero: 12
+    description: "Statut: vendu"
   - src: img/gallerie/11b_vendu.webp
     srct: img/gallerie/11s.webp
-    title: "11: #vendu"
+    title: "Image 11"
     numero: 11
+    description: "Statut: vendu"
   - src: img/gallerie/10b_vendu.webp
     srct: img/gallerie/10s.webp
-    title: "10: #vendu"
+    title: "Image 10"
     numero: 10
+    description: "Statut: vendu"
   - src: img/gallerie/9b_vendu.webp
     srct: img/gallerie/9s.webp
-    title: "9: #vendu"
+    title: "Image 9"
     numero: 9
+    description: "Statut: vendu"
   - src: img/gallerie/8b.webp
     srct: img/gallerie/8s.webp
-    title: "8: #en_vente"
+    title: "Image 8"
     numero: 8
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/7b.webp
     srct: img/gallerie/7s.webp
-    title: "7: #en_vente"
+    title: "Image 7"
     numero: 7
+    description: "Prix: X, Dimensions: X, Poids: X"
   - src: img/gallerie/6b_vendu.webp
     srct: img/gallerie/6s.webp
-    title: "6: #vendu"
+    title: "Image 6"
     numero: 6
+    description: "Statut: vendu"
   - src: img/gallerie/5b_vendu.webp
     srct: img/gallerie/5s.webp
-    title: "5: #vendu"
+    title: "Image 5"
     numero: 5
+    description: "Statut: vendu"
   - src: img/gallerie/4b_vendu.webp
     srct: img/gallerie/4s.webp
-    title: "4: #vendu"
+    title: "Image 4"
     numero: 4
+    description: "Statut: vendu"
   - src: img/gallerie/3b_vendu.webp
     srct: img/gallerie/3s.webp
-    title: "3: #vendu"
+    title: "Image 3"
     numero: 3
+    description: "Statut: vendu"
   - src: img/gallerie/2b_vendu.webp
     srct: img/gallerie/2s.webp
-    title: "2: #vendu"
+    title: "Image 2"
     numero: 2
+    description: "Statut: vendu"
   - src: img/gallerie/1b_vendu.webp
     srct: img/gallerie/1s.webp
-    title: "1: #vendu"
+    title: "Image 1"
     numero: 1
+    description: "Statut: vendu"

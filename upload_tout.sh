@@ -48,26 +48,46 @@ generate_image_list() {
     for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
         base_name=$(basename "$image" .webp)
 
-        # Determine the status
+        # Déterminer le statut
         if [[ "$base_name" == *"_vendu"* ]]; then
             status="vendu"
         else
             status="en_vente"
         fi
 
-        # Remove any "_vendu" from the base name for the title and numero fields
+        # Nettoyer le nom de base pour extraire les informations
         clean_base_name="${base_name%_vendu}"
-
-        # Remove the trailing "b" to get the core number
         image_number="${clean_base_name%b}"
 
-        # Add status as a tag in the title
+        # Variables par défaut
+        price="X"
+        dimensions="X"
+        weight="X"
+
+        # Extraire les informations à partir du nom du fichier
+        if [[ "$base_name" == *"_"* ]]; then
+            IFS='_' read -r -a parts <<< "$base_name"
+            price="${parts[1]}"
+            dimensions="${parts[2]}"
+            weight="${parts[3]}"
+        fi
+
+        # Construire la description
+        if [[ "$status" == "en_vente" ]]; then
+            description="Prix: $price, Dimensions: $dimensions, Poids: $weight"
+        else
+            description="Statut: $status"
+        fi
+
+        # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
         echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
-        echo "    title: \"$image_number: #$status\"" >> $OUTPUT_FILE
+        echo "    title: \"Image $image_number\"" >> $OUTPUT_FILE
         echo "    numero: $image_number" >> $OUTPUT_FILE
+        echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 
 # Start the timer
 start_time=$(date +%s)
