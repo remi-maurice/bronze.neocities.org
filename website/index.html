@@ -161,32 +161,6 @@ The source code is under MIT license: https://victor-maurice.mit-license.org
 
 
 	<footer>
-		
-		<form id="newsletter-form">
-			<label for="email">Abonnez vous à ma Newsletter pour reçevoir des nouvelles de temps en temps:</label>
-			<input type="email" id="email" name="email" required placeholder="Enter your email address">
-			<button type="submit">Subscribe</button>
-		  </form>		  
-		  <script>
-				document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-				event.preventDefault();
-
-				var email = document.getElementById('email').value;
-				if (email) {
-					var formData = new FormData();
-					formData.append('email', email);
-
-					fetch('https://script.google.com/macros/s/AKfycbxCONUBihiq-MMMYBo2-_jjchTgtQ2gHTR9_wcyP1qnvqIXSAVRra3wk5cK3HrwwRc/exec', {  // Replace with the actual URL
-					method: 'POST',
-					body: formData
-					})
-					.then(response => response.text())
-					.then(result => console.log('Success:', result))
-					.catch(error => console.error('Error:', error));
-				}
-				});
-		  </script>
-		  
 		<p>&copy2024 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a>
 		</p>
 		<br>
