@@ -1,471 +1,471 @@
 images:
   - src: img/gallerie/117b_100_30x20x20_1,5.webp
-    srct: img/gallerie/117b_100_30x20x20_1,5s.webp
-    title: "117b_100_30x20x20_1,5:#en_vente"
-    numero: 117b_100_30x20x20_1,5
+    srct: img/gallerie/117bs.webp
+    title: "117b:#en_vente"
+    numero: 117b
     description: "100 €, 30x20x20 cm, 1,5 kg"
   - src: img/gallerie/116b.webp
     srct: img/gallerie/116s.webp
     title: "116:#en_vente"
     numero: 116
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/115b.webp
     srct: img/gallerie/115s.webp
     title: "115:#en_vente"
     numero: 115
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/114b.webp
     srct: img/gallerie/114s.webp
     title: "114:#en_vente"
     numero: 114
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/113b_vendu.webp
     srct: img/gallerie/113s.webp
     title: "113:#vendu"
     numero: 113
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/112b_vendu.webp
     srct: img/gallerie/112s.webp
     title: "112:#vendu"
     numero: 112
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/111b.webp
     srct: img/gallerie/111s.webp
     title: "111:#en_vente"
     numero: 111
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/110b.webp
     srct: img/gallerie/110s.webp
     title: "110:#en_vente"
     numero: 110
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/109b.webp
     srct: img/gallerie/109s.webp
     title: "109:#en_vente"
     numero: 109
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/108b_vendu.webp
     srct: img/gallerie/108s.webp
     title: "108:#vendu"
     numero: 108
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/107b_vendu.webp
     srct: img/gallerie/107s.webp
     title: "107:#vendu"
     numero: 107
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/106b.webp
     srct: img/gallerie/106s.webp
     title: "106:#en_vente"
     numero: 106
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/105b.webp
     srct: img/gallerie/105s.webp
     title: "105:#en_vente"
     numero: 105
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/104b.webp
     srct: img/gallerie/104s.webp
     title: "104:#en_vente"
     numero: 104
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/103b.webp
     srct: img/gallerie/103s.webp
     title: "103:#en_vente"
     numero: 103
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/102b_vendu.webp
     srct: img/gallerie/102s.webp
     title: "102:#vendu"
     numero: 102
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/101b.webp
     srct: img/gallerie/101s.webp
     title: "101:#en_vente"
     numero: 101
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/100b.webp
     srct: img/gallerie/100s.webp
     title: "100:#en_vente"
     numero: 100
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/99b_vendu.webp
     srct: img/gallerie/99s.webp
     title: "99:#vendu"
     numero: 99
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/98b.webp
     srct: img/gallerie/98s.webp
     title: "98:#en_vente"
     numero: 98
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/97b.webp
     srct: img/gallerie/97s.webp
     title: "97:#en_vente"
     numero: 97
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/96b.webp
     srct: img/gallerie/96s.webp
     title: "96:#en_vente"
     numero: 96
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/95b.webp
     srct: img/gallerie/95s.webp
     title: "95:#en_vente"
     numero: 95
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/94b.webp
     srct: img/gallerie/94s.webp
     title: "94:#en_vente"
     numero: 94
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/93b_vendu.webp
     srct: img/gallerie/93s.webp
     title: "93:#vendu"
     numero: 93
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/92b_vendu.webp
     srct: img/gallerie/92s.webp
     title: "92:#vendu"
     numero: 92
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/91b_vendu.webp
     srct: img/gallerie/91s.webp
     title: "91:#vendu"
     numero: 91
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/90b.webp
     srct: img/gallerie/90s.webp
     title: "90:#en_vente"
     numero: 90
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/89b_vendu.webp
     srct: img/gallerie/89s.webp
     title: "89:#vendu"
     numero: 89
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/88b_vendu.webp
     srct: img/gallerie/88s.webp
     title: "88:#vendu"
     numero: 88
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/87b_vendu.webp
     srct: img/gallerie/87s.webp
     title: "87:#vendu"
     numero: 87
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/86b_vendu.webp
     srct: img/gallerie/86s.webp
     title: "86:#vendu"
     numero: 86
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/85b_vendu.webp
     srct: img/gallerie/85s.webp
     title: "85:#vendu"
     numero: 85
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/84b_vendu.webp
     srct: img/gallerie/84s.webp
     title: "84:#vendu"
     numero: 84
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/83b_vendu.webp
     srct: img/gallerie/83s.webp
     title: "83:#vendu"
     numero: 83
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/82b.webp
     srct: img/gallerie/82s.webp
     title: "82:#en_vente"
     numero: 82
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/81b_vendu.webp
     srct: img/gallerie/81s.webp
     title: "81:#vendu"
     numero: 81
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/80b_vendu.webp
     srct: img/gallerie/80s.webp
     title: "80:#vendu"
     numero: 80
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/79b_vendu.webp
     srct: img/gallerie/79s.webp
     title: "79:#vendu"
     numero: 79
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/78b_vendu.webp
     srct: img/gallerie/78s.webp
     title: "78:#vendu"
     numero: 78
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/77b.webp
     srct: img/gallerie/77s.webp
     title: "77:#en_vente"
     numero: 77
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/76b_vendu.webp
     srct: img/gallerie/76s.webp
     title: "76:#vendu"
     numero: 76
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/64b_vendu.webp
     srct: img/gallerie/64s.webp
     title: "64:#vendu"
     numero: 64
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/63b.webp
     srct: img/gallerie/63s.webp
     title: "63:#en_vente"
     numero: 63
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/62b_vendu.webp
     srct: img/gallerie/62s.webp
     title: "62:#vendu"
     numero: 62
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/61b_vendu.webp
     srct: img/gallerie/61s.webp
     title: "61:#vendu"
     numero: 61
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/60b_vendu.webp
     srct: img/gallerie/60s.webp
     title: "60:#vendu"
     numero: 60
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/59b.webp
     srct: img/gallerie/59s.webp
     title: "59:#en_vente"
     numero: 59
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/58b_vendu.webp
     srct: img/gallerie/58s.webp
     title: "58:#vendu"
     numero: 58
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/47b_vendu.webp
     srct: img/gallerie/47s.webp
     title: "47:#vendu"
     numero: 47
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/46b.webp
     srct: img/gallerie/46s.webp
     title: "46:#en_vente"
     numero: 46
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/43b.webp
     srct: img/gallerie/43s.webp
     title: "43:#en_vente"
     numero: 43
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/42b_vendu.webp
     srct: img/gallerie/42s.webp
     title: "42:#vendu"
     numero: 42
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/41b_vendu.webp
     srct: img/gallerie/41s.webp
     title: "41:#vendu"
     numero: 41
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/40b_vendu.webp
     srct: img/gallerie/40s.webp
     title: "40:#vendu"
     numero: 40
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/39b_vendu.webp
     srct: img/gallerie/39s.webp
     title: "39:#vendu"
     numero: 39
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/38b_vendu.webp
     srct: img/gallerie/38s.webp
     title: "38:#vendu"
     numero: 38
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/37b_vendu.webp
     srct: img/gallerie/37s.webp
     title: "37:#vendu"
     numero: 37
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/36b.webp
     srct: img/gallerie/36s.webp
     title: "36:#en_vente"
     numero: 36
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/35b_vendu.webp
     srct: img/gallerie/35s.webp
     title: "35:#vendu"
     numero: 35
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/34b_vendu.webp
     srct: img/gallerie/34s.webp
     title: "34:#vendu"
     numero: 34
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/33b_vendu.webp
     srct: img/gallerie/33s.webp
     title: "33:#vendu"
     numero: 33
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/32b.webp
     srct: img/gallerie/32s.webp
     title: "32:#en_vente"
     numero: 32
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/31b.webp
     srct: img/gallerie/31s.webp
     title: "31:#en_vente"
     numero: 31
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/30b_vendu.webp
     srct: img/gallerie/30s.webp
     title: "30:#vendu"
     numero: 30
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/29b_vendu.webp
     srct: img/gallerie/29s.webp
     title: "29:#vendu"
     numero: 29
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/28b_vendu.webp
     srct: img/gallerie/28s.webp
     title: "28:#vendu"
     numero: 28
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/27b_vendu.webp
     srct: img/gallerie/27s.webp
     title: "27:#vendu"
     numero: 27
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/26b.webp
     srct: img/gallerie/26s.webp
     title: "26:#en_vente"
     numero: 26
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/25b_vendu.webp
     srct: img/gallerie/25s.webp
     title: "25:#vendu"
     numero: 25
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/24b_vendu.webp
     srct: img/gallerie/24s.webp
     title: "24:#vendu"
     numero: 24
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/23b_vendu.webp
     srct: img/gallerie/23s.webp
     title: "23:#vendu"
     numero: 23
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/22b_vendu.webp
     srct: img/gallerie/22s.webp
     title: "22:#vendu"
     numero: 22
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/21b_vendu.webp
     srct: img/gallerie/21s.webp
     title: "21:#vendu"
     numero: 21
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/20b_vendu.webp
     srct: img/gallerie/20s.webp
     title: "20:#vendu"
     numero: 20
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/19b.webp
     srct: img/gallerie/19s.webp
     title: "19:#en_vente"
     numero: 19
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/18b.webp
     srct: img/gallerie/18s.webp
     title: "18:#en_vente"
     numero: 18
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/17b_vendu.webp
     srct: img/gallerie/17s.webp
     title: "17:#vendu"
     numero: 17
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/16b_vendu.webp
     srct: img/gallerie/16s.webp
     title: "16:#vendu"
     numero: 16
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/15b_vendu.webp
     srct: img/gallerie/15s.webp
     title: "15:#vendu"
     numero: 15
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/14b_vendu.webp
     srct: img/gallerie/14s.webp
     title: "14:#vendu"
     numero: 14
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/13b_vendu.webp
     srct: img/gallerie/13s.webp
     title: "13:#vendu"
     numero: 13
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/12b_vendu.webp
     srct: img/gallerie/12s.webp
     title: "12:#vendu"
     numero: 12
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/11b_vendu.webp
     srct: img/gallerie/11s.webp
     title: "11:#vendu"
     numero: 11
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/10b_vendu.webp
     srct: img/gallerie/10s.webp
     title: "10:#vendu"
     numero: 10
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/9b_vendu.webp
     srct: img/gallerie/9s.webp
     title: "9:#vendu"
     numero: 9
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/8b.webp
     srct: img/gallerie/8s.webp
     title: "8:#en_vente"
     numero: 8
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/7b.webp
     srct: img/gallerie/7s.webp
     title: "7:#en_vente"
     numero: 7
-    description: "x €, x cm, x kg"
+    description: ""
   - src: img/gallerie/6b_vendu.webp
     srct: img/gallerie/6s.webp
     title: "6:#vendu"
     numero: 6
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/5b_vendu.webp
     srct: img/gallerie/5s.webp
     title: "5:#vendu"
     numero: 5
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/4b_vendu.webp
     srct: img/gallerie/4s.webp
     title: "4:#vendu"
     numero: 4
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/3b_vendu.webp
     srct: img/gallerie/3s.webp
     title: "3:#vendu"
     numero: 3
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/2b_vendu.webp
     srct: img/gallerie/2s.webp
     title: "2:#vendu"
     numero: 2
-    description: "vendu €,  cm,  kg"
+    description: ""
   - src: img/gallerie/1b_vendu.webp
     srct: img/gallerie/1s.webp
     title: "1:#vendu"
     numero: 1
-    description: "vendu €,  cm,  kg"
+    description: ""

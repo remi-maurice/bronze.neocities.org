@@ -57,7 +57,8 @@ generate_image_list() {
 
         # Nettoyer le nom de base pour extraire les informations
         clean_base_name="${base_name%_vendu}"
-        image_number="${clean_base_name%b}"
+        core_name="${clean_base_name%b}"
+        image_number="${core_name%%_*}" # Ne conserver que la partie avant le premier '_'
 
         # Variables par défaut
         price="x"
@@ -65,16 +66,18 @@ generate_image_list() {
         weight="x"
 
         # Extraire les informations à partir du nom du fichier
-        if [[ "$base_name" == *"_"* ]]; then
-            IFS='_' read -r -a parts <<< "$base_name"
+        if [[ "$core_name" == *"_"* ]]; then
+            IFS='_' read -r -a parts <<< "$core_name"
             price="${parts[1]}"
             dimensions="${parts[2]}"
             weight="${parts[3]}"
         fi
 
         # Construire la description
-
-        description="$price €, $dimensions cm, $weight kg"
+        description=""
+        [[ "$price" != "x" ]] && description+="$price €"
+        [[ "$dimensions" != "x" ]] && description+="${description:+, }$dimensions cm"
+        [[ "$weight" != "x" ]] && description+="${description:+, }$weight kg"
 
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
@@ -84,6 +87,7 @@ generate_image_list() {
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 
 
 # Start the timer
