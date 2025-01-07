@@ -1,14 +1,14 @@
 images:
-  - src: img/gallerie/117b_100_30x20x20_1.5.webp
+  - src: img/gallerie/117b_600_40x20x10_3.webp
     srct: img/gallerie/117s.webp
     title: "117:#en_vente"
     numero: 117
-    description: "100€, 30x20x20cm, 1.5kg"
-  - src: img/gallerie/116b_150_30x30x18_1.8_vendu.webp
+    description: "600€, 40x20x10cm, 3kg"
+  - src: img/gallerie/116b_350_15x10x8_1.3.webp
     srct: img/gallerie/116s.webp
-    title: "116:#vendu"
+    title: "116:#en_vente"
     numero: 116
-    description: "150€, 30x30x18cm, 1.8kg"
+    description: "350€, 15x10x8cm, 1.3kg"
   - src: img/gallerie/115b.webp
     srct: img/gallerie/115s.webp
     title: "115:#en_vente"
