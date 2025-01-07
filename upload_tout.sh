@@ -82,12 +82,13 @@ generate_image_list() {
 
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
-        echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
+        echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE  # Miniature avec uniquement le numéro
         echo "    title: \"$image_number:#$status\"" >> $OUTPUT_FILE
         echo "    numero: $image_number" >> $OUTPUT_FILE
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 
 
 
