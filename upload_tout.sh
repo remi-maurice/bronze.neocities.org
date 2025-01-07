@@ -60,9 +60,9 @@ generate_image_list() {
         image_number="${clean_base_name%b}"
 
         # Variables par défaut
-        price=""
-        dimensions=""
-        weight=""
+        price="x"
+        dimensions="x"
+        weight="x"
 
         # Extraire les informations à partir du nom du fichier
         if [[ "$base_name" == *"_"* ]]; then
@@ -74,7 +74,7 @@ generate_image_list() {
 
         # Construire la description
 
-        description="$price € $dimensions cm $weight gr"
+        description="$price € $dimensions cm $weight kg"
 
         # Écrire dans le fichier YAML
         echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
