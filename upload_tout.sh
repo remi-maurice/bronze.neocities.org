@@ -58,8 +58,8 @@ generate_image_list() {
         # Nettoyer le nom de base pour extraire les informations
         clean_base_name="${base_name%_vendu}"
 
-        # Extraire uniquement le numéro principal, sans 'b' ni autres caractères
-        image_number=$(echo "$clean_base_name" | sed 's/[^0-9]*//g')
+        # Extraire uniquement le début du nom (avant le 'b') et supprimer le 'b'
+        image_number=$(echo "$clean_base_name" | sed 's/b$//')
 
         # Variables par défaut
         price="x"
@@ -88,6 +88,7 @@ generate_image_list() {
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 
 
 

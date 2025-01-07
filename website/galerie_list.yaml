@@ -1,13 +1,13 @@
 images:
   - src: img/gallerie/117b_100_30x20x20_1,5.webp
-    srct: img/gallerie/11710030202015s.webp
-    title: "11710030202015:#en_vente"
-    numero: 11710030202015
+    srct: img/gallerie/117b_100_30x20x20_1,5s.webp
+    title: "117b_100_30x20x20_1,5:#en_vente"
+    numero: 117b_100_30x20x20_1,5
     description: "100 €, 30x20x20 cm, 1,5 kg"
   - src: img/gallerie/116b_150_30x30x18_1,8.webp
-    srct: img/gallerie/11615030301818s.webp
-    title: "11615030301818:#en_vente"
-    numero: 11615030301818
+    srct: img/gallerie/116b_150_30x30x18_1,8s.webp
+    title: "116b_150_30x30x18_1,8:#en_vente"
+    numero: 116b_150_30x30x18_1,8
     description: "150 €, 30x30x18 cm, 1,8 kg"
   - src: img/gallerie/115b.webp
     srct: img/gallerie/115s.webp
