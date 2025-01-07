@@ -57,7 +57,7 @@ generate_image_list() {
 
         # Nettoyer le nom de base pour extraire les informations
         clean_base_name="${base_name%_vendu}"
-        image_number="${clean_base_name%b}"  # Enlever le 'b' du numéro
+        image_number="${clean_base_name%}" # Conserver le 'b' pour l'image_number
 
         # Variables par défaut
         price="x"
@@ -86,6 +86,7 @@ generate_image_list() {
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 
 
 
