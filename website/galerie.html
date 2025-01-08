@@ -87,7 +87,12 @@
                     const hoverEffect = isMobile()
                         ? "borderLighter" // Mobile : sans labelSlideUp
                         : "borderLighter|labelSlideUp"; // Desktop : avec labelSlideUp
-        
+                    const viewerTools = isMobile()
+                        ? {} // Mobile: No viewer tools
+                        : {
+                            topLeft: "zoomButton",
+                            topRight: "fullscreenButton, closeButton",
+                        }; // Desktop: Enable viewer tools
                     jQuery("#ngy2p").nanogallery2({
                         items: items,
                         thumbnailWidth: "300",
@@ -114,10 +119,7 @@
                         imageTransition: "slideUP",
                         viewerHideToolsDelay: "2000",
                         viewerGallery: "none",
-                        viewerTools: {
-                            topLeft: "zoomButton",
-                            topRight: "fullscreenButton, closeButton",
-                        },
+                        viewerTools: viewerTools,
                         viewerToolbar: {
                             display: false,
                             position: "bottom",
