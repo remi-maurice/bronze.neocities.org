@@ -88,7 +88,10 @@
                         ? "borderLighter" // Mobile : sans labelSlideUp
                         : "borderLighter|labelSlideUp"; // Desktop : avec labelSlideUp
                     const viewerTools = isMobile()
-                        ? {} // Mobile: No viewer tools
+                        ? {
+                            topLeft: "zoomButton",
+                            topRight: "fullscreenButton, closeButton",
+                        } // Mobile: No viewer tools
                         : {
                             topLeft: "zoomButton",
                             topRight: "fullscreenButton, closeButton",
