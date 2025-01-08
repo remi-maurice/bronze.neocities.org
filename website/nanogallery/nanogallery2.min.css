@@ -26,9 +26,9 @@
 
 @font-face {
     font-family: ngy2_icon_font;
-    src: url(ngy2_icon_font.woff2?64889571) format('woff2'), url(ngy2_icon_font.woff?64889571) format('woff');
-    font-weight: 400;
-    font-style: normal
+    src: url(ngy2_icon_font.woff2) format('woff2');
+    font-weight: 600;
+    font-style: bold;
 }
 
 .nGY2Icon-star:before {
