@@ -1,17 +1,32 @@
 #!/bin/sh
-# This script is to easily git push and neocities push as well as modifyfing new images and stuff
-read -p "Message pour l'historique(obligatoire):" commit_message
-# Directories
+
+#PARAMETERS#####################################################
+
+large_image_size="1920x1080>"
+large_image_quality="100"
+
+small_image_size="300x>"
+small_image_quality="100"
+
+github_depo="remi-maurice/bronze.neocities.org"
+
+workpath="$HOME/bronze.neocities.org"
+
+# Directories###################################################
+
 IMAGE_DIR="./website/img/gallerie"
 ORIGINAL_DIR="./original"
 OUTPUT_FILE="./website/galerie_list.yaml"
 PROCESSED_FILE="./website/img/gallerie/processed_images.txt"
 
-# Function to resize and compress images
+# Processing of new images #####################################
+
+read -p "Message pour l'historique(obligatoire):" commit_message
+
 resize_and_compress_images() {
     echo "Redimensionnement et compression des images..."
     max_number=$(ls -1 $IMAGE_DIR/*b.webp 2>/dev/null | awk -F '/' '{print $NF}' | awk -F 'b.webp' '{print $1}' | sort -nr | head -n1)
-    max_number=${max_number:-0} # Set to 0 if no image found
+    max_number=${max_number:-0}
     next_number=$((max_number + 1))
 
     for file in "$ORIGINAL_DIR"/*; do
@@ -24,11 +39,11 @@ resize_and_compress_images() {
                 small_image="${next_number}s.webp"
             fi
 
-            magick "$file" -auto-orient -resize '1920x1080>' -quality 100 -define webp:lossless=true \
+            magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" -define webp:lossless=true \
                 -define webp:auto-filter=true -define webp:filter-strength=0 -define webp:method=4 \
                 -define webp:partition-limit=0 -define webp:sns-strength=0 "$IMAGE_DIR/$large_image"
 
-            magick "$file" -auto-orient -resize '300x>' -quality 75 -define webp:lossless=false \
+            magick "$file" -auto-orient -resize "$small_image_size" -quality "$small_image_quality" -define webp:lossless=false \
                 -define webp:auto-filter=true -define webp:filter-strength=25 -define webp:method=4 \
                 -define webp:partition-limit=0 -define webp:sns-strength=0 "$IMAGE_DIR/$small_image"
 
@@ -39,8 +54,7 @@ resize_and_compress_images() {
         fi
     done
 }
-
-# Function to generate galerie_list.yaml
+# Processing of the image filenames to create a .yaml file that is then used by nanogallery #
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
     echo "images:" > $OUTPUT_FILE
@@ -48,7 +62,7 @@ generate_image_list() {
     for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
         base_name=$(basename "$image" .webp)
 
-        # Déterminer le statut
+        # Si le fichier a _vendu dans le titre 
         if [[ "$base_name" == *"_vendu"* ]]; then
             status="vendu"
         else
@@ -86,17 +100,7 @@ generate_image_list() {
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
-
-
-
-
-
-
-
-
-
-
-
+# Execution #####################################################################
 # Start the timer
 start_time=$(date +%s)
 
@@ -109,21 +113,23 @@ generate_image_list
 echo "Suppression des images originales..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
+
 #______________________________________________________________________________________
-# Push to GitHub:
+# Push vers GitHub:
 echo "______________________________________________"
 echo "Envoi vers Github"
-cd $HOME/bronze.neocities.org
+cd "$workpath"
 git add .
 git commit -m "$commit_message" 
 git push -u origin master
-# Vérifier les workflows GitHub Actions
+
+# Suivi des GitHub Actions
 echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
 # Vérifier les workflows toutes les 5 secondes (max 60 secondes)
 timeout=30
 while ((timeout > 0)); do
-    latest_run_id=$(gh run list --repo remi-maurice/bronze.neocities.org --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
+    latest_run_id=$(gh run list --repo "$github_depo"--status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
 
     if [ -n "$latest_run_id" ]; then
         gh run watch "$latest_run_id"
