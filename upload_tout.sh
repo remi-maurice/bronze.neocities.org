@@ -10,14 +10,14 @@ small_image_quality="100"
 
 github_depo="remi-maurice/bronze.neocities.org"
 
-workpath="$HOME/bronze.neocities.org"
-
 # Directories###################################################
 
-IMAGE_DIR="./website/img/gallerie"
-ORIGINAL_DIR="./original"
-OUTPUT_FILE="./website/galerie_list.yaml"
-PROCESSED_FILE="./website/img/gallerie/processed_images.txt"
+workpath="$HOME/bronze.neocities.org"
+
+IMAGE_DIR="$workpath/website/img/gallerie"
+ORIGINAL_DIR="$workpath/original"
+OUTPUT_FILE="$workpath/website/galerie_list.yaml"
+PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
 
 # Processing of new images #####################################
 
