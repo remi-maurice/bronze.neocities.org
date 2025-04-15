@@ -1,4 +1,14 @@
 images:
+  - src: img/gallerie/130b.webp
+    srct: img/gallerie/130s.webp
+    title: "130:#en_vente"
+    numero: 130
+    description: ""
+  - src: img/gallerie/129b.webp
+    srct: img/gallerie/129s.webp
+    title: "129:#en_vente"
+    numero: 129
+    description: ""
   - src: img/gallerie/128b.webp
     srct: img/gallerie/128s.webp
     title: "128:#en_vente"
@@ -59,21 +69,11 @@ images:
     title: "117:#en_vente"
     numero: 117
     description: "600€, 40x20x10cm, 3kg"
-  - src: img/gallerie/117b.webp
-    srct: img/gallerie/117s.webp
-    title: "117:#en_vente"
-    numero: 117
-    description: ""
   - src: img/gallerie/116b_350_15x10x8_1.3.webp
     srct: img/gallerie/116s.webp
     title: "116:#en_vente"
     numero: 116
     description: "350€, 15x10x8cm, 1.3kg"
-  - src: img/gallerie/116b.webp
-    srct: img/gallerie/116s.webp
-    title: "116:#en_vente"
-    numero: 116
-    description: ""
   - src: img/gallerie/115b.webp
     srct: img/gallerie/115s.webp
     title: "115:#en_vente"
@@ -104,9 +104,9 @@ images:
     title: "110:#en_vente"
     numero: 110
     description: ""
-  - src: img/gallerie/109b.webp
+  - src: img/gallerie/109b_vendu.webp
     srct: img/gallerie/109s.webp
-    title: "109:#en_vente"
+    title: "109:#vendu"
     numero: 109
     description: ""
   - src: img/gallerie/108b_vendu.webp
@@ -319,9 +319,9 @@ images:
     title: "46:#en_vente"
     numero: 46
     description: ""
-  - src: img/gallerie/43b.webp
+  - src: img/gallerie/43b_vendu.webp
     srct: img/gallerie/43s.webp
-    title: "43:#en_vente"
+    title: "43:#vendu"
     numero: 43
     description: ""
   - src: img/gallerie/42b_vendu.webp
