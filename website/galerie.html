@@ -14,22 +14,22 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Controle du cache -->		
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />
+    <!-- Controle du cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
     <!-- Les trucs pour la galerie, on touche pas. https://nanogallery2.nanostudio.org/ -->
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-    <script type="text/javascript" src="nanogallery/jquery.min.js"></script>
-    <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js"></script>
-    <link href="nanogallery/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="nanogallery/jquery.min.js?v=<?=Date.now()?>"></script>
+    <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js?v=<?=Date.now()?>"></script>
+    <link href="nanogallery/nanogallery2.min.css?v=<?=Date.now()?>" rel="stylesheet" type="text/css">
 
     <!-- le css -->
-    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/simple.css?v=<?=Date.now()?>">
 
     <!-- js-yaml pour lire les fichiers YAML -->
-    <script src="nanogallery/js-yaml.min.js"></script>
+    <script src="nanogallery/js-yaml.min.js?v=<?=Date.now()?>"></script>
 </head>
 
 <body id="top" style="background-color: #808080;">
@@ -59,14 +59,17 @@
         <a href="#top" class="scrollToTopBtn">↑</a>
         
         <!--On met toute la page ici!-->
-		Pour acheter une de mes sculptures, contactez moi par mail à <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a>
+        Pour acheter une de mes sculptures, contactez moi par mail à 
+        <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">
+            victor.mo@laposte.net
+        </a>
 
         <!-- Nanogallery intégré avec une database yaml-->
-        <div id="ngy2p">
-        </div>
+        <div id="ngy2p"></div>
         <script type="text/javascript">
             jQuery(document).ready(async function () {
-                const yamlFile = 'galerie_list.yaml'; // Chemin vers le fichier YAML
+                const timestamp = new Date().getTime();
+                const yamlFile = `galerie_list.yaml?v=${timestamp}`; // Chemin vers le fichier YAML avec un cache buster
                 const folderPath = 'img/gallerie/'; // Répertoire des images
         
                 // Fonction pour lire le fichier YAML
@@ -87,14 +90,8 @@
                         ? "borderLighter" // Mobile : sans labelSlideUp
                         : "borderLighter|labelSlideUp"; // Desktop : avec labelSlideUp
                     const viewerTools = isMobile()
-                        ? {
-                            topLeft: "zoomButton",
-                            topRight: "fullscreenButton, closeButton",
-                        } // Mobile: No viewer tools
-                        : {
-                            topLeft: "zoomButton",
-                            topRight: "fullscreenButton, closeButton",
-                        }; // Desktop: Enable viewer tools
+                        ? { topLeft: "zoomButton", topRight: "fullscreenButton, closeButton" }
+                        : { topLeft: "zoomButton", topRight: "fullscreenButton, closeButton" };
                     jQuery("#ngy2p").nanogallery2({
                         items: items,
                         thumbnailWidth: "300",
@@ -113,7 +110,7 @@
                         thumbnailDisplayTransition: "SLIDEAPPEAR",
                         thumbnailDisplayTransitionDuration: 100,
                         thumbnailDisplayInterval: 30,
-                        thumbnailHoverEffect2: hoverEffect, // Définir l'effet en fonction de l'appareil
+                        thumbnailHoverEffect2: hoverEffect,
                         thumbnailAlignment: "center",
                         thumbnailGutterWidth: 10,
                         thumbnailGutterHeight: 10,
@@ -137,19 +134,17 @@
                 // Charger et traiter les données YAML
                 const yamlData = await loadYAML(yamlFile);
                 const galleryItems = yamlData.images.map((image) => ({
-                    src: folderPath + image.src.split('/').pop(), // Grande image
-                    srct: folderPath + image.srct.split('/').pop(), // Miniature
-                    title: image.title, // Titre
-                    description: image.description, // Description ajoutée
-                    numero: image.numero, // Numéro
+                    src: folderPath + image.src.split('/').pop(),
+                    srct: folderPath + image.srct.split('/').pop(),
+                    title: image.title,
+                    description: image.description,
+                    numero: image.numero,
                 }));
         
                 // Initialiser la galerie avec les données YAML
                 initializeGallery(galleryItems);
             });
         </script>
-        
-        
     </main>
     
     <footer>
