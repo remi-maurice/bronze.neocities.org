@@ -1,17 +1,10 @@
 #!/bin/sh
 
-#PARAMETERS#####################################################
-
-large_image_size="1920x1080>"
-large_image_quality="100"
-
-small_image_size="300x>"
-small_image_quality="100"
-
+#WICH_GITHUB####################################################
 github_depo="remi-maurice/bronze.neocities.org"
 
-# Directories###################################################
 
+# Directories###################################################
 workpath="$HOME/bronze.neocities.org"
 
 IMAGE_DIR="$workpath/website/img/gallerie"
@@ -19,9 +12,18 @@ ORIGINAL_DIR="$workpath/original"
 OUTPUT_FILE="$workpath/website/galerie_list.yaml"
 PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
 
-# Processing of new images #####################################
+#IMAGE_RESIZING_OPTIONS#########################################
+large_image_size="1920x1080>"
+large_image_quality="100"
 
-read -p "Message pour l'historique(obligatoire):" commit_message
+small_image_size="300x>"
+small_image_quality="100"
+
+#HOT_MESS_BEGINS################################################
+while [ -z "$commit_message" ]; do
+  read -p "Message pour l'historique: " commit_message
+done
+
 
 resize_and_compress_images() {
     echo "Redimensionnement et compression des images..."
@@ -54,6 +56,7 @@ resize_and_compress_images() {
         fi
     done
 }
+
 # Processing of the image filenames to create a .yaml file that is then used by nanogallery #
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
@@ -100,22 +103,19 @@ generate_image_list() {
         echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
 }
+
 # Execution #####################################################################
-# Start the timer
 start_time=$(date +%s)
 
-# Resize and compress images
 resize_and_compress_images
 
-# Generate galerie_list.yaml
 generate_image_list
 
 echo "Suppression des images originales..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
 
-#______________________________________________________________________________________
-# Push vers GitHub:
+# Push vers GitHub ##############################################################
 echo "______________________________________________"
 echo "Envoi vers Github"
 cd "$workpath"
