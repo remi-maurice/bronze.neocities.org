@@ -13,8 +13,8 @@ news:
          titre_lien: 
          lien: 
          description: Exposition à Castillon
-         image: "img/news/Affiche_Exposition_Castillon_2025.pdf"
-         taille_image: "50vh"
+         image: "img/news/Affiche_Exposition_Castillon_2025.jpg"
+         taille_image: "60vh"
          
        - date: 22 décembre 2024
          titre_lien: 
