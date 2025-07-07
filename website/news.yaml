@@ -7,16 +7,15 @@ news:
          lien: 
          description:
          image: 
-         taille_image: "50vh"
+         taille_image: "50vh"   
          
-       - date: 
+       - date: Du 18 au 20 Juillet 2025
          titre_lien: 
          lien: 
-         description:
-         image: 
-         taille_image: "50vh"   
-
-
+         description: Exposition à Castillon
+         image: "img/news/Affiche_Exposition_Castillon_2025.pdf"
+         taille_image: "50vh"
+         
        - date: 22 décembre 2024
          titre_lien: 
          lien: 
