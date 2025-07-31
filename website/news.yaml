@@ -1,12 +1,25 @@
 news:
   - category: Expositions
     items:
-
        - date: 
          titre_lien: 
          lien: 
          description:
          image: 
+         taille_image: "50vh"   
+       
+       - date: Le jeudi 14 aout 2025
+         titre_lien: 
+         lien: 
+         description: Marché Nocturne à Massat
+         image: "img/news/m_nocturne_massat_25.jpg"
+         taille_image: "50vh"   
+
+       - date: Le mercredi 6 aout 2025 
+         titre_lien: 
+         lien: 
+         description: Marché Extraordinaire à Soueix
+         image: "img/news/soueix_extraordinaire_2025_web.webp"
          taille_image: "50vh"   
          
        - date: Du 18 au 20 Juillet 2025
