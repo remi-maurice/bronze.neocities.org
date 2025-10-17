@@ -354,9 +354,9 @@ images:
     title: "37:#vendu"
     numero: 37
     description: ""
-  - src: img/gallerie/36b.webp
+  - src: img/gallerie/36b_vendu.webp
     srct: img/gallerie/36s.webp
-    title: "36:#en_vente"
+    title: "36:#vendu"
     numero: 36
     description: ""
   - src: img/gallerie/35b_vendu.webp
@@ -374,9 +374,9 @@ images:
     title: "33:#vendu"
     numero: 33
     description: ""
-  - src: img/gallerie/32b.webp
+  - src: img/gallerie/32b_vendu.webp
     srct: img/gallerie/32s.webp
-    title: "32:#en_vente"
+    title: "32:#vendu"
     numero: 32
     description: ""
   - src: img/gallerie/31b_vendu.webp
