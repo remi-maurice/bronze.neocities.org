@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
 
 #WICH_GITHUB####################################################
 github_depo="remi-maurice/bronze.neocities.org"
@@ -79,35 +80,53 @@ resize_and_compress_images() {
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
 
+    # Vérifier qu'on est en bash (safety)
+    if [ -z "$BASH_VERSION" ]; then
+        echo "Erreur : ce script doit être exécuté avec bash."
+        return 1
+    fi
+
     declare -A existing_order
     max_existing_order=0
 
-    # Lire l'ancien YAML pour récupérer les orders si existant
+    # Parse existing YAML to get orders (accept "- src:" with optional spaces)
     if [ -f "$OUTPUT_FILE" ]; then
         current_src=""
-        while IFS= read -r line; do
-            if [[ $line =~ src:\ img/gallerie/([^[:space:]]+) ]]; then
+        while IFS= read -r line || [ -n "$line" ]; do
+            if [[ $line =~ ^[[:space:]]*-[[:space:]]*src:[[:space:]]*img/gallerie/([^[:space:]]+) ]]; then
                 current_src="${BASH_REMATCH[1]}"
+            elif [[ $line =~ ^[[:space:]]*order:[[:space:]]*([0-9]+) ]]; then
+                order_value="${BASH_REMATCH[1]}"
+                if [[ -n "$current_src" ]]; then
+                    existing_order["$current_src"]="$order_value"
+                fi
+                if (( order_value > max_existing_order )); then
+                    max_existing_order=$order_value
+                fi
             fi
-            if [[ $line =~ order:\ ([0-9]+) ]]; then
-            order_value="${BASH_REMATCH[1]}"
-
-            if [[ -n "$current_src" ]]; then
-                existing_order["$current_src"]="$order_value"
-            fi
-
-            if (( order_value > max_existing_order )); then
-                max_existing_order=$order_value
-            fi
-        fi
-
         done < "$OUTPUT_FILE"
+        echo "→ Ordre maximum existant : $max_existing_order"
+    else
+        echo "→ Aucun YAML existant trouvé."
     fi
 
-    # TEMPFILE pour recevoir les blocs (un bloc = une image, séparé par une ligne vide)
-    tmpfile=$(mktemp) || { echo "Erreur: impossible de créer tmpfile"; return 1; }
+    # Create a temporary directory for per-image blocks
+    tmpdir=$(mktemp -d) || { echo "Erreur: impossible de créer tmpdir"; return 1; }
 
-    for image in $(ls $IMAGE_DIR/*b*.webp 2>/dev/null | sort -V); do
+    # Ensure we handle the case of no images gracefully
+    shopt -s nullglob
+    images=( "$IMAGE_DIR"/*b*.webp )
+    if [ ${#images[@]} -eq 0 ]; then
+        echo "→ Aucun fichier image trouvé dans $IMAGE_DIR"
+        # Create empty YAML
+        { echo "images:"; printf "\n"; } > "$OUTPUT_FILE"
+        rmdir "$tmpdir"
+        return 0
+    fi
+
+    # Iterate in natural (version) order so numbering is consistent
+    IFS=$'\n'
+    for image in $(ls "$IMAGE_DIR"/*b*.webp 2>/dev/null | sort -V); do
         base_name=$(basename "$image" .webp)
 
         if [[ "$base_name" == *"_vendu"* ]]; then
@@ -128,9 +147,9 @@ generate_image_list() {
         fi
 
         description=""
-        [[ "$price" != "x" ]] && description+="$price"€""
-        [[ "$dimensions" != "x" ]] && description+="${description:+, }$dimensions"cm""
-        [[ "$weight" != "x" ]] && description+="${description:+, }$weight"kg""
+        [[ "$price" != "x" ]] && description+="${price}€"
+        [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
+        [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
 
         key="${base_name}.webp"
         if [[ -n "${existing_order["$key"]}" ]]; then
@@ -138,40 +157,43 @@ generate_image_list() {
         else
             order_value=$((max_existing_order + 1))
             max_existing_order=$order_value
+            echo "  → Nouvelle image détectée : $base_name (order=$order_value)"
         fi
 
-        # écrire UN bloc complet dans tmpfile, suivi d'une ligne vide
+        # Create a filename padded by order to allow lexical sort (pad to width 6)
+        printf -v orderpad "%06d" "$order_value"
+        blockfile="$tmpdir/${orderpad}_${base_name}.block"
+
         {
             echo "  - src: img/gallerie/${base_name}.webp"
             echo "    srct: img/gallerie/${image_number}s.webp"
-            echo "    title: \"$image_number:#$status\""
-            echo "    numero: $image_number"
-            echo "    order: $order_value"
-            echo "    description: \"$description\""
-            printf "\n\n"
-        } >> "$tmpfile"
+            echo "    title: \"${image_number}:#${status}\""
+            echo "    numero: ${image_number}"
+            echo "    order: ${order_value}"
+            echo "    description: \"${description}\""
+            # ensure file ends with a blank line (separator)
+            printf "\n"
+        } > "$blockfile"
     done
+    unset IFS
+    shopt -u nullglob
 
-    # Maintenant trier les blocs par order (descendant) en s'assurant que chaque bloc reste intact
-    # awk avec RS="" traite chaque bloc (séparé par ligne vide) comme un enregistrement.
-    # ON fixe ORS à deux sauts pour garder une séparation propre entre blocs.
+    # Now concatenate files in descending order (newest first)
     {
         echo "images:"
         printf "\n"
-        awk 'BEGIN{RS=""; ORS="\n\n"}
-            {
-                if (match($0, /order:[[:space:]]*([0-9]+)/, m)) {
-                    print m[1] "|||" $0
-                }
-            }' "$tmpfile" \
-        | sort -t'|' -k1,1nr \
-        | sed 's/^[0-9]*|||//' 
+        # list files sorted reverse (highest order first)
+        ls -1 "$tmpdir" | sort -r | while IFS= read -r f; do
+            cat "$tmpdir/$f"
+        done
     } > "$OUTPUT_FILE"
 
-    rm -f "$tmpfile"
+    # Cleanup
+    rm -rf "$tmpdir"
 
     echo "galerie_list.yaml mis à jour."
 }
+
 
 
 ################################################################################
