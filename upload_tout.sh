@@ -77,45 +77,39 @@ resize_and_compress_images() {
 ################################################################################
 
 generate_image_list() {
-    echo ""
-    echo "==================="
-    echo "2) Génération du fichier YAML"
-    echo "==================="
-    step2_start=$(date +%s)
+    echo "Génération de galerie_list.yaml..."
 
     declare -A existing_order
     max_existing_order=0
 
-    echo "→ Lecture de l'ancien YAML pour récupérer les ordres..."
+    # Lire l'ancien YAML pour récupérer les orders si existant
     if [ -f "$OUTPUT_FILE" ]; then
         current_src=""
         while IFS= read -r line; do
             if [[ $line =~ src:\ img/gallerie/([^[:space:]]+) ]]; then
-                current_src="${BASHREMATCH[1]}"
+                current_src="${BASH_REMATCH[1]}"
             fi
             if [[ $line =~ order:\ ([0-9]+) ]]; then
-                order_value="${BASHREMATCH[1]}"
+                order_value="${BASH_REMATCH[1]}"
                 existing_order["$current_src"]="$order_value"
                 if (( order_value > max_existing_order )); then
                     max_existing_order=$order_value
                 fi
             fi
         done < "$OUTPUT_FILE"
-        echo "→ Ordre maximum existant : $max_existing_order"
-    else
-        echo "→ Aucun fichier YAML existant."
     fi
 
-    echo "→ Reconstruction du YAML..."
-    tmpfile=$(mktemp)
-    echo "images:" > "$tmpfile"
-    printf "\n" >> "$tmpfile"
+    # TEMPFILE pour recevoir les blocs (un bloc = une image, séparé par une ligne vide)
+    tmpfile=$(mktemp) || { echo "Erreur: impossible de créer tmpfile"; return 1; }
 
-    for image in $(ls $IMAGE_DIR/*b*.webp | sort -V); do
+    for image in $(ls $IMAGE_DIR/*b*.webp 2>/dev/null | sort -V); do
         base_name=$(basename "$image" .webp)
 
-        if [[ "$base_name" == *"_vendu"* ]]; then status="vendu"
-        else status="en_vente"; fi
+        if [[ "$base_name" == *"_vendu"* ]]; then
+            status="vendu"
+        else
+            status="en_vente"
+        fi
 
         clean_base_name="${base_name%_vendu}"
         image_number="${clean_base_name%%b*}"
@@ -123,7 +117,9 @@ generate_image_list() {
         price="x"; dimensions="x"; weight="x"
         if [[ "$clean_base_name" == *"_"* ]]; then
             IFS='_' read -r -a parts <<< "$clean_base_name"
-            price="${parts[1]}"; dimensions="${parts[2]}"; weight="${parts[3]}"
+            price="${parts[1]}"
+            dimensions="${parts[2]}"
+            weight="${parts[3]}"
         fi
 
         description=""
@@ -137,9 +133,9 @@ generate_image_list() {
         else
             order_value=$((max_existing_order + 1))
             max_existing_order=$order_value
-            echo "  → Nouvelle image détectée : $base_name (order=$order_value)"
         fi
 
+        # écrire UN bloc complet dans tmpfile, suivi d'une ligne vide
         {
             echo "  - src: img/gallerie/${base_name}.webp"
             echo "    srct: img/gallerie/${image_number}s.webp"
@@ -151,20 +147,25 @@ generate_image_list() {
         } >> "$tmpfile"
     done
 
-    echo "→ Tri par ordre décroissant..."
+    # Maintenant trier les blocs par order (descendant) en s'assurant que chaque bloc reste intact
+    # awk avec RS="" traite chaque bloc (séparé par ligne vide) comme un enregistrement.
+    # ON fixe ORS à deux sauts pour garder une séparation propre entre blocs.
     {
         echo "images:"
         printf "\n"
-        awk -v RS= '/src:/ {
-            match($0, /order:[[:space:]]*([0-9]+)/, m)
-            print m[1] "|||" $0
-        }' "$tmpfile" | sort -t '|' -k1,1nr | sed 's/^[0-9]*|||//'
+        awk 'BEGIN{RS=""; ORS="\n\n"}
+            {
+                if (match($0, /order:[[:space:]]*([0-9]+)/, m)) {
+                    print m[1] "|||" $0
+                }
+            }' "$tmpfile" \
+        | sort -t'|' -k1,1nr \
+        | sed 's/^[0-9]*|||//' 
     } > "$OUTPUT_FILE"
 
-    rm "$tmpfile"
+    rm -f "$tmpfile"
 
-    step2_end=$(date +%s)
-    echo "→ YAML généré en $((step2_end - step2_start)) secondes"
+    echo "galerie_list.yaml mis à jour."
 }
 
 
