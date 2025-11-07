@@ -29,45 +29,33 @@ while [ -z "$commit_message" ]; do
 done
 
 # ============================================================
-# SORT YAML BY sortOrder
+# HELPER FUNCTIONS
 # ============================================================
-sort_yaml_by_sortOrder() {
-    echo "Tri de galerie_list.yaml selon sortOrder..."
 
-    TMP_SORTED="$workpath/sorted_galerie.yaml"
-
-    awk '
-        BEGIN { block=""; order=0 }
-        /^  - src:/ {
-            if (block != "") print order "|" block;
-            block=$0 "\n"; order=0; next
-        }
-        /sortOrder:/ {
-            split($0, a, ":"); order=a[2]+0
-        }
-        { block = block $0 "\n" }
-        END { if (block != "") print order "|" block }
-    ' "$OUTPUT_FILE" 2>/dev/null \
-        | sort -nr -t '|' -k1,1 \
-        | cut -d'|' -f2- \
-        | { echo "images:"; cat; } \
-        > "$TMP_SORTED"
-
-    mv "$TMP_SORTED" "$OUTPUT_FILE"
+# Load existing YAML into a temporary array of blocks
+load_existing_yaml() {
+    EXISTING_BLOCKS=""
+    if [ -f "$OUTPUT_FILE" ]; then
+        # Split blocks by '- src:'
+        awk 'BEGIN{RS="  - src:"; ORS=""} NR>1{print "  - src:"$0"\n"}' "$OUTPUT_FILE"
+    fi
 }
 
 # ============================================================
 # IMAGE RESIZING AND NUMBERING
 # ============================================================
-resize_and_compress_images() {
-    echo "Redimensionnement et compression des images..."
+resize_and_number_new_images() {
+    echo "Redimensionnement et compression des nouvelles images..."
     last_number=$(cat "$LAST_NUMBER_FILE")
-
+    
+    NEW_BLOCKS=""
+    
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
             last_number=$((last_number + 1))
             echo "$last_number" > "$LAST_NUMBER_FILE"
 
+            # Determine filenames
             if [[ "$file" == *"_vendu"* ]]; then
                 large_image="${last_number}b_vendu.webp"
                 small_image="${last_number}s_vendu.webp"
@@ -76,6 +64,7 @@ resize_and_compress_images() {
                 small_image="${last_number}s.webp"
             fi
 
+            # Resize images
             magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" \
                 -define webp:lossless=true -define webp:auto-filter=true \
                 -define webp:filter-strength=0 -define webp:method=4 \
@@ -91,54 +80,82 @@ resize_and_compress_images() {
             echo "$file converti en $large_image et $small_image"
             echo "$large_image" >> $PROCESSED_FILE
             echo "$small_image" >> $PROCESSED_FILE
+
+            # Determine metadata
+            base_name=$(basename "$large_image" .webp)
+            status="en_vente"
+            [[ "$base_name" == *"_vendu"* ]] && status="vendu"
+            
+            clean_base="${base_name%_vendu}"
+            image_number="$last_number"
+
+            price="x"; dimensions="x"; weight="x"
+            if [[ "$clean_base" == *"_"* ]]; then
+                IFS='_' read -r -a parts <<< "$clean_base"
+                price="${parts[1]}"
+                dimensions="${parts[2]}"
+                weight="${parts[3]}"
+            fi
+
+            description=""
+            [[ "$price" != "x" ]] && description+="${price}€"
+            [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
+            [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
+
+            # Build YAML block
+            NEW_BLOCKS="${NEW_BLOCKS}
+  - src: img/gallerie/${large_image}.webp
+    srct: img/gallerie/${small_image}.webp
+    title: \"$image_number:#$status\"
+    numero: $image_number
+    sortOrder: $image_number
+    description: \"$description\""
         fi
     done
+
+    echo "$NEW_BLOCKS"
 }
 
 # ============================================================
-# GENERATE YAML WITH sortOrder
+# GENERATE FINAL YAML
 # ============================================================
-generate_image_list() {
-    echo "Génération de galerie_list.yaml..."
+generate_final_yaml() {
+    NEW_BLOCKS=$(resize_and_number_new_images)
+    
+    echo "Génération finale de galerie_list.yaml..."
+
+    # Load existing blocks
+    EXISTING_BLOCKS=$(load_existing_yaml)
+
+    # Combine: new blocks first, then existing blocks that are not duplicates
+    FINAL_BLOCKS="$NEW_BLOCKS"
+    if [ -n "$EXISTING_BLOCKS" ]; then
+        while read -r block; do
+            # Extract src filename
+            src_line=$(echo "$block" | grep "src:" | awk '{print $2}')
+            # Only add if not already in NEW_BLOCKS
+            if ! echo "$NEW_BLOCKS" | grep -q "$src_line"; then
+                FINAL_BLOCKS="${FINAL_BLOCKS}
+$block"
+            fi
+        done <<< "$EXISTING_BLOCKS"
+    fi
+
+    # Write YAML header
     echo "images:" > "$OUTPUT_FILE"
 
-    for image in $(ls $IMAGE_DIR/*b*.webp 2>/dev/null | sort -V); do
-        base_name=$(basename "$image" .webp)
-
-        # Status
-        status="en_vente"
-        [[ "$base_name" == *"_vendu"* ]] && status="vendu"
-
-        # Extract number
-        clean_base="${base_name%_vendu}"
-        image_number="${clean_base%%b*}"
-
-        # Metadata
-        price="x"; dimensions="x"; weight="x"
-        if [[ "$clean_base" == *"_"* ]]; then
-            IFS='_' read -r -a parts <<< "$clean_base"
-            price="${parts[1]}"
-            dimensions="${parts[2]}"
-            weight="${parts[3]}"
-        fi
-
-        # Description
-        description=""
-        [[ "$price" != "x" ]] && description+="${price}€"
-        [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
-        [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
-
-        # YAML block with sortOrder
+    # Sort final blocks descending by sortOrder
+    echo "$FINAL_BLOCKS" | awk '
+        BEGIN { RS=""; FS="\n"; OFS="\n" }
         {
-            echo ""
-            echo "  - src: img/gallerie/${base_name}.webp"
-            echo "    srct: img/gallerie/${image_number}s.webp"
-            echo "    title: \"$image_number:#$status\""
-            echo "    numero: $image_number"
-            echo "    sortOrder: $image_number"
-            echo "    description: \"$description\""
-        } >> "$OUTPUT_FILE"
-    done
+            for(i=1;i<=NF;i++){
+                if($i ~ /sortOrder:/) { split($i,a,":"); order=a[2]+0 }
+            }
+            print order "|" $0
+        }' \
+    | sort -nr -t '|' -k1,1 \
+    | cut -d'|' -f2- \
+    >> "$OUTPUT_FILE"
 }
 
 # ============================================================
@@ -146,10 +163,7 @@ generate_image_list() {
 # ============================================================
 start_time=$(date +%s)
 
-sort_yaml_by_sortOrder        # reorder existing YAML
-resize_and_compress_images
-generate_image_list
-sort_yaml_by_sortOrder        # sort after adding new images
+generate_final_yaml
 
 # Cleanup originals
 echo "Suppression des images originales..."
