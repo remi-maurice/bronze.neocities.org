@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+start_time=$(date +%s)
 
 #WICH_GITHUB####################################################
 github_depo="remi-maurice/bronze.neocities.org"
@@ -272,8 +273,15 @@ echo "→ Suivi terminé en $((step5_end - step5_start)) secondes"
 ################################################################################
 # FINAL MESSAGE
 ################################################################################
+end_time=$(date +%s)
+duration=$(( end_time - start_time ))
+
+# Conversion en minutes et secondes
+minutes=$(( duration / 60 ))
+seconds=$(( duration % 60 ))
+
 echo ""
 echo "============================================="
 echo "✅ Mise à jour terminée"
-echo "⏱️ Durée totale : $(( $(date +%s) - start_time )) secondes"
+echo "⏱️ Durée totale : ${minutes}m${seconds}s"
 echo "============================================="
