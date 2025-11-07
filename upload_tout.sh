@@ -141,7 +141,7 @@ while ((timeout > 0)); do
         break
     else
         # Print spinner
-        printf "\r%s Patience... \r%s" "${spinner:i++%${#spinner}:1}"
+        printf "\r%s Github Actions are Starting, just wait a bit... \r%s" "${spinner:i++%${#spinner}:1}"
         sleep 0.2  # controls animation speed
         timeout=$((timeout - 1))
     fi
@@ -157,4 +157,6 @@ elapsed_time=$((end_time - start_time))
 
 # Final message
 echo "______________________________________________"
-echo "MAJ terminée en $elapsed_time secondes !"
+echo "Mise A Jour terminée en $elapsed_time secondes"
+echo "______________________________________________"
+
