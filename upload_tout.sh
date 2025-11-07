@@ -36,10 +36,9 @@ resize_and_compress_images() {
     echo "=============================================="
 
     echo "→ Recherche du prochain numéro disponible..."
-    YAML_FILE="galerie_list.yaml"
 
     # Extraire tous les numéros déjà utilisés dans le YAML
-    used_numbers=$(grep -oP '^    numero: \K[0-9]+' "$YAML_FILE")
+    used_numbers=$(grep -oP '^    numero: \K[0-9]+' "$OUTPUT_FILE")
 
     # Trouver le maximum
     max_number=0
@@ -82,7 +81,7 @@ resize_and_compress_images() {
         fi
     done
 
-    echo "→ Traitement des image términé"
+    echo " Traitement des image términé"
 }
 
 ################################################################################
