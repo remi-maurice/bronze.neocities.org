@@ -130,7 +130,7 @@ echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
 
 dots=0
-max_dots=5
+max_dots=3
 timeout=30
 
 while ((timeout > 0)); do
