@@ -30,9 +30,9 @@ done
 
 resize_and_compress_images() {
     echo ""
-    echo "==================="
-    echo "1) Traitement des nouvelles images"
-    echo "==================="
+    echo "=============================================="
+    echo "Traitement des nouvelles images"
+    echo "=============================================="
     step1_start=$(date +%s)
 
     echo "→ Recherche du prochain numéro disponible..."
@@ -78,8 +78,9 @@ resize_and_compress_images() {
 ################################################################################
 
 generate_image_list() {
+    echo "=============================================="
     echo "Génération de galerie_list.yaml..."
-
+    echo "=============================================="
     # Vérifier qu'on est en bash (safety)
     if [ -z "$BASH_VERSION" ]; then
         echo "Erreur : ce script doit être exécuté avec bash."
@@ -200,9 +201,9 @@ generate_image_list() {
 # 3. Nettoyage
 ################################################################################
 echo ""
-echo "==================="
-echo "3) Nettoyage"
-echo "==================="
+echo "=============================================="
+echo "Nettoyage"
+echo "=============================================="
 step3_start=$(date +%s)
 
 resize_and_compress_images
@@ -219,9 +220,9 @@ echo "→ Nettoyage effectué en $((step3_end - step3_start)) secondes"
 # 4. Git Push
 ################################################################################
 echo ""
-echo "==================="
-echo "4) Envoi vers GitHub"
-echo "==================="
+echo "=============================================="
+echo "Envoi vers GitHub"
+echo "=============================================="
 step4_start=$(date +%s)
 
 cd "$workpath"
@@ -237,9 +238,9 @@ echo "→ Envoi terminé en $((step4_end - step4_start)) secondes"
 # 5. Suivi GitHub Actions
 ################################################################################
 echo ""
-echo "==================="
-echo "5) Suivi des Actions GitHub"
-echo "==================="
+echo "=============================================="
+echo "Suivi des Actions GitHub"
+echo "=============================================="
 
 dots=0
 max_dots=3
