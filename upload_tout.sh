@@ -158,7 +158,7 @@ end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
 # Final message
-echo "----------------------------------------------"
+echo "-----------------------------------"
 echo "Mise A Jour terminée en $elapsed_time secondes"
-echo "----------------------------------------------"
+echo "-----------------------------------"
 
