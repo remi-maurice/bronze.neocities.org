@@ -125,11 +125,14 @@ git add .
 git commit -m "$commit_message" 
 git push -u origin master
 
-# Suivi des GitHub Actions avec animation
+# Suivi des GitHub Actions avec animation améliorée
 echo "______________________________________________"
+echo "Suivi des Actions GitHub en cours..."
 
 # Spinner characters
-spinner='|/-\'
+spinner='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+dots=0
+max_dots=3
 i=0
 timeout=30
 
@@ -140,15 +143,17 @@ while ((timeout > 0)); do
         gh run watch "$latest_run_id"
         break
     else
-        # Print spinner
-        printf "\r%s Github Actions are Starting, just wait a bit... \r%s" "${spinner:i++%${#spinner}:1}"
-        sleep 0.2  # controls animation speed
+        # Print spinner + animated dots
+        dot_str=$(printf "%${dots}s" | tr ' ' '.')
+        printf "\r%s En attente de Github Actions%s" "${spinner:i++%${#spinner}:1}" "$dot_str"
+        sleep 0.2
+        ((dots=dots<max_dots?dots+1:0))
         timeout=$((timeout - 1))
     fi
 done
 
 # Clear spinner line after done
-printf "\r\033[K" 
+printf "\r\033[K"
 
 
 # End the timer and calculate elapsed time
