@@ -61,6 +61,7 @@ resize_and_compress_images() {
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
     echo "images:" > $OUTPUT_FILE
+    printf "\n" >> $OUTPUT_FILE
 
     for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
         base_name=$(basename "$image" .webp)
