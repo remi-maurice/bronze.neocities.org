@@ -120,43 +120,104 @@ resize_and_number_new_images() {
 # GENERATE FINAL YAML
 # ============================================================
 generate_final_yaml() {
-    NEW_BLOCKS=$(resize_and_number_new_images)
+    last_number=$(cat "$LAST_NUMBER_FILE")
     
-    echo "Génération finale de galerie_list.yaml..."
+    # Read existing YAML blocks
+    EXISTING_BLOCKS=$(awk '
+        BEGIN{RS=""; FS="\n"}
+        NR>1 {print $0 "\n"}' "$OUTPUT_FILE" 2>/dev/null)
 
-    # Load existing blocks
-    EXISTING_BLOCKS=$(load_existing_yaml)
+    # Collect existing src to avoid duplicates
+    EXISTING_SRCS=$(echo "$EXISTING_BLOCKS" | grep "src:" | awk '{print $2}')
 
-    # Combine: new blocks first, then existing blocks that are not duplicates
-    FINAL_BLOCKS="$NEW_BLOCKS"
+    NEW_BLOCKS=""
+
+    for file in "$ORIGINAL_DIR"/*; do
+        if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
+            last_number=$((last_number + 1))
+            echo "$last_number" > "$LAST_NUMBER_FILE"
+
+            # Filenames
+            if [[ "$file" == *"_vendu"* ]]; then
+                large_image="${last_number}b_vendu.webp"
+                small_image="${last_number}s_vendu.webp"
+            else
+                large_image="${last_number}b.webp"
+                small_image="${last_number}s.webp"
+            fi
+
+            magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" \
+                -define webp:lossless=true -define webp:auto-filter=true \
+                -define webp:filter-strength=0 -define webp:method=4 \
+                -define webp:partition-limit=0 -define webp:sns-strength=0 \
+                "$IMAGE_DIR/$large_image"
+
+            magick "$file" -auto-orient -resize "$small_image_size" -quality "$small_image_quality" \
+                -define webp:lossless=false -define webp:auto-filter=true \
+                -define webp:filter-strength=25 -define webp:method=4 \
+                -define webp:partition-limit=0 -define webp:sns-strength=0 \
+                "$IMAGE_DIR/$small_image"
+
+            base_name=$(basename "$large_image" .webp)
+            status="en_vente"
+            [[ "$base_name" == *"_vendu"* ]] && status="vendu"
+
+            clean_base="${base_name%_vendu}"
+            image_number="$last_number"
+
+            # Metadata parsing
+            price="x"; dimensions="x"; weight="x"
+            if [[ "$clean_base" == *"_"* ]]; then
+                IFS='_' read -r -a parts <<< "$clean_base"
+                price="${parts[1]}"
+                dimensions="${parts[2]}"
+                weight="${parts[3]}"
+            fi
+
+            description=""
+            [[ "$price" != "x" ]] && description+="${price}€"
+            [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
+            [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
+
+            # Build YAML block
+            NEW_BLOCKS="${NEW_BLOCKS}
+  - src: img/gallerie/${large_image}.webp
+    srct: img/gallerie/${small_image}.webp
+    title: \"$image_number:#$status\"
+    numero: $image_number
+    sortOrder: $image_number
+    description: \"$description\""
+        fi
+    done
+
+    # Merge new blocks with existing blocks (filter duplicates by src)
+    MERGED_BLOCKS="$NEW_BLOCKS"
     if [ -n "$EXISTING_BLOCKS" ]; then
         while read -r block; do
-            # Extract src filename
             src_line=$(echo "$block" | grep "src:" | awk '{print $2}')
-            # Only add if not already in NEW_BLOCKS
             if ! echo "$NEW_BLOCKS" | grep -q "$src_line"; then
-                FINAL_BLOCKS="${FINAL_BLOCKS}
+                MERGED_BLOCKS="${MERGED_BLOCKS}
 $block"
             fi
         done <<< "$EXISTING_BLOCKS"
     fi
 
-    # Write YAML header
+    # Sort by sortOrder descending
     echo "images:" > "$OUTPUT_FILE"
-
-    # Sort final blocks descending by sortOrder
-    echo "$FINAL_BLOCKS" | awk '
-        BEGIN { RS=""; FS="\n"; OFS="\n" }
-        {
-            for(i=1;i<=NF;i++){
-                if($i ~ /sortOrder:/) { split($i,a,":"); order=a[2]+0 }
-            }
-            print order "|" $0
-        }' \
+    echo "$MERGED_BLOCKS" | awk '
+    BEGIN { RS=""; FS="\n"; OFS="\n" }
+    {
+        sortOrder=0
+        for(i=1;i<=NF;i++){
+            if($i ~ /sortOrder:/) { split($i,a,":"); sortOrder=a[2]+0 }
+        }
+        print sortOrder "|" $0
+    }' \
     | sort -nr -t '|' -k1,1 \
     | cut -d'|' -f2- \
     >> "$OUTPUT_FILE"
 }
+
 
 # ============================================================
 # EXECUTION
