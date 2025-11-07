@@ -34,7 +34,6 @@ resize_and_compress_images() {
     echo "=============================================="
     echo "Traitement des nouvelles images"
     echo "=============================================="
-    step1_start=$(date +%s)
 
     echo "→ Recherche du prochain numéro disponible..."
     max_number=$(ls -1 $IMAGE_DIR/*b.webp 2>/dev/null | awk -F '/' '{print $NF}' | awk -F 'b.webp' '{print $1}' | sort -nr | head -n1)
@@ -70,8 +69,7 @@ resize_and_compress_images() {
         fi
     done
 
-    step1_end=$(date +%s)
-    echo "→ Traitement terminé en $((step1_end - step1_start)) secondes"
+    echo "→ Traitement des image términé"
 }
 
 ################################################################################
@@ -206,7 +204,7 @@ echo ""
 echo "=============================================="
 echo "Nettoyage"
 echo "=============================================="
-step3_start=$(date +%s)
+
 
 resize_and_compress_images
 generate_image_list
@@ -214,8 +212,8 @@ generate_image_list
 echo "→ Suppression des originaux..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 
-step3_end=$(date +%s)
-echo "→ Nettoyage effectué en $((step3_end - step3_start)) secondes"
+
+echo "Nettoyage effectué"
 
 
 ################################################################################
@@ -225,15 +223,13 @@ echo ""
 echo "=============================================="
 echo "Envoi vers GitHub"
 echo "=============================================="
-step4_start=$(date +%s)
 
 cd "$workpath"
 git add .
 git commit -m "$commit_message"
 git push -u origin master
 
-step4_end=$(date +%s)
-echo "→ Envoi terminé en $((step4_end - step4_start)) secondes"
+echo "Envoi terminé"
 
 
 ################################################################################
@@ -247,7 +243,6 @@ echo "=============================================="
 dots=0
 max_dots=3
 timeout=30
-step5_start=$(date +%s)
 
 while ((timeout > 0)); do
     latest_run_id=$(gh run list --repo "$github_depo" --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
@@ -266,10 +261,6 @@ while ((timeout > 0)); do
 done
 
 printf "\r\033[K"
-
-step5_end=$(date +%s)
-echo "→ Suivi terminé en $((step5_end - step5_start)) secondes"
-
 
 ################################################################################
 # FINAL MESSAGE
