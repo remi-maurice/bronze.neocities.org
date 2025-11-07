@@ -36,10 +36,12 @@ resize_and_compress_images() {
     echo "=============================================="
 
     echo "→ Recherche du prochain numéro disponible..."
+    YAML_FILE="galerie_list.yaml"
+
     # Extraire tous les numéros déjà utilisés dans le YAML
     used_numbers=$(grep -oP '^    numero: \K[0-9]+' "$YAML_FILE")
 
-    # Trouver le maximum parmi ces numéros
+    # Trouver le maximum
     max_number=0
     for n in $used_numbers; do
         if (( n > max_number )); then
@@ -47,10 +49,10 @@ resize_and_compress_images() {
         fi
     done
 
-    # Le prochain numéro est max + 1
+    # Prochain numéro = max + 1
     next_number=$((max_number + 1))
-
     echo "→ Prochain numéro : $next_number"
+
 
     echo "→ Début du redimensionnement..."
 
