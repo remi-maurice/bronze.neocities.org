@@ -1,48 +1,80 @@
 #!/bin/sh
 
-# WICH_GITHUB ####################################################
+# ============================================================
+# CONFIGURATION
+# ============================================================
 github_depo="remi-maurice/bronze.neocities.org"
 
-# Directories ###################################################
 workpath="$HOME/bronze.neocities.org"
-
 IMAGE_DIR="$workpath/website/img/gallerie"
 ORIGINAL_DIR="$workpath/original"
 OUTPUT_FILE="$workpath/website/galerie_list.yaml"
 PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
 LAST_NUMBER_FILE="$workpath/last_number.txt"
 
-# IMAGE_RESIZING_OPTIONS #########################################
+# Image resizing options
 large_image_size="1920x1080>"
 large_image_quality="100"
-
 small_image_size="300x>"
 small_image_quality="100"
 
-# Ensure last_number.txt exists #################################
+# Ensure last_number.txt exists
 if [ ! -f "$LAST_NUMBER_FILE" ]; then
     echo "0" > "$LAST_NUMBER_FILE"
 fi
 
-# Ask for commit message ########################################
+# ============================================================
+# PROMPT FOR GIT COMMIT MESSAGE
+# ============================================================
 while [ -z "$commit_message" ]; do
   read -p "Message pour l'historique: " commit_message
 done
 
+# ============================================================
+# SORT EXISTING YAML BY sortOrder
+# ============================================================
+sort_yaml_by_sortOrder() {
+    echo "Tri de galerie_list.yaml selon sortOrder..."
 
-############################################################
-# IMAGE RESIZING + NUMBERING (Solution A)
-############################################################
+    TMP_SORTED="$workpath/sorted_galerie.yaml"
+
+    awk '
+        BEGIN { block=""; order=0 }
+        /^  - src:/ {
+            if (block != "") {
+                print order "|" block;
+            }
+            block=$0 "\n";
+            order=0;
+            next;
+        }
+        /sortOrder:/ {
+            split($0, a, ":");
+            order=a[2]+0;
+        }
+        {
+            block = block $0 "\n";
+        }
+        END {
+            print order "|" block;
+        }
+    ' "$OUTPUT_FILE" 2>/dev/null \
+        | sort -n -k1,1 \
+        | awk 'BEGIN { print "images:" } { sub(/^[0-9]+\|/, ""); printf "%s", $0 }' \
+        > "$TMP_SORTED"
+
+    mv "$TMP_SORTED" "$OUTPUT_FILE"
+}
+
+# ============================================================
+# IMAGE RESIZING AND NUMBERING (Solution A)
+# ============================================================
 resize_and_compress_images() {
     echo "Redimensionnement et compression des images..."
-
-    # Load last used number
     last_number=$(cat "$LAST_NUMBER_FILE")
 
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-
-            # Increment and save new number
             last_number=$((last_number + 1))
             echo "$last_number" > "$LAST_NUMBER_FILE"
 
@@ -54,14 +86,12 @@ resize_and_compress_images() {
                 small_image="${last_number}s.webp"
             fi
 
-            # Large version
             magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" \
                 -define webp:lossless=true -define webp:auto-filter=true \
                 -define webp:filter-strength=0 -define webp:method=4 \
                 -define webp:partition-limit=0 -define webp:sns-strength=0 \
                 "$IMAGE_DIR/$large_image"
 
-            # Small version
             magick "$file" -auto-orient -resize "$small_image_size" -quality "$small_image_quality" \
                 -define webp:lossless=false -define webp:auto-filter=true \
                 -define webp:filter-strength=25 -define webp:method=4 \
@@ -75,36 +105,30 @@ resize_and_compress_images() {
     done
 }
 
-
-############################################################
-# YAML GENERATION — SORT ORDER + BLANK LINES (Solution B)
-############################################################
+# ============================================================
+# GENERATE OR UPDATE YAML
+# ============================================================
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
 
-    # Reset YAML
-    echo "images:" > "$OUTPUT_FILE"
+    # Create YAML file if missing
+    [ ! -f "$OUTPUT_FILE" ] && echo "images:" > "$OUTPUT_FILE"
 
-    # Sort numerically based on image number at the start
     for image in $(ls $IMAGE_DIR/*b*.webp 2>/dev/null | sort -V); do
         base_name=$(basename "$image" .webp)
 
-        # Detect status
-        if [[ "$base_name" == *"_vendu"* ]]; then
-            status="vendu"
-        else
-            status="en_vente"
-        fi
+        # Status detection
+        status="en_vente"
+        [[ "$base_name" == *"_vendu"* ]] && status="vendu"
 
-        # Extract number before "b"
+        # Extract number before 'b'
         clean_base="${base_name%_vendu}"
         image_number="${clean_base%%b*}"
 
-        # Parse optional metadata (price, dimensions, weight)
+        # Optional metadata: price, dimensions, weight
         price="x"
         dimensions="x"
         weight="x"
-
         if [[ "$clean_base" == *"_"* ]]; then
             IFS='_' read -r -a parts <<< "$clean_base"
             price="${parts[1]}"
@@ -118,7 +142,7 @@ generate_image_list() {
         [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
         [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
 
-        # YAML BLOCK (with blank line)
+        # Append YAML block
         {
             echo ""
             echo "  - src: img/gallerie/${base_name}.webp"
@@ -131,23 +155,24 @@ generate_image_list() {
     done
 }
 
-
-############################################################
+# ============================================================
 # EXECUTION
-############################################################
+# ============================================================
 start_time=$(date +%s)
 
+sort_yaml_by_sortOrder        # reorder any manual edits
 resize_and_compress_images
 generate_image_list
+sort_yaml_by_sortOrder        # reorder including new images
 
+# Cleanup originals
 echo "Suppression des images originales..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
 
-
-############################################################
+# ============================================================
 # PUSH TO GITHUB
-############################################################
+# ============================================================
 echo "______________________________________________"
 echo "Envoi vers Github"
 cd "$workpath"
@@ -155,9 +180,9 @@ git add .
 git commit -m "$commit_message"
 git push -u origin master
 
-############################################################
-# GitHub Actions Watch
-############################################################
+# ============================================================
+# WATCH GITHUB ACTIONS
+# ============================================================
 echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
 timeout=30
@@ -174,9 +199,10 @@ while ((timeout > 0)); do
     fi
 done
 
-# End timer
+# ============================================================
+# END TIMER
+# ============================================================
 end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
-
 echo "______________________________________________"
 echo "MAJ terminée en $elapsed_time secondes !"
