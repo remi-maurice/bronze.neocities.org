@@ -19,9 +19,7 @@ small_image_size="300x>"
 small_image_quality="100"
 
 # Ensure last_number.txt exists
-if [ ! -f "$LAST_NUMBER_FILE" ]; then
-    echo "0" > "$LAST_NUMBER_FILE"
-fi
+[ ! -f "$LAST_NUMBER_FILE" ] && echo "0" > "$LAST_NUMBER_FILE"
 
 # ============================================================
 # PROMPT FOR GIT COMMIT MESSAGE
@@ -31,7 +29,7 @@ while [ -z "$commit_message" ]; do
 done
 
 # ============================================================
-# SORT EXISTING YAML BY sortOrder
+# SORT YAML BY sortOrder
 # ============================================================
 sort_yaml_by_sortOrder() {
     echo "Tri de galerie_list.yaml selon sortOrder..."
@@ -41,23 +39,14 @@ sort_yaml_by_sortOrder() {
     awk '
         BEGIN { block=""; order=0 }
         /^  - src:/ {
-            if (block != "") {
-                print order "|" block;
-            }
-            block=$0 "\n";
-            order=0;
-            next;
+            if (block != "") print order "|" block;
+            block=$0 "\n"; order=0; next
         }
         /sortOrder:/ {
-            split($0, a, ":");
-            order=a[2]+0;
+            split($0, a, ":"); order=a[2]+0
         }
-        {
-            block = block $0 "\n";
-        }
-        END {
-            if (block != "") print order "|" block;
-        }
+        { block = block $0 "\n" }
+        END { if (block != "") print order "|" block }
     ' "$OUTPUT_FILE" 2>/dev/null \
         | sort -n -t '|' -k1,1 \
         | cut -d'|' -f2- \
@@ -67,9 +56,8 @@ sort_yaml_by_sortOrder() {
     mv "$TMP_SORTED" "$OUTPUT_FILE"
 }
 
-
 # ============================================================
-# IMAGE RESIZING AND NUMBERING (Solution A)
+# IMAGE RESIZING AND NUMBERING
 # ============================================================
 resize_and_compress_images() {
     echo "Redimensionnement et compression des images..."
@@ -112,8 +100,6 @@ resize_and_compress_images() {
 # ============================================================
 generate_image_list() {
     echo "Génération de galerie_list.yaml..."
-
-    # Create YAML file if missing
     [ ! -f "$OUTPUT_FILE" ] && echo "images:" > "$OUTPUT_FILE"
 
     for image in $(ls $IMAGE_DIR/*b*.webp 2>/dev/null | sort -V); do
@@ -127,10 +113,8 @@ generate_image_list() {
         clean_base="${base_name%_vendu}"
         image_number="${clean_base%%b*}"
 
-        # Optional metadata: price, dimensions, weight
-        price="x"
-        dimensions="x"
-        weight="x"
+        # Optional metadata
+        price="x"; dimensions="x"; weight="x"
         if [[ "$clean_base" == *"_"* ]]; then
             IFS='_' read -r -a parts <<< "$clean_base"
             price="${parts[1]}"
@@ -162,10 +146,10 @@ generate_image_list() {
 # ============================================================
 start_time=$(date +%s)
 
-sort_yaml_by_sortOrder        # reorder any manual edits
+sort_yaml_by_sortOrder       # reorder any manual edits
 resize_and_compress_images
 generate_image_list
-sort_yaml_by_sortOrder        # reorder including new images
+sort_yaml_by_sortOrder       # reorder including new images
 
 # Cleanup originals
 echo "Suppression des images originales..."
