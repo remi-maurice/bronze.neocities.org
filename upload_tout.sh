@@ -1,251 +1,132 @@
 #!/bin/sh
 
-# ============================================================
-# CONFIGURATION
-# ============================================================
+#WICH_GITHUB####################################################
 github_depo="remi-maurice/bronze.neocities.org"
 
+
+# Directories###################################################
 workpath="$HOME/bronze.neocities.org"
+
 IMAGE_DIR="$workpath/website/img/gallerie"
 ORIGINAL_DIR="$workpath/original"
 OUTPUT_FILE="$workpath/website/galerie_list.yaml"
 PROCESSED_FILE="$IMAGE_DIR/processed_images.txt"
-LAST_NUMBER_FILE="$workpath/last_number.txt"
 
-# IMAGE RESIZING OPTIONS
+#IMAGE_RESIZING_OPTIONS#########################################
 large_image_size="1920x1080>"
 large_image_quality="100"
+
 small_image_size="300x>"
 small_image_quality="100"
 
-# Ensure last_number.txt exists
-[ ! -f "$LAST_NUMBER_FILE" ] && echo "0" > "$LAST_NUMBER_FILE"
-
-# ============================================================
-# PROMPT FOR GIT COMMIT MESSAGE
-# ============================================================
+#HOT_MESS_BEGINS################################################
 while [ -z "$commit_message" ]; do
   read -p "Message pour l'historique: " commit_message
 done
 
-# ============================================================
-# HELPER FUNCTIONS
-# ============================================================
 
-# Load existing YAML into a temporary array of blocks
-load_existing_yaml() {
-    EXISTING_BLOCKS=""
-    if [ -f "$OUTPUT_FILE" ]; then
-        # Split blocks by '- src:'
-        awk 'BEGIN{RS="  - src:"; ORS=""} NR>1{print "  - src:"$0"\n"}' "$OUTPUT_FILE"
-    fi
-}
+resize_and_compress_images() {
+    echo "Redimensionnement et compression des images..."
+    max_number=$(ls -1 $IMAGE_DIR/*b.webp 2>/dev/null | awk -F '/' '{print $NF}' | awk -F 'b.webp' '{print $1}' | sort -nr | head -n1)
+    max_number=${max_number:-0}
+    next_number=$((max_number + 1))
 
-# ============================================================
-# IMAGE RESIZING AND NUMBERING
-# ============================================================
-resize_and_number_new_images() {
-    echo "Redimensionnement et compression des nouvelles images..."
-    last_number=$(cat "$LAST_NUMBER_FILE")
-    
-    NEW_BLOCKS=""
-    
     for file in "$ORIGINAL_DIR"/*; do
         if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-            last_number=$((last_number + 1))
-            echo "$last_number" > "$LAST_NUMBER_FILE"
-
-            # Determine filenames
             if [[ "$file" == *"_vendu"* ]]; then
-                large_image="${last_number}b_vendu.webp"
-                small_image="${last_number}s_vendu.webp"
+                large_image="${next_number}b_vendu.webp"
+                small_image="${next_number}s_vendu.webp"
             else
-                large_image="${last_number}b.webp"
-                small_image="${last_number}s.webp"
+                large_image="${next_number}b.webp"
+                small_image="${next_number}s.webp"
             fi
 
-            # Resize images
-            magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" \
-                -define webp:lossless=true -define webp:auto-filter=true \
-                -define webp:filter-strength=0 -define webp:method=4 \
-                -define webp:partition-limit=0 -define webp:sns-strength=0 \
-                "$IMAGE_DIR/$large_image"
+            magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" -define webp:lossless=true \
+                -define webp:auto-filter=true -define webp:filter-strength=0 -define webp:method=4 \
+                -define webp:partition-limit=0 -define webp:sns-strength=0 "$IMAGE_DIR/$large_image"
 
-            magick "$file" -auto-orient -resize "$small_image_size" -quality "$small_image_quality" \
-                -define webp:lossless=false -define webp:auto-filter=true \
-                -define webp:filter-strength=25 -define webp:method=4 \
-                -define webp:partition-limit=0 -define webp:sns-strength=0 \
-                "$IMAGE_DIR/$small_image"
+            magick "$file" -auto-orient -resize "$small_image_size" -quality "$small_image_quality" -define webp:lossless=false \
+                -define webp:auto-filter=true -define webp:filter-strength=25 -define webp:method=4 \
+                -define webp:partition-limit=0 -define webp:sns-strength=0 "$IMAGE_DIR/$small_image"
 
             echo "$file converti en $large_image et $small_image"
             echo "$large_image" >> $PROCESSED_FILE
             echo "$small_image" >> $PROCESSED_FILE
-
-            # Determine metadata
-            base_name=$(basename "$large_image" .webp)
-            status="en_vente"
-            [[ "$base_name" == *"_vendu"* ]] && status="vendu"
-            
-            clean_base="${base_name%_vendu}"
-            image_number="$last_number"
-
-            price="x"; dimensions="x"; weight="x"
-            if [[ "$clean_base" == *"_"* ]]; then
-                IFS='_' read -r -a parts <<< "$clean_base"
-                price="${parts[1]}"
-                dimensions="${parts[2]}"
-                weight="${parts[3]}"
-            fi
-
-            description=""
-            [[ "$price" != "x" ]] && description+="${price}€"
-            [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
-            [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
-
-            # Build YAML block
-            NEW_BLOCKS="${NEW_BLOCKS}
-  - src: img/gallerie/${large_image}.webp
-    srct: img/gallerie/${small_image}.webp
-    title: \"$image_number:#$status\"
-    numero: $image_number
-    sortOrder: $image_number
-    description: \"$description\""
+            next_number=$((next_number + 1))
         fi
     done
-
-    echo "$NEW_BLOCKS"
 }
 
-# ============================================================
-# GENERATE FINAL YAML
-# ============================================================
-generate_final_yaml() {
-    last_number=$(cat "$LAST_NUMBER_FILE")
-    
-    # Read existing YAML blocks
-    EXISTING_BLOCKS=$(awk '
-        BEGIN{RS=""; FS="\n"}
-        NR>1 {print $0 "\n"}' "$OUTPUT_FILE" 2>/dev/null)
+# Processing of the image filenames to create a .yaml file that is then used by nanogallery #
+generate_image_list() {
+    echo "Génération de galerie_list.yaml..."
+    echo "images:" > $OUTPUT_FILE
 
-    # Collect existing src to avoid duplicates
-    EXISTING_SRCS=$(echo "$EXISTING_BLOCKS" | grep "src:" | awk '{print $2}')
+    for image in $(ls $IMAGE_DIR/*b*.webp | sort -Vr); do
+        base_name=$(basename "$image" .webp)
 
-    NEW_BLOCKS=""
-
-    for file in "$ORIGINAL_DIR"/*; do
-        if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-            last_number=$((last_number + 1))
-            echo "$last_number" > "$LAST_NUMBER_FILE"
-
-            # Filenames
-            if [[ "$file" == *"_vendu"* ]]; then
-                large_image="${last_number}b_vendu.webp"
-                small_image="${last_number}s_vendu.webp"
-            else
-                large_image="${last_number}b.webp"
-                small_image="${last_number}s.webp"
-            fi
-
-            magick "$file" -auto-orient -resize "$large_image_size" -quality "$large_image_quality" \
-                -define webp:lossless=true -define webp:auto-filter=true \
-                -define webp:filter-strength=0 -define webp:method=4 \
-                -define webp:partition-limit=0 -define webp:sns-strength=0 \
-                "$IMAGE_DIR/$large_image"
-
-            magick "$file" -auto-orient -resize "$small_image_size" -quality "$small_image_quality" \
-                -define webp:lossless=false -define webp:auto-filter=true \
-                -define webp:filter-strength=25 -define webp:method=4 \
-                -define webp:partition-limit=0 -define webp:sns-strength=0 \
-                "$IMAGE_DIR/$small_image"
-
-            base_name=$(basename "$large_image" .webp)
+        # Si le fichier a _vendu dans le titre 
+        if [[ "$base_name" == *"_vendu"* ]]; then
+            status="vendu"
+        else
             status="en_vente"
-            [[ "$base_name" == *"_vendu"* ]] && status="vendu"
-
-            clean_base="${base_name%_vendu}"
-            image_number="$last_number"
-
-            # Metadata parsing
-            price="x"; dimensions="x"; weight="x"
-            if [[ "$clean_base" == *"_"* ]]; then
-                IFS='_' read -r -a parts <<< "$clean_base"
-                price="${parts[1]}"
-                dimensions="${parts[2]}"
-                weight="${parts[3]}"
-            fi
-
-            description=""
-            [[ "$price" != "x" ]] && description+="${price}€"
-            [[ "$dimensions" != "x" ]] && description+="${description:+, }${dimensions}cm"
-            [[ "$weight" != "x" ]] && description+="${description:+, }${weight}kg"
-
-            # Build YAML block
-            NEW_BLOCKS="${NEW_BLOCKS}
-  - src: img/gallerie/${large_image}.webp
-    srct: img/gallerie/${small_image}.webp
-    title: \"$image_number:#$status\"
-    numero: $image_number
-    sortOrder: $image_number
-    description: \"$description\""
         fi
+
+        # Nettoyer le nom de base pour extraire le numéro principal sans 'b' ni autres caractères
+        clean_base_name="${base_name%_vendu}"
+        image_number="${clean_base_name%%b*}"  # Extraire le numéro avant 'b'
+
+        # Variables par défaut
+        price="x"
+        dimensions="x"
+        weight="x"
+
+        # Extraire les informations à partir du nom du fichier
+        if [[ "$clean_base_name" == *"_"* ]]; then
+            IFS='_' read -r -a parts <<< "$clean_base_name"
+            price="${parts[1]}"
+            dimensions="${parts[2]}"
+            weight="${parts[3]}"
+        fi
+
+        # Construire la description
+        description=""
+        [[ "$price" != "x" ]] && description+="$price"€""
+        [[ "$dimensions" != "x" ]] && description+="${description:+, }$dimensions"cm""
+        [[ "$weight" != "x" ]] && description+="${description:+, }$weight"kg""
+
+        # Écrire dans le fichier YAML
+        echo "  - src: img/gallerie/${base_name}.webp" >> $OUTPUT_FILE
+        echo "    srct: img/gallerie/${image_number}s.webp" >> $OUTPUT_FILE
+        echo "    title: \"$image_number:#$status\"" >> $OUTPUT_FILE
+        echo "    numero: $image_number" >> $OUTPUT_FILE
+        echo "    description: \"$description\"" >> $OUTPUT_FILE
     done
-
-    # Merge new blocks with existing blocks (filter duplicates by src)
-    MERGED_BLOCKS="$NEW_BLOCKS"
-    if [ -n "$EXISTING_BLOCKS" ]; then
-        while read -r block; do
-            src_line=$(echo "$block" | grep "src:" | awk '{print $2}')
-            if ! echo "$NEW_BLOCKS" | grep -q "$src_line"; then
-                MERGED_BLOCKS="${MERGED_BLOCKS}
-$block"
-            fi
-        done <<< "$EXISTING_BLOCKS"
-    fi
-
-    # Sort by sortOrder descending
-    echo "images:" > "$OUTPUT_FILE"
-    echo "$MERGED_BLOCKS" | awk '
-    BEGIN { RS=""; FS="\n"; OFS="\n" }
-    {
-        sortOrder=0
-        for(i=1;i<=NF;i++){
-            if($i ~ /sortOrder:/) { split($i,a,":"); sortOrder=a[2]+0 }
-        }
-        print sortOrder "|" $0
-    }' \
-    | sort -nr -t '|' -k1,1 \
-    | cut -d'|' -f2- \
-    >> "$OUTPUT_FILE"
 }
 
-
-# ============================================================
-# EXECUTION
-# ============================================================
+# Execution #####################################################################
 start_time=$(date +%s)
 
-generate_final_yaml
+resize_and_compress_images
 
-# Cleanup originals
+generate_image_list
+
 echo "Suppression des images originales..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
 rm -f $PROCESSED_FILE
 
-# ============================================================
-# PUSH TO GITHUB
-# ============================================================
+# Push vers GitHub ##############################################################
 echo "______________________________________________"
 echo "Envoi vers Github"
 cd "$workpath"
 git add .
-git commit -m "$commit_message"
+git commit -m "$commit_message" 
 git push -u origin master
 
-# ============================================================
-# WATCH GITHUB ACTIONS
-# ============================================================
+# Suivi des GitHub Actions
 echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
+# Vérifier les workflows toutes les 5 secondes (max 60 secondes)
 timeout=30
 while ((timeout > 0)); do
     latest_run_id=$(gh run list --repo "$github_depo" --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
@@ -260,10 +141,10 @@ while ((timeout > 0)); do
     fi
 done
 
-# ============================================================
-# END TIMER
-# ============================================================
+# End the timer and calculate elapsed time
 end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
+
+# Final message
 echo "______________________________________________"
 echo "MAJ terminée en $elapsed_time secondes !"
