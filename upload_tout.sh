@@ -90,12 +90,17 @@ generate_image_list() {
                 current_src="${BASH_REMATCH[1]}"
             fi
             if [[ $line =~ order:\ ([0-9]+) ]]; then
-                order_value="${BASH_REMATCH[1]}"
+            order_value="${BASH_REMATCH[1]}"
+
+            if [[ -n "$current_src" ]]; then
                 existing_order["$current_src"]="$order_value"
-                if (( order_value > max_existing_order )); then
-                    max_existing_order=$order_value
-                fi
             fi
+
+            if (( order_value > max_existing_order )); then
+                max_existing_order=$order_value
+            fi
+        fi
+
         done < "$OUTPUT_FILE"
     fi
 
