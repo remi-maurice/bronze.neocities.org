@@ -142,7 +142,7 @@ while ((timeout > 0)); do
         # Animated dots
         dot_str=$(printf "%${dots}s" | tr ' ' '.')
         printf "\rEn attente de Github Actions%s   " "$dot_str"
-        sleep 0.5
+        sleep 0.1
         ((dots=dots<max_dots?dots+1:0))
         timeout=$((timeout - 1))
     fi
