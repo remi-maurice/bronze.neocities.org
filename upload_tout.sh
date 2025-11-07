@@ -127,7 +127,6 @@ git push -u origin master
 
 # Suivi des GitHub Actions avec animated dots only
 echo "______________________________________________"
-echo "Suivi des Actions GitHub en cours..."
 
 dots=0
 max_dots=3
@@ -159,7 +158,7 @@ end_time=$(date +%s)
 elapsed_time=$((end_time - start_time))
 
 # Final message
-echo "______________________________________________"
+echo "----------------------------------------------"
 echo "Mise A Jour terminée en $elapsed_time secondes"
-echo "______________________________________________"
+echo "----------------------------------------------"
 
