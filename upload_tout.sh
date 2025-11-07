@@ -79,6 +79,7 @@ resize_and_compress_images() {
 ################################################################################
 
 generate_image_list() {
+    echo ""
     echo "=============================================="
     echo "Génération de galerie_list.yaml..."
     echo "=============================================="
@@ -282,6 +283,5 @@ seconds=$(( duration % 60 ))
 
 echo ""
 echo "============================================="
-echo "✅ Mise à jour terminée"
-echo "⏱️ Durée totale : ${minutes}m${seconds}s"
+echo "Mise à jour terminée en  ${minutes}m${seconds}s"
 echo "============================================="
