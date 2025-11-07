@@ -101,7 +101,7 @@ generate_image_list() {
         echo "    title: \"$image_number:#$status\"" >> $OUTPUT_FILE
         echo "    numero: $image_number" >> $OUTPUT_FILE
         echo "    description: \"$description\"" >> $OUTPUT_FILE
-        echo ""
+        printf "\n" >> $OUTPUT_FILE
     done
 }
 
