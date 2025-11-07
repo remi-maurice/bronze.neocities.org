@@ -56,15 +56,17 @@ sort_yaml_by_sortOrder() {
             block = block $0 "\n";
         }
         END {
-            print order "|" block;
+            if (block != "") print order "|" block;
         }
     ' "$OUTPUT_FILE" 2>/dev/null \
-        | sort -n -k1,1 \
-        | awk 'BEGIN { print "images:" } { sub(/^[0-9]+\|/, ""); printf "%s", $0 }' \
+        | sort -n -t '|' -k1,1 \
+        | cut -d'|' -f2- \
+        | { echo "images:"; cat; } \
         > "$TMP_SORTED"
 
     mv "$TMP_SORTED" "$OUTPUT_FILE"
 }
+
 
 # ============================================================
 # IMAGE RESIZING AND NUMBERING (Solution A)
