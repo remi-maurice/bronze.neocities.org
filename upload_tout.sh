@@ -127,7 +127,6 @@ git push -u origin master
 
 # Suivi des GitHub Actions avec animation
 echo "______________________________________________"
-echo "Suivi des Actions GitHub en cours..."
 
 # Spinner characters
 spinner='|/-\'
@@ -142,7 +141,7 @@ while ((timeout > 0)); do
         break
     else
         # Print spinner
-        printf "\r%s Suivi en cours..." "${spinner:i++%${#spinner}:1}"
+        printf "\r%s Patience... \r%s" "${spinner:i++%${#spinner}:1}"
         sleep 0.2  # controls animation speed
         timeout=$((timeout - 1))
     fi
