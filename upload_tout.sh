@@ -148,7 +148,7 @@ generate_image_list() {
             echo "    numero: $image_number"
             echo "    order: $order_value"
             echo "    description: \"$description\""
-            printf "\n"
+            printf "\n\n"
         } >> "$tmpfile"
     done
 
