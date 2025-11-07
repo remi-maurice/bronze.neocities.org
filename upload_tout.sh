@@ -125,11 +125,15 @@ git add .
 git commit -m "$commit_message" 
 git push -u origin master
 
-# Suivi des GitHub Actions
+# Suivi des GitHub Actions avec animation
 echo "______________________________________________"
 echo "Suivi des Actions GitHub en cours..."
-# Vérifier les workflows toutes les 5 secondes (max 60 secondes)
+
+# Spinner characters
+spinner='|/-\'
+i=0
 timeout=30
+
 while ((timeout > 0)); do
     latest_run_id=$(gh run list --repo "$github_depo" --status in_progress --limit 1 --json databaseId --jq '.[0].databaseId')
 
@@ -137,11 +141,16 @@ while ((timeout > 0)); do
         gh run watch "$latest_run_id"
         break
     else
-        echo "Aucun workflow détecté. Nouvelle tentative dans 1 secondes..."
-        sleep 1
+        # Print spinner
+        printf "\r%s Suivi en cours..." "${spinner:i++%${#spinner}:1}"
+        sleep 0.2  # controls animation speed
         timeout=$((timeout - 1))
     fi
 done
+
+# Clear spinner line after done
+printf "\r\033[K" 
+
 
 # End the timer and calculate elapsed time
 end_time=$(date +%s)
