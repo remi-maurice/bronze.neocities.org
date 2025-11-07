@@ -36,11 +36,22 @@ resize_and_compress_images() {
     echo "=============================================="
 
     echo "→ Recherche du prochain numéro disponible..."
-    max_number=$(ls -1 $IMAGE_DIR/*b.webp 2>/dev/null | awk -F '/' '{print $NF}' | awk -F 'b.webp' '{print $1}' | sort -nr | head -n1)
-    max_number=${max_number:-0}
+    # Extraire tous les numéros déjà utilisés dans le YAML
+    used_numbers=$(grep -oP '^    numero: \K[0-9]+' "$YAML_FILE")
+
+    # Trouver le maximum parmi ces numéros
+    max_number=0
+    for n in $used_numbers; do
+        if (( n > max_number )); then
+            max_number=$n
+        fi
+    done
+
+    # Le prochain numéro est max + 1
     next_number=$((max_number + 1))
 
     echo "→ Prochain numéro : $next_number"
+
     echo "→ Début du redimensionnement..."
 
     for file in "$ORIGINAL_DIR"/*; do
