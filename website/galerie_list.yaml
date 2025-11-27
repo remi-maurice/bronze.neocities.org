@@ -1,74 +1,74 @@
 images:
 
-  - src: img/gallerie/153b.webp
+  - src: img/gallerie/153b_250_10x9x5_1.5.webp
     srct: img/gallerie/153s.webp
     title: "153:#en_vente"
     numero: 153
-    order: 130
-    description: ""
+    order: 140
+    description: "250€, 10x9x5cm, 1.5kg"
 
-  - src: img/gallerie/152b.webp
+  - src: img/gallerie/152b_250_16x10x7_0.9.webp
     srct: img/gallerie/152s.webp
     title: "152:#en_vente"
     numero: 152
-    order: 129
-    description: ""
+    order: 139
+    description: "250€, 16x10x7cm, 0.9kg"
 
-  - src: img/gallerie/151b.webp
+  - src: img/gallerie/151b_200_10x8x4_0.7.webp
     srct: img/gallerie/151s.webp
     title: "151:#en_vente"
     numero: 151
-    order: 128
-    description: ""
+    order: 138
+    description: "200€, 10x8x4cm, 0.7kg"
 
-  - src: img/gallerie/150b.webp
+  - src: img/gallerie/150b_200_11x8x5_0.9.webp
     srct: img/gallerie/150s.webp
     title: "150:#en_vente"
     numero: 150
-    order: 127
-    description: ""
+    order: 137
+    description: "200€, 11x8x5cm, 0.9kg"
 
-  - src: img/gallerie/149b.webp
+  - src: img/gallerie/149b_250_13x7x6_1.3.webp
     srct: img/gallerie/149s.webp
     title: "149:#en_vente"
     numero: 149
-    order: 126
-    description: ""
+    order: 136
+    description: "250€, 13x7x6cm, 1.3kg"
 
-  - src: img/gallerie/148b.webp
+  - src: img/gallerie/148b_200_10x8x4_0.9.webp
     srct: img/gallerie/148s.webp
     title: "148:#en_vente"
     numero: 148
-    order: 125
-    description: ""
+    order: 135
+    description: "200€, 10x8x4cm, 0.9kg"
 
-  - src: img/gallerie/147b.webp
+  - src: img/gallerie/147b_250_10x8x7_1.webp
     srct: img/gallerie/147s.webp
     title: "147:#en_vente"
     numero: 147
-    order: 124
-    description: ""
+    order: 134
+    description: "250€, 10x8x7cm, 1kg"
 
-  - src: img/gallerie/146b.webp
+  - src: img/gallerie/146b_250_10x7x5_0.8.webp
     srct: img/gallerie/146s.webp
     title: "146:#en_vente"
     numero: 146
-    order: 123
-    description: ""
+    order: 133
+    description: "250€, 10x7x5cm, 0.8kg"
 
-  - src: img/gallerie/145b.webp
+  - src: img/gallerie/145b_250_10x8x7_1.webp
     srct: img/gallerie/145s.webp
     title: "145:#en_vente"
     numero: 145
-    order: 122
-    description: ""
+    order: 132
+    description: "250€, 10x8x7cm, 1kg"
 
-  - src: img/gallerie/144b.webp
+  - src: img/gallerie/144b_500_24x13x8_1.6.webp
     srct: img/gallerie/144s.webp
     title: "144:#en_vente"
     numero: 144
-    order: 121
-    description: ""
+    order: 131
+    description: "500€, 24x13x8cm, 1.6kg"
 
   - src: img/gallerie/143b_600_15x12x8_1.5.webp
     srct: img/gallerie/143s.webp
