@@ -12,14 +12,14 @@ news:
          titre_lien: 
          lien: 
          description: Marché de Noël à Soueix
-         image: "img/news/Affichemarchedenoel2025soueix.pdf"
+         image: "img/news/Affichemarchedenoel2025soueix.jpg"
          taille_image: "50vh"   
 
        - date: Le dimanche 14 décembre
          titre_lien: 
          lien: 
          description: Marché de Noël à Carla Bayle
-         image: "img/news/marcheNoel2025carla.pdf"
+         image: "img/news/marcheNoel2025carla.jpg"
          taille_image: "50vh"   
          
        - date: Le dimanche 7 décembre
