@@ -8,35 +8,42 @@ news:
          image: 
          taille_image: "50vh"   
        
-       - date: Le mercredi 17 décembre
+       - date: Les samedis 13 et 20 décembre 2025
+         titre_lien: 
+         lien: 
+         description: Marché de Saint Girons
+         image: 
+         taille_image: "50vh"   
+       
+       - date: Le mercredi 17 décembre 2025
          titre_lien: 
          lien: 
          description: Marché de Noël à Soueix
          image: "img/news/Affichemarchedenoel2025soueix.jpg"
          taille_image: "50vh"   
 
-       - date: Le dimanche 14 décembre
+       - date: Le dimanche 14 décembre 2025
          titre_lien: 
          lien: 
          description: Marché de Noël à Carla Bayle
          image: "img/news/marcheNoel2025carla.jpg"
          taille_image: "50vh"   
          
-       - date: Le dimanche 7 décembre
+       - date: Le dimanche 7 décembre 2025
          titre_lien: 
          lien: 
          description: Marché de Noël à Castillon en Couserans
          image: "img/news/CASTILLONAFFICHE2025 -1-.png"
          taille_image: "50vh"   
 
-       - date: Le vendredi 5 décembre
+       - date: Le vendredi 5 décembre 2025
          titre_lien: 
          lien: 
          description: Marché de Noël Nocturne à Soulan
          image: "img/news/MNSOULAN25.webp"
          taille_image: "50vh"        
 
-       - date: Le dimanche 9 novembre
+       - date: Le dimanche 9 novembre 2025
          titre_lien: 
          lien: 
          description: Salon de Noël des Créateurs d'Art
