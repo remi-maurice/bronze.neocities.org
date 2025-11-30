@@ -8,6 +8,41 @@ news:
          image: 
          taille_image: "50vh"   
        
+       - date: Le mercredi 17 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël à Soueix
+         image: "img/news/Affichemarchedenoel2025soueix.pdf"
+         taille_image: "50vh"   
+
+       - date: Le dimanche 14 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël à Carla Bayle
+         image: "img/news/marcheNoel2025carla.pdf"
+         taille_image: "50vh"   
+         
+       - date: Le dimanche 7 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël à Castillon en Couserans
+         image: "img/news/CASTILLONAFFICHE2025 -1-.png"
+         taille_image: "50vh"   
+
+       - date: Le vendredi 5 décembre
+         titre_lien: 
+         lien: 
+         description: Marché de Noël Nocturne à Soulan
+         image: "img/news/MNSOULAN25.webp"
+         taille_image: "50vh"        
+
+       - date: Le dimanche 9 novembre
+         titre_lien: 
+         lien: 
+         description: Salon de Noël des Créateurs d'Art
+         image: "img/news/AfficheSalondeNoelMane25.jpg"
+         taille_image: "50vh"          
+
        - date: Le jeudi 14 aout 2025
          titre_lien: 
          lien: 
