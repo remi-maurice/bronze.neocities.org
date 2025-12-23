@@ -1,19 +1,5 @@
 images:
 
-  - src: img/gallerie/111b_vendu.webp
-    srct: img/gallerie/111s.webp
-    title: "111:#vendu"
-    numero: 111
-    order: 143
-    description: ""
-
-  - src: img/gallerie/110b_vendu.webp
-    srct: img/gallerie/110s.webp
-    title: "110:#vendu"
-    numero: 110
-    order: 142
-    description: ""
-
   - src: img/gallerie/152b_270_16x10x7_0.9.webp
     srct: img/gallerie/152s.webp
     title: "152:#en_vente"
@@ -306,6 +292,20 @@ images:
     title: "112:#vendu"
     numero: 112
     order: 89
+    description: ""
+
+  - src: img/gallerie/110b_vendu.webp
+    srct: img/gallerie/110s.webp
+    title: "110:#vendu"
+    numero: 110
+    order: 88
+    description: ""
+
+  - src: img/gallerie/111b_vendu.webp
+    srct: img/gallerie/111s.webp
+    title: "111:#vendu"
+    numero: 111
+    order: 87
     description: ""
 
   - src: img/gallerie/109b_vendu.webp
