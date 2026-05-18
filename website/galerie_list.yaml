@@ -1,74 +1,74 @@
 images:
 
-  - src: img/gallerie/172b.webp
-    srct: img/gallerie/172s.webp
-    title: "172:#en_vente"
-    numero: 172
-    order: 163
-    description: ""
-
-  - src: img/gallerie/171b.webp
-    srct: img/gallerie/171s.webp
-    title: "171:#en_vente"
-    numero: 171
-    order: 162
-    description: ""
-
-  - src: img/gallerie/167b.webp
-    srct: img/gallerie/167s.webp
-    title: "167:#en_vente"
-    numero: 167
-    order: 161
-    description: ""
-
-  - src: img/gallerie/166b.webp
-    srct: img/gallerie/166s.webp
-    title: "166:#en_vente"
-    numero: 166
-    order: 160
-    description: ""
-
-  - src: img/gallerie/174b.webp
-    srct: img/gallerie/174s.webp
-    title: "174:#en_vente"
-    numero: 174
-    order: 159
-    description: ""
-
-  - src: img/gallerie/170b.webp
-    srct: img/gallerie/170s.webp
-    title: "170:#en_vente"
-    numero: 170
-    order: 158
-    description: ""
-
-  - src: img/gallerie/169b.webp
-    srct: img/gallerie/169s.webp
-    title: "169:#en_vente"
-    numero: 169
-    order: 157
-    description: ""
-
-  - src: img/gallerie/168b.webp
-    srct: img/gallerie/168s.webp
-    title: "168:#en_vente"
-    numero: 168
-    order: 156
-    description: ""
-
-  - src: img/gallerie/173b.webp
-    srct: img/gallerie/173s.webp
-    title: "173:#en_vente"
-    numero: 173
-    order: 155
-    description: ""
-
-  - src: img/gallerie/175b.webp
+  - src: img/gallerie/175b_350_20x11x9_2.webp
     srct: img/gallerie/175s.webp
     title: "175:#en_vente"
     numero: 175
-    order: 154
-    description: ""
+    order: 173
+    description: "350€, 20x11x9cm, 2kg"
+
+  - src: img/gallerie/174b_350_27x12x5_2.webp
+    srct: img/gallerie/174s.webp
+    title: "174:#en_vente"
+    numero: 174
+    order: 172
+    description: "350€, 27x12x5cm, 2kg"
+
+  - src: img/gallerie/173b_350_17x14x14_2.2.webp
+    srct: img/gallerie/173s.webp
+    title: "173:#en_vente"
+    numero: 173
+    order: 171
+    description: "350€, 17x14x14cm, 2.2kg"
+
+  - src: img/gallerie/172b_200_14x6x5_0.5.webp
+    srct: img/gallerie/172s.webp
+    title: "172:#en_vente"
+    numero: 172
+    order: 170
+    description: "200€, 14x6x5cm, 0.5kg"
+
+  - src: img/gallerie/171b_200_11x7x6_0.8.webp
+    srct: img/gallerie/171s.webp
+    title: "171:#en_vente"
+    numero: 171
+    order: 169
+    description: "200€, 11x7x6cm, 0.8kg"
+
+  - src: img/gallerie/170b_350_23x11x8_1.7.webp
+    srct: img/gallerie/170s.webp
+    title: "170:#en_vente"
+    numero: 170
+    order: 168
+    description: "350€, 23x11x8cm, 1.7kg"
+
+  - src: img/gallerie/169b_200_14x8x6_1.3.webp
+    srct: img/gallerie/169s.webp
+    title: "169:#en_vente"
+    numero: 169
+    order: 167
+    description: "200€, 14x8x6cm, 1.3kg"
+
+  - src: img/gallerie/168b_200_9x7x7_1.2.webp
+    srct: img/gallerie/168s.webp
+    title: "168:#en_vente"
+    numero: 168
+    order: 166
+    description: "200€, 9x7x7cm, 1.2kg"
+
+  - src: img/gallerie/167b_200_12x6x4_0.4.webp
+    srct: img/gallerie/167s.webp
+    title: "167:#en_vente"
+    numero: 167
+    order: 165
+    description: "200€, 12x6x4cm, 0.4kg"
+
+  - src: img/gallerie/166b_200_12x8x5_0.6.webp
+    srct: img/gallerie/166s.webp
+    title: "166:#en_vente"
+    numero: 166
+    order: 164
+    description: "200€, 12x8x5cm, 0.6kg"
 
   - src: img/gallerie/154b_150_11x7x4_0.35.webp
     srct: img/gallerie/154s.webp
