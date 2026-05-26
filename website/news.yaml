@@ -9,15 +9,15 @@ news:
          taille_image: "50vh"   
 
        - date: du 3 au 15 aout 2026
-         titre_lien: 
-         lien: 
+         titre_lien: Estivales Lagorre
+         lien: https://estivaleslagorre.fr
          description: Estivales Lagorre à Seix
          image: 
          taille_image: "50vh"   
 
        - date: juin juillet 2026
-         titre_lien: 
-         lien: 
+         titre_lien: AMA 65
+         lien: http://ama65.canalblog.com/
          description: Exposition l'Amatière à Bagnères de Bigorre
          image: "img/news/Affiche expo Juin-Juillet 2026-HD.jpg"
          taille_image: "50vh"   
