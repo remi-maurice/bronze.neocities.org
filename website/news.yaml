@@ -1,11 +1,28 @@
 news:
   - category: Expositions
     items:
+
+    
+
        - date: 
          titre_lien: 
          lien: 
          description:
          image: 
+         taille_image: "50vh"   
+
+       - date: du 3 au 15 aout 2026
+         titre_lien: 
+         lien: 
+         description: Estivales Lagorre à Seix
+         image: 
+         taille_image: "50vh"   
+
+       - date: juin juillet 2026
+         titre_lien: 
+         lien: 
+         description: Exposition l'Amatière à Bagnères de Bigorre
+         image: "img/news/Affiche expo Juin-Juillet 2026-HD.jpg"
          taille_image: "50vh"   
        
        - date: Les samedis 13 et 20 décembre 2025
