@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<!--Le titre de la page-->
+	<title>Victor Maurice - Expositions</title>
+	<!--La description de la page (pour les moteurs de recherche) dans content=""-->
+	<meta name="description"
+		content="page qui informe des dates d'expositions et des marchés du site de Victor Maurice, sculpteur fondeur de statues en bronze d'art vivant en Ariège">
+	<!--Le logo-->
+	<link rel="icon" type="image/png" href="img/favicon.png">
+
+	
+	<!--Des machins pour que tout s'affiche bien, pas touche minouche.-->
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Controle du cache -->		
+	<meta http-equiv="Cache-Control" convtent="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+
+	<!-- le css -->
+	<link rel="stylesheet" href="simple.css">
+
+	<!-- balise google -->
+	<meta name="google-site-verification" content="nVmpPdFGrPKbloUWmymXnAAvizUcrBK1wvOOhEG_KoI" />
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-title">
+            <img src="img/favicon.png" alt="Logo Victor Maurice" class="logo">
+            <a href="index.html" class="title-link">Victor Maurice sculpteur fondeur</a>
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Galerie</a></li>
+                <li><a href="news.html" class="current">Expositions</a></li>
+                <li><a href="fabrication.html">Fabrication</a></li>
+                <li><a href="infos.html">Infos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Expositions</h1>
+        <p>Découvrez mes prochaines expositions et événements.</p>
+        <!-- Ajoutez ici le contenu spécifique de news.html -->
+    </main>
+
+    <footer>
+        <p>&copy;2026 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a></p>
+        <br/>
+        <center>
+            <img alt="decoration" src="img/star.gif"/>
+            <a href="https://neocities.org" target="_blank">
+                <img alt="créé un site web avec neocities!" src="img/neocities_hosted.gif"/>
+            </a>
+            <img alt="decoration" src="img/star.gif"/>
+        </center>
+        <br/>
+        <p><a href="#top">[ Revenir en haut ]</a></p>
+        
+        <!-- Formulaire Newsletter -->
+        <div class="newsletter-section">
+            <form id="newsletter-form">
+                <label for="email">Abonnez-vous à ma newsletter pour recevoir des informations périodiques:</label>
+                <input type="email" id="email" name="email" required />
+                <button type="submit">Je m'abonne</button>
+                <div id="newsletter-success" style="display: none;">Merci ! Votre abonnement a été enregistré.</div>
+            </form>
+        </div>
+        
+        <p>Contact: <a href="mailto:victor.mo@laposte.net">Contactez-moi</a></p>
+    </footer>
+
+    <!-- Script Formspree -->
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', {
+            formElement: '#newsletter-form',
+            formId: 'mykvoejk',
+            onSuccess: function() {
+                document.getElementById('newsletter-success').style.display = 'block';
+                document.getElementById('newsletter-form').reset();
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>

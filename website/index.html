@@ -1,26 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-<!-- Credits:
-This website was made with much love by Remi Maurice.
-The source code can be found here : https://github.com/remi-maurice/bronze.neocities.org
-
-Css template by: https://simplecss.org/ 
-Javascript gallery: https://nanogallery2.nanostudio.org/
-Font: https://www.jetbrains.com/lp/mono/
-
-Licenses:
-For the medias, content, pictures, text all rights reserved to Victor Maurice.
-The source code is under MIT license: https://victor-maurice.mit-license.org
--->
-
-<!-- commentaire -->
-
 <head>
 	<!--Le titre de la page-->
-	<title>Victor Maurice - Art bronze</title>
+	<title>Victor Maurice - Gallerie</title>
 	<!--La description de la page (pour les moteurs de recherche) dans content=""-->
 	<meta name="description"
-		content="page d'acceuil du site de Victor Maurice, sculpteur fondeur de statues en bronze d'art vivant en Ariège">
+		content="page d'acceuil du site de Victor Maurice, sculpteur fondeur de statues en bronze d'art vivant en Ariège. Cette page fait office d'Index, Gallerie, Acceuil et Page principale">
 	<!--Le logo-->
 	<link rel="icon" type="image/png" href="img/favicon.png">
 
@@ -48,111 +33,60 @@ The source code is under MIT license: https://victor-maurice.mit-license.org
 		<nav>
 			<ul>
 				<!--La barre de navigation avec class="current" qui indique ou on est.-->
-				<li><a class="current" href="index.html">accueil</a></li>
-				<li><a href="galerie.html">galerie</a></li>
-				<li><a href="news.html">expositions</a></li>
-				<li><a href="contact.html">contact</a></li>
-				<div class="dropdown" style="float:right;">
-					<button class="dropbtn">+</button>
-					<div class="dropdown-content">						
-						<a href="fabrication.html">fabrication</a>
-						<a href="about.html">à propos</a>
-						<a href="livre.html">livre d'or</a>
-						<a href="webring.html">Artistes</a>
-					</div>
-				</div>
+				<li><a class="current" href="index.html">galerie</a></li>
+				<li><a href="expositions.html">expos</a></li>
+				<li><a href="blog.html">blog</a></li>
+				<li><a href="fabrication.html">fabrique</a></li>
+
 			</ul>
 		</nav>
 	</header>
 
-	<main>
-		<!--sa c'est le bouton pour revenir en haut.-->
+    <main>
         <a href="#top" class="scrollToTopBtn">↑</a>
-		
-		<!--On met toute la page ici!-->
+        <!-- Ajoutez ici le contenu spécifique de la galerie -->
+    </main>
 
-		
-				
-		<header>
-			<h1>Victor Maurice - Sculpteur fondeur en Ariège</h1>
-			<hr>
-			
+    <footer>        
+        <!-- Formulaire Newsletter -->
+        <div class="newsletter-section">
+            <form id="newsletter-form">
+                <label for="email">Vous pouvez vous abonner à ma newsletter si vous voulez que je vous envoie des informations sur mes futurs marchés, expos et nouvelles oeuvres</label>
+                <input type="email" id="email" name="email" required />
+                <button type="submit">Je m'abonne</button>
+                <div id="newsletter-success" style="display: none;">Merci ! Votre abonnement a été enregistré.</div>
+            </form>
+        </div>
+        <br>
+        <a>Vous pouvez me contacter par mail directement à</a>
+        <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a><br>
+        <p>Contact: <a href="mailto:victor.mo@laposte.net">Contactez-moi</a></p>
 
-			<aside>
-			<img loading="lazy" alt="sculpture en bronze massif d'un cavalier chevauchant " src="img/cavalier.webp" style="width: 50vh;">		
-		    </aside>
-		
+                <p>&copy;2026 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a></p>
+        <br/>
+        <center>
+            <img alt="decoration" src="img/star.gif"/>
+            <a href="https://neocities.org" target="_blank">
+                <img alt="créé un site web avec neocities!" src="img/neocities_hosted.gif"/>
+            </a>
+            <img alt="decoration" src="img/star.gif"/>
+        </center>
+        <br/>
+        <p><a href="#top">[ Revenir en haut ]</a></p>
+    </footer>
 
-		</header>
-
-		
-		<h3><u>Carte du site:</u></h3>
-
-		<li>
-			Cliquez sur <a href="galerie.html">Galerie↑</a> pour voir mes sculptures,<br>
-			mise à jour régulièrement avec mes nouvelles créations
-		<li>
-			Pour la vente en ligne contactez moi par mail.<br>
-			<a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a><br>
-		
-		<li>
-			Une explication de ma méthode est visible<br> en cliquant sur: <a href="fabrication.html">Fabrication↑</a>
-		
-		<li>
-			La page de <a href="contact.html">Contact↑</a>
-		
-		<li>
-			Mes <a href="news.html">Expositions↑</a> passées et futurs
-		
-		<li>
-			Le <a href="livre.html">Livre d'or↑</a> si tu veux laisser un message
-				
-		<li>
-			Et enfin les liens d'autres <a href="webring.html">Artistes↑</a> 
-		<br>
-		<strong>~ Bonne visite! ~</strong>
-		<br>
-		
-		<article>
-				<h3><u>Ma démarche artistique</u></h3>
-				&nbsp;&nbsp;&nbsp;&nbsp;Mes statues sont toutes des pièces uniques issues d’un procédé entièrement manuel et ancestral que m'a transmis un artiste Burkinabé. Elles sont réalisées avec de la cire d’abeille, de l’argile, du bronze recyclé et du feu.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Je les sculpte d’abord en cire d’abeille, lorsqu'elle est tiède et malléable, à l'identique de la statue que je veux obtenir en bronze. Ce sont des objets à toucher, réalisés à la main et pour la main.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Ensuite, je confectionne par dessus un moule en plusieurs couches avec un mélange d'argile que l'on appelle "banko", selon un procédé vieux de 4000 ans qui est toujours d'actualité au Burkina Faso. 
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Ce moule ressemble à une sorte de vase, je le cuis au feu de bois et je récupère la cire qui fond en chauffant. La statue disparaît mais laisse son empreinte, un vide rempli de formes.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Il faut ensuite fondre le métal (bronze ou laiton issus de lustres , fourchettes , pièces mécaniques, tuyauterie etc...) puis le couler dans ces moules quand ils sont bien chauds.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Enfin, lorsque le métal a refroidi et qu'il est redevenu solide,je casse le moule pour découvrir le résultat de ce processus plein d’aléas.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;C’est un grand moment rempli d’espoir et de d'appréhension car une statue ratée sera perdue définitivement.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Les œuvres qui ont traversé avec succès ces étapes périlleuses sont là, et pour toujours. Elles attendent de trouver la personne à qui elles correspondent. C'est un objet qui nous accompagnera tout au long de notre vie et que l'on peut transmettre ou garder avec soi pour l'éternité.
-				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;Grâce à ce procédé millénaire et cet alliage capable de traverser le temps je tente de matérialiser un pont entre le passé et le futur. Ces sculptures cherchent à ouvrir une porte secrète dans notre mémoire et nous amènent sur un chemin à la fois universel et intemporel mais aussi intime et quotidien.
-
-		</article>
-		<hr>
-		<article style="text-align: center">
-			<p class="rainbow-text">
-				Site en cours de construction
-			</p>
-		</article>
-
-		<!--fin de la page-->
-	</main>
-
-
-	<footer>
-		<p>&copy2024 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a>
-		</p>
-		<br>
-		<center><img src="img/star.gif" alt="decoration"><a href="https://neocities.org" target="_blank"><img
-					src="img/neocities_hosted.gif" alt="crée un site web avec neocities!"></a><img src="img/star.gif"
-				alt="decoration"></center>
-	</footer>
+    <!-- Script Formspree -->
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', {
+            formElement: '#newsletter-form',
+            formId: 'mykvoejk',
+            onSuccess: function() {
+                document.getElementById('newsletter-success').style.display = 'block';
+                document.getElementById('newsletter-form').reset();
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
-
 </html>
