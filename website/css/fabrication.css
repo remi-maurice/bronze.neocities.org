@@ -1,0 +1,135 @@
+.page-fabrication main {
+    width: 100%;
+}
+
+.page-fabrication h1 {
+
+    text-align: center;
+
+    margin:
+        1rem
+        0
+        6rem
+        0;
+}
+
+.fabrication-gallery {
+    width: 100%;
+}
+
+/* ======================================== */
+/* SCENES */
+/* ======================================== */
+
+.fabrication-gallery .blog-post {
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    padding:
+        4rem
+        2rem;
+
+    margin-bottom: 25vh;
+
+    opacity: 0.25;
+
+    transform: scale(0.96);
+
+    filter: blur(10px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+
+    will-change:
+        opacity,
+        transform,
+        filter;
+}
+
+.fabrication-gallery .blog-post:first-child {
+
+    min-height: auto;
+
+    padding-top: 0;
+}
+
+.fabrication-gallery .blog-post.active {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    filter: blur(0px);
+}
+
+/* ======================================== */
+/* IMAGES */
+/* ======================================== */
+
+.fabrication-gallery img {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    align-self: center;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.45),
+        0 0 90px rgba(0,0,0,0.25);
+}
+
+/* ======================================== */
+/* TEXTE */
+/* ======================================== */
+
+.fabrication-gallery figcaption {
+
+    margin-top: 1.5rem;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.82);
+
+    max-width: 65ch;
+
+    align-self: center;
+}
+
+/* ======================================== */
+/* MOBILE */
+/* ======================================== */
+
+@media (max-width: 800px) {
+
+    .fabrication-gallery .blog-post {
+
+        min-height: auto;
+
+        padding:
+            2rem
+            1rem;
+
+        margin-bottom: 12vh;
+    }
+
+    .page-fabrication h1 {
+
+        margin:
+            2rem
+            1rem
+            3rem
+            1rem;
+    }
+}

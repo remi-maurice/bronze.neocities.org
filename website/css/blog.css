@@ -1,142 +1,234 @@
-/* ======================================== */
-/* BLOG LAYOUT WRAPPER */
-/* ======================================== */
+/* ========================= */
+/* LAYOUT                   */
+/* ========================= */
 
 .blog-layout {
-    grid-column: 1 / -1;
-    position: relative;
-
     display: grid;
     grid-template-columns: 220px 1fr;
-    gap: 1rem;
-    min-height: 100vh;
+    gap: 0;
+    width: 100%;
 }
 
-/* ======================================== */
-/* SIDEBAR NAV (pagination style) */
-/* ======================================== */
+/* ========================= */
+/* SIDEBAR                 */
+/* ========================= */
 
 .blog-nav {
     position: sticky;
     top: 0;
-    align-self: start;
+    height: 100vh;
 
     display: flex;
-    flex-direction: column;   /* IMPORTANT : mode pagination vertical propre */
-    gap: 0rem;
+    flex-direction: column;
 
-    padding: 1rem;
+    padding-left:0rem;
+    padding-top: 1.2rem;
+    margin: 0;
 
-    max-height: 100vh;
-    overflow-y: auto;
-
-    border-right: 1px solid #2f2f2f;
-    padding-right: 0rem;
-    padding-left: 0rem;
-    padding-top: 0rem;
+    overflow: hidden;
 }
-
-/* ======================================== */
-/* LINKS */
-/* ======================================== */
 
 .blog-nav a {
-    display: block;
-
-    padding: 0.6rem 0.8rem;
-
-    border: 1px solid #2f2f2f;
-    border-radius: 10px;
-
-    color: #e8e3dc;
+    padding: 0.5rem 0.8rem;
+    opacity: 0.8;
+    transition: 0.35s ease;
     text-decoration: none;
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    max-width: 100%;
-
-    transition: 0.2s ease;
+    color: #e8e3dc;
 }
-.blog-nav a:hover {
-    border-color: #c6a972;
+
+.blog-nav a.active {
+    opacity: 1;
     color: #c6a972;
-    transform: translateX(4px);
+    background: rgba(198,169,114,0.12);
+
+    border-radius: 6px;
 }
 
-/* ======================================== */
-/* BLOG CONTENT */
-/* ======================================== */
+.blog-nav a:hover {
+  cursor: pointer;
+
+  transform: scale(1.2);
+  transform-origin: left center;
+
+
+
+  /* gradient text effect */
+  background-image: repeating-linear-gradient(
+    45deg,
+    hwb(44 33% 23%),
+    #a9884b,
+    #ffecc0,
+    #fabb45
+  );
+
+  background-size: 20% 20%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: rainbow 5s linear infinite;
+}
+
+/* ========================= */
+/* BLOG AREA                */
+/* ========================= */
 
 .blog {
-    padding: 2rem;
-    max-width: 900px;
+    width: 100%;
 }
 
-/* ======================================== */
-/* MOBILE RESPONSIVE */
-/* ======================================== */
+/* ========================= */
+/* ARTICLES                 */
+/* ========================= */
+
+.blog-post {
+    min-height: 100vh;
+    margin-bottom: 60vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 2rem 2rem;
+
+    transition: opacity 0.5s ease, filter 0.6s ease;
+}
+
+
+.blog-post:first-child {
+    padding-top: 2rem;
+}
+
+
+.blog-post.active {
+    opacity: 1;
+}
+
+/* effet “cinéma périphérique” */
+.blog-post:not(.active) {
+    opacity: 0.1;
+}
+
+
+/* ========================= */
+/* TYPO                      */
+/* ========================= */
+
+.blog-post header {
+    margin-bottom: 1.5rem;
+}
+
+.blog-post h2 {
+    font-size: 2rem;
+    line-height: 1.1;
+
+    margin: 0.3rem 0 0 0;
+
+    letter-spacing: -0.02em;
+    font-weight: 700;
+
+    color: rgba(255,255,255,0.95);
+}
+
+.blog-post h2::after {
+    content: "";
+    display: block;
+    width: 20vw;
+    height: 2px;
+    background: linear-gradient(90deg, #fff, transparent);
+    opacity: 0.4;
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+
+    margin: 0.8rem 0 0 0;
+
+    letter-spacing: -0.015em;
+    font-weight: 650;
+
+    color: rgba(255,255,255,0.88);
+}
+
+.blog-post h3::after {
+    content: "";
+    display: block;
+    width: 14vw;
+    height: 2px;
+    margin-top: 6px;
+
+    background: linear-gradient(90deg, #fff, transparent);
+    opacity: 0.25;
+}
+
+.blog-post h4 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+
+    margin: 0.6rem 0 0 0;
+
+    letter-spacing: -0.01em;
+    font-weight: 600;
+
+    color: rgba(255,255,255,0.75);
+}
+
+.blog-post h4::after {
+    content: "";
+    display: block;
+    width: 8vw;
+    height: 1px;
+    margin-top: 5px;
+
+    background: linear-gradient(90deg, #fff, transparent);
+    opacity: 0.18;
+}
+
+.blog-post time {
+    font-family: monospace;
+    font-size: 0.8rem;
+
+    opacity: 0.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+.blog-post p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.78);
+
+    max-width: 65ch;
+}
+
+.blog-post p + p {
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* MOBILE                   */
+/* ========================= */
 
 @media (max-width: 800px) {
-
     .blog-layout {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr;
     }
 
-    /* SIDEBAR COLLAPSABLE */
     .blog-nav {
-        position: sticky;
-        top: 0;
-        align-self: start;
-
-        width: 60px;              /* état COLLAPSED */
-        overflow: hidden;
-
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        padding: 1rem 0.5rem;
-
-        transition: width 0.25s ease;
-        border-right: 1px solid #2f2f2f;
-    }
-
-    /* quand on "hover" ou "focus" on déplie */
-    .blog-nav:hover,
-    .blog-nav:focus-within {
-        width: 220px;
-    }
-
-    /* LINKS */
-    .blog-nav a {
-        display: flex;
-        align-items: center;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        padding: 0.6rem 0.8rem;
-
-        flex: 0 0 auto;
-    }
-
-    /* texte caché en mode fermé (option clean UX) */
-    .blog-nav:not(:hover):not(:focus-within) a {
-        text-overflow: clip;
-    }
-
-    .blog-nav:not(:hover):not(:focus-within) a {
-        font-size: 0; /* version ultra compacte */
-    }
-
-    .blog-nav:not(:hover):not(:focus-within) a::before {
-        content: "•";
-        font-size: 1rem;
-        display: block;
-        text-align: center;
-        width: 100%;
+        display: none;
     }
 }

@@ -24,14 +24,15 @@
 	<meta http-equiv="Expires" content="0" />
 
 	<!-- le css -->
-	<link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/global.css">
+
 	<!-- balise google -->
 	<meta name="google-site-verification" content="nVmpPdFGrPKbloUWmymXnAAvizUcrBK1wvOOhEG_KoI" />
 
 </head>
 
-<body id="top">
+<body id="top" class="page-blog">
 
     <header>
 
@@ -51,6 +52,9 @@
 
     </header>
 
+    <!-- Bouton retour en haut -->
+    <a href="#top" class="scrollToTopBtn" aria-label="Retour en haut">↑</a>
+
 <!-- 
 █████████████████████████████████████████████████████████████████████████████
 █                                                                           █
@@ -58,180 +62,361 @@
 █                                                                           █                                                
 █████████████████████████████████████████████████████████████████████████████
 -->
+
 <div class="blog-layout">
 
-    <!-- 
-    ████████████████████████████████████
-    █  NAVIGATION DES "PAGES" DU BLOG  █ 
-    ████████████████████████████████████
-     -->
-
     <nav class="blog-nav">
+        
+<!-- 
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 
+█                                              BARRE DE NAVIGATION                                                         █
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 
 
-        <a href="#Mes inspirations naturelles">
-            Mes inspirations naturelles
+ C'est ici que l'on trouve les liens vers les articles, quand on clique dessus ça nous emmène jusqu'à l'article correspondant.          
+ Je t'invite a les organiser chronologiquement en rajoutant les liens en haut de liste au fur et à mesure que tu écris les articles 
+ correspondants.
+
+ Tu peux aussi les organiser par thème, ou bien laisser un article en premier, genre introduction, contact, etc.
+
+ Attention, l'ordre de cette liste est purement visuel, il n'a aucune incidence sur l'ordre des articles dans la page.
+ C'est pour cela que c'est plus simple de les organiser chronologiquement, mais tu fais comme tu veux.
+
+ Si tu organise chronologiquement, on pourra ensuite faire des séparations entre les années par exemple.
+
+ SYNTAXE:
+
+ <a href="#nom-de-l-article-sans-espace-tout-en-minuscules" data-target="nom-de-l-article-sans-espace-tout-en-minuscules"> 
+    Titre de l'article qui s'affiche dans la barre de navigation 
+ </a>
+
+ EXPLICATION:
+
+ href c'est ce qui nous emmène à l'article.
+ data-target c'est ce qui permet de surligner le lien dans la barre de navigation.
+
+ Les deux doivent être identiques et ne avoir d'espaces.
+
+████████████████████████████████████████████████████████████████████████████████████████████
+███████████████ DEBUT DE LA BARRE DE NAVIGATION ████████████████████████████████████████████
+████████████████████████████████████████████████████████████████████████████████████████████
+-->       
+
+
+
+        <a href="#newsletter" data-target="newsletter">
+            Newsletter
         </a>
 
-        <a href="#article-02">
-            Article 02
+
+        <a href="#a-propos" data-target="a-propos">
+            À propos
         </a>
 
-        <a href="#article-03">
-            Article 03
+
+        <a href="#ma-demarche-artistique" data-target="ma-demarche-artistique">
+            Ma démarche artistique
         </a>
 
-        <a href="#article-04">
-            Article 04
+
+        <a href="#article-vide" data-target="article-vide">
+            Article vide
         </a>
 
+
+
+
+<!-- 
+████████████████ FIN DE LA BARRE DE NAVIGATION █████████████████████████████████████████████    
+-->
     </nav>
 
     <main class="blog">
+
+
+
+<!-- 
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 
+█                                             LES ARTICLES                                                                 █
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 
+
+C'est ici que tu vas écrire tes article! 
+
+Chaque article doit forcement être écrit dans une balise <article> </article> avec son id="nom-de-l-article",
+et la classe css class="blog-post" ; qui fait que ça s'affiche correctement.
+C'est sa configuration minimale obligatoire. EX:
+
+
+
+<article id="nom-de-l-article" class="blog-post"> 
+
+      (((C'est ici que tu vas tout mettre, je t'explique plus bas)))
+
+</article>
+
+
+Entre ces deux balises tu met ce que tu veux:
+
+----HEADER------------------------------------------------------------------------------------------------
+
+    <header>
+
+        <time>2026-05-29</time>                 <-- la date de publication de l'article c'est facultatif!
+        <h2>Le titre de l'article</h2>          <-- le titre de l'article, il doit être dans une balise,
+                                                    <h2></h2>    >Gros
+                                                    ou    
+                                                    <h3></h3>    >Moyen
+                                                    ou      
+                                                    <h4></h4>    >Petit
+    </header>
+
     
-    <!-- 
-    ███████████████████████
-    █  Mes inspirations   █ 
-    ███████████████████████
-     -->
+--- PARAGRAPHE ------------------------------------------------------------------------------------------------
 
-    <article
-        id="Mes inspirations naturelles"
-        class="blog-post"
-    >
+    <p> 
 
-        <header class="post-header">
+        Ici tu écris un paragraphe, si tu reviens à la ligne dans l'éditeur de texte sa 
+        ne reviens pas a la ligne en "vrai". Mais sa permet pour toi d'avoir une bien meilleur 
+        visibilitée que si tu écris tout sur une seule ligne!
 
-            <time datetime="2026-05-29">
-                Date
-            </time>
+        Pour revenir à la ligne en "vrai" utilise <br>,  tu peux le placer en fin de ligne par exemple.
+        Mais c'est souvent bien mieux de commencer un nouveau paragraphe  <p> </p>! Plus lisible.
 
-            <h2>
-                Mes inspirations 
-            </h2>
-
-        </header>
-
-        <div class="post-content">
-
-            <p>
-                Contenu de l'article
-            </p>
-            <p>
-                Retour a la ligne 
-            </p>
-
-        </div>
-
-    </article>
-
-    <!-- 
-    ███████████████
-    █  ARTICLE 2  █ 
-    ███████████████
-     -->
+    </p>
 
 
-    <article
-        id="article-02"
-        class="blog-post"
-    >
+--- IMAGE ------------------------------------------------------------------------------------------------------
 
-        <header class="post-header">
+    <img
 
-            <time datetime="2026-05-29">
-                Date
-            </time>
+        loading="lazy"                                 <--  Sa permet de charger les images au fur et à mesure.
+                                                            Comme sa la page charge plus vite. C'est important.
 
-            <h2>
-                Titre de l'article 2
-            </h2>
+        src="img/fabrication/fabrication_10.webp"      <-- le lien de l'image sur ton site.   
+    ou                                                     Je te conseille de toujours hébérger les images sur ton site plutôt que les charger depuis un site externe. 
+        src="https://exemple.com/image.webp"               Comme sa t'est sur qu'elles ne vont pas disparaitre du jour au lendemain. Et sa peux éviter certains bugs.
 
-        </header>
 
-        <div class="post-content">
+        alt="sculpture en bronze sortie du moule"      <-- la description de l'image, pour le référencement pour les personnes non voyantes. 
+                                                           Je te conseille de la mettre.
 
-            <p>
+    >                                                  <-- n'oublie pas de fermer la balise <img> avec le symbole >!
 
-            </p>
+--- LIEN -------------------------------------------------------------------------------------------------------
 
-        </div>
+    <a
 
-    </article>
+        href="https://exemple.com"                        <-- Le lien
+                                                            
+        target="_blank"                                   <-- Optionnel. Sa fait que le lien s'ouvre dans un nouvel onglet.
+                                                          Met le pour les liens externes, comme sa les visiteurs ne quittent pas ton site.
 
-    <!-- 
-    ███████████████
-    █  ARTICLE 3  █ 
-    ███████████████
-     -->
+    >                                                     <---- n'oublie pas de fermer la balise <a> avec le symbole >!
 
-    <article
-        id="article-03"
-        class="blog-post"
-    >
+        Visitez le site exemple                            <-- Le texte cliquable affiché à l'écran.
 
-        <header class="post-header">
+    </a>
 
-            <time datetime="2026-05-29">
-                Date
-            </time>
+-->
 
-            <h2>
-                Titre de l'article 3
-            </h2>
 
-        </header>
+<!-- 
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 
+█                                       DEBUT DES ARTICLES                                                                 █
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 
+-->
 
-        <div class="post-content">
+
+<!-- 
+██████████████████████████████████████████████████████████████████████
+███████████████████████  NEWSLETTER         ██████████████████████████
+██████████████████████████████████████████████████████████████████████       
+-->
+
+
+        <article id="newsletter" class="blog-post">
+
+            <header>
+                <time>2026-05-29</time>
+                <h2>J'ai créé une newsletter!</h2>
+            </header>
 
             <p>
-                Medeam Antiopam legant Latina verbum Latinas e inviti isdem Antiopam Latinas dicunt spernat est legant est aut fabellas quo satis.
+                    Je viens de créer une newsletter pour pouvoir vous informer périodiquement de mes nouvelles sculptures, expositions, etc.
             </p>
-
-            <img src="img/cavalier.webp" style="width: 50vw;">
-
-        </div>
-
-    </article>
-
-    <!-- 
-    ███████████████
-    █  ARTICLE 4  █ 
-    ███████████████
-     -->
-
-    <article
-        id="article-04"
-        class="blog-post"
-    >
-
-        <header class="post-header">
-
-            <time datetime="2026-05-29">
-                Date
-            </time>
-
-            <h2>
-                Titre de l'article 4
-            </h2>
-
-        </header>
-
-        <div class="post-content">
 
             <p>
-                Exigamus expetendam spe enim eius sic non enim non omnis enim natura beneficium expetendam liberalesque in beneficium faeneramur fructus fructus enim (neque amore spe sumus) mercedis exigamus ad expetendam faeneramur ipso beneficium spe exigamus ad ad adducti sed ipso liberalitatem liberalesque exigamus enim eius in sumus) gratiam omnis mercedis ad faeneramur natura ut exigamus sed ut liberalesque adducti exigamus non enim in propensi enim fructus liberalesque sed non liberalesque ut non beneficium non faeneramur expetendam putamus (neque exigamus gratiam non fructus sed sed beneficium (neque natura enim non spe ut gratiam omnis non liberalitatem sed inest non natura liberalitatem inest.
+                    Si vous voulez vous abonner c'est très simple, il suffit de rentrer votre adresse email dans le formulaire ci-dessous et de cliquer sur "Je m'abonne".
             </p>
+            
             <p>
-                2nd Paragraphe
+                    Je recevrais votre adresse mail et vous ajouterais à ma liste de contact.
+
             </p>
 
-        </div>
+            <p>
+                <div class="newsletter-section">
+                    <form id="newsletter-form">
+                        <input type="email" id="email" name="email" required />
+                        <button type="submit">Je m'abonne</button>
+                        <div id="newsletter-success" style="display: none;">Merci ! Votre abonnement a été enregistré.</div>
+                    </form>
+                </div>
+            </p>
 
-    </article>
+        </article>
 
-</main>
 
-</div>
+<!-- 
+███████████████████████   FIN DE L'ARTICLE   █████████████████████████    
+-->
+
+
+
+<!-- 
+██████████████████████████████████████████████████████████████████████
+███████████████████████  A PROPOS           ██████████████████████████
+██████████████████████████████████████████████████████████████████████       
+-->
+
+
+        <article id="a-propos" class="blog-post">
+
+            <header>
+                <time>2025</time>
+                <h2>À propos</h2>
+            </header>
+
+            <p>
+                Selon les mots de Virginia Woolf à propos de la création artistique, "Il est beaucoup plus important d'être soi-même que quoi que ce soit d'autre", elle précise: "Ne songez pas à influencer les autres" et rajoute: "Pensez aux choses en elles mêmes".
+            </p>
+
+            <p>
+                Cela correspond à mon état d'esprit lorsque je sculpte. Je cherche à mettre en forme des idées à la fois personnelles et universelles dans une tentative exaltante, entre mystère et évidence.
+            </p>
+
+            <p>
+                Il est ensuite nécessaire de s'approprier l'oeuvre pour la faire correspondre à son idéal et à ce qu'elle nous évoque d'intime.
+
+            </p>    
+
+        </article>
+
+
+<!-- 
+███████████████████████   FIN DE L'ARTICLE   █████████████████████████    
+-->
+
+
+
+<!-- 
+██████████████████████████████████████████████████████████████████████
+█████████████████   MA DEMARCHE ARTISTIQUE     ███████████████████████
+██████████████████████████████████████████████████████████████████████       
+-->
+
+
+        <article id="ma-demarche-artistique" class="blog-post">
+
+            <header>
+                <time>2026-05-29</time>
+                <h2>Ma démarche artistique</h2>
+            </header>
+
+            <p>
+                Mes statues sont toutes des pièces uniques issues d’un procédé entièrement manuel et ancestral que m'a transmis un artiste Burkinabé. <br>
+                Elles sont réalisées avec de la cire d’abeille, de l’argile, du bronze recyclé et du feu.
+            </p>
+
+            <p>
+                Je les sculpte d’abord en cire d’abeille, lorsqu'elle est tiède et malléable, à l'identique de la statue que je veux obtenir en bronze. <br>
+                Ce sont des objets à toucher, réalisés à la main et pour la main.
+            </p>
+
+            <p>
+                Ensuite, je confectionne par dessus un moule en plusieurs couches avec un mélange d'argile selon un procédé vieux de 4000 ans que l'on appelle "banko". <br>
+                Ce procédé "inventé" dans l'actuel Burkina Faso est encore utilisé de nos jours par des artisans sculpteur fondeur tels que mon mentor Sanou Bafetique dis "Bafo"
+            </p>
+
+            <p>
+                Ce moule ressemble à une sorte de vase, je le cuis au feu de bois et je récupère la cire qui fond en chauffant. <br>
+                La statue disparaît mais laisse son empreinte, un vide rempli de formes.
+            </p>
+
+            <p>
+                Il faut ensuite fondre le métal (bronze ou laiton issus de lustres , fourchettes , pièces mécaniques, tuyauterie etc...)<br>
+                puis le couler dans ces moules quand ils sont bien chauds.
+            </p>
+
+            <p>
+                Enfin, lorsque le métal a refroidi et qu'il est redevenu solide,je casse le moule pour découvrir le résultat de ce processus plein d’aléas. 
+            </p>
+
+            <p>
+                C’est un grand moment rempli d’espoir et de d'appréhension car une statue ratée sera perdue définitivement.
+            </p>
+
+            <p>
+                Les œuvres qui ont traversé avec succès ces étapes périlleuses sont là, et pour toujours. <br>
+                Elles attendent de trouver la personne à qui elles correspondent. <br>
+                C'est un objet qui nous accompagnera tout au long de notre vie et que l'on peut transmettre ou garder avec soi pour l'éternité.
+            </p>
+
+            <p>
+                Grâce à ce procédé millénaire et cet alliage capable de traverser le temps je tente de matérialiser un pont entre le passé et le futur.<br> 
+                Ces sculptures cherchent à ouvrir une porte secrète dans notre mémoire et nous amènent sur un chemin à la fois universel et intemporel mais aussi intime et quotidien.
+            </p>
+
+        </article>
+
+
+<!-- 
+███████████████████████   FIN DE L'ARTICLE   █████████████████████████    
+-->
+
+
+<!-- 
+██████████████████████████████████████████████████████████████████████
+███████████████████████  ARTICLE VIDE       ██████████████████████████
+██████████████████████████████████████████████████████████████████████       
+-->
+
+
+        <article id="article-vide" class="blog-post">
+
+            <header>
+                <time>2026-05-29</time>
+                <h2>Article vide</h2>
+            </header>
+
+            <p>
+                Ceci est un article vide
+            </p>
+
+        </article>
+
+
+<!-- 
+███████████████████████   FIN DE L'ARTICLE   █████████████████████████    
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/blog.js"></script>
+
 <!-- 
 █████████████████████████████████████████████████████████████████████████████
 █                                                                           █
@@ -240,7 +425,7 @@
 █████████████████████████████████████████████████████████████████████████████
 -->
 
-   <footer>        
+<footer>        
         <!-- Formulaire Newsletter -->
         <div class="newsletter-section">
             <form id="newsletter-form">
@@ -277,16 +462,7 @@
             }
         });
     </script>
+    
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
-
-<script>
-const nav = document.querySelector('.blog-nav');
-const toggle = document.getElementById('toggleSidebar');
-
-toggle.addEventListener('click', () => {
-    nav.classList.toggle('collapsed');
-});
-</script>
-
 </html>

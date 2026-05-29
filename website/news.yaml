@@ -14,22 +14,50 @@
 #
 #  Aussi, très important, l'indentation. Garde bien les objets aligné, un espace de travers et l'objet ne marchera pas
 #  Bisous!
+#
+# Garde le 1er objet la pour pouvoir copier coller facilou! Désolè j'ai du le passer en commentaire donc tu devras:
+# -le selectionner, puis faire la combinaison de touche  (les 3 en meme temp, en appuyant dans l'ordre ci dessous)
+# - Ctrl Majuscule :       pour le décommenter, pareil pour le recommenter.
+
+
+
 
 news:
   - category: Expositions
     items:
-       # Garde cet objet la pour pouvoir copier coller facilou!
-       - date: 
-         titre_lien: 
-         lien: 
-         description:
-         image:
-         taille_image: "50vh"   
+    
+      #  - date: 
+      #    titre_lien: 
+      #    lien: 
+      #    description:
+      #    image:
+      #    taille_image: "50vh"   
+
+      #  - date: 
+      #    titre_lien: 
+      #    lien: 
+      #    description:
+      #    image:
+      #    taille_image: "50vh"   
+
+      #  - date: 
+      #    titre_lien: 
+      #    lien: 
+      #    description:
+      #    image:
+      #    taille_image: "50vh"   
+
+      #  - date: 
+      #    titre_lien: 
+      #    lien: 
+      #    description:
+      #    image:
+      #    taille_image: "50vh"   
 
        - date: du 3 au 15 aout 2026
          titre_lien: Estivales Lagorre
          lien: https://estivaleslagorre.fr
-         description: Estivales Lagorre à Seix
+         description: Je serais présent aux Estivales Lagorre à Seix
          taille_image: "50vh"   
 
        - date: juin juillet 2026

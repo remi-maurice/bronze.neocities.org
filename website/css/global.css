@@ -298,7 +298,7 @@ header > nav a:visited {
 /* CURRENT / ACTIVE PAGE */
 header > nav a.current,
 header > nav a[aria-current="page"] {
-  font-size: 108%;
+  font-size: 130%;
   border: 2px solid var(--border);
   border-color: var(--accent);
   cursor: pointer;
@@ -956,18 +956,6 @@ canvas {
   }
 }
 
-/* Animation D baleines? */
-.imageWithTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Pour centrer horizontalement les éléments */
-  text-align: center;
-}
-
-.imageWithTitle img {
-  margin: 1em;
-}
-
 /* NAVBAR BANNER */
 
 .navbar-banner {
@@ -976,7 +964,7 @@ canvas {
 
   font-size: 1rem;
   line-height: 2;
-  padding: 1rem 0 0.5rem 0;
+  padding: 0.8rem 0 0.3rem 0;
 
   background-image: url("../img/bg.jpg");
   background-position: center;
@@ -1040,7 +1028,11 @@ canvas {
   z-index: 2;
 }
 
-.navbar-banner::after {
-  filter: blur(0.5px);
+
+body.page-blog {
+  display: block; /* casse le grid uniquement pour le blog */
 }
 
+body.page-blog > * {
+  grid-column: auto;
+}
