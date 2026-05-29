@@ -21,58 +21,161 @@
 	<meta http-equiv="Expires" content="0" />
 
 	<!-- le css -->
-	<link rel="stylesheet" href="css/simple.css">
+	<link rel="stylesheet" href="css/global.css">
 
 	<!-- balise google -->
 	<meta name="google-site-verification" content="nVmpPdFGrPKbloUWmymXnAAvizUcrBK1wvOOhEG_KoI" />
 
+
+    <!---------------------->
+    <!-- HEAD DE GALLERIE -->
+    <!---------------------->
+
+    <!-- Les trucs pour la galerie, on touche pas. https://nanogallery2.nanostudio.org/ -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="nanogallery/jquery.min.js?v=<?=Date.now()?>"></script>
+    <script type="text/javascript" src="nanogallery/jquery.nanogallery2.min.js?v=<?=Date.now()?>"></script>
+    <link href="nanogallery/nanogallery2.min.css?v=<?=Date.now()?>" rel="stylesheet" type="text/css">
+
+    <!-- le css -->
+    <link rel="stylesheet" href="css/simple.css?v=<?=Date.now()?>">
+
+    <!-- js-yaml pour lire les fichiers YAML -->
+    <script src="nanogallery/js-yaml.min.js?v=<?=Date.now()?>"></script>
+
 </head>
 
 <body id="top">
-	<header>
-		<nav>
-			<ul>
-				<!--La barre de navigation avec class="current" qui indique ou on est.-->
-				<li><a class="current" href="index.html">galerie</a></li>
-				<li><a href="expositions.html">expos</a></li>
-				<li><a href="blog.html">blog</a></li>
-				<li><a href="fabrication.html">fabrique</a></li>
-
-			</ul>
-		</nav>
-	</header>
+    <header>
+        <nav class="navbar-banner">
+            <ul>
+                <!-- La barre de navigation avec class="current" qui indique où on est -->
+                <li><a class="current" href="index.html">Galerie</a></li>
+                <li><a href="expos.html">Expos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="fabrication.html">Fabrication</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
+         <!--sa c'est le bouton pour revenir en haut.-->
         <a href="#top" class="scrollToTopBtn">↑</a>
-        <!-- Ajoutez ici le contenu spécifique de la galerie -->
+        
+        <!--On met toute la page ici!-->
+        Pour toute questions, m'inviter à une exposition ou faire une demande d'achat n'hésitez pas a me contactez par mail  
+        <a class="rainbow-text" href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">
+            victor.mo@laposte.net</a>, je me ferais un plaisir de vous lire.
+
+        <!-- Nanogallery intégré avec une database yaml-->
+        <div id="ngy2p"></div>
+        <script type="text/javascript">
+            jQuery(document).ready(async function () {
+                const timestamp = new Date().getTime();
+                const yamlFile = `galerie_list.yaml?v=${timestamp}`; // Chemin vers le fichier YAML avec un cache buster
+                const folderPath = 'img/gallerie/'; // Répertoire des images
+        
+                // Fonction pour lire le fichier YAML
+                async function loadYAML(url) {
+                    const response = await fetch(url);
+                    const text = await response.text();
+                    return jsyaml.load(text);
+                }
+        
+                // Fonction pour détecter si l'utilisateur est sur un appareil mobile
+                function isMobile() {
+                    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                }
+        
+                // Fonction pour initialiser la galerie
+                function initializeGallery(items) {
+                    const hoverEffect = isMobile()
+                        ? "borderLighter" // Mobile : sans labelSlideUp
+                        : "borderLighter|labelSlideUp"; // Desktop : avec labelSlideUp
+                    const viewerTools = isMobile()
+                        ? { topLeft: "zoomButton", topRight: "fullscreenButton, closeButton" }
+                        : { topLeft: "zoomButton", topRight: "fullscreenButton, closeButton" };
+                    jQuery("#ngy2p").nanogallery2({
+                        items: items,
+                        thumbnailWidth: "300",
+                        thumbnailHeight: "auto",
+                        thumbnailBorderVertical: 4,
+                        thumbnailBorderHorizontal: 4,
+                        thumbnailLabel: {
+                            position: "overImageOnBottom",
+                            align: "left",
+                            titleMultiLine: "false",
+                            titleFontSize: "0.5em",
+                            descriptionFontSize: "0.8em",
+                            displayDescription: true,
+                            descriptionMultiLine: true,
+                        },
+                        thumbnailDisplayTransition: "SLIDEAPPEAR",
+                        thumbnailDisplayTransitionDuration: 100,
+                        thumbnailDisplayInterval: 30,
+                        thumbnailHoverEffect2: hoverEffect,
+                        thumbnailAlignment: "center",
+                        thumbnailGutterWidth: 10,
+                        thumbnailGutterHeight: 10,
+                        thumbnailOpenImage: true,
+                        imageTransition: "slideUP",
+                        viewerHideToolsDelay: "2000",
+                        viewerGallery: "none",
+                        viewerTools: viewerTools,
+                        viewerToolbar: {
+                            display: false,
+                            position: "bottom",
+                            align: "left",
+                            standard: "label",
+                        },
+                        galleryFilterTags: "title",
+                        galleryL1FilterTagsMode: "multiple",
+                        navigationFontSize: "0.8em",
+                    });
+                }
+        
+                // Charger et traiter les données YAML
+                const yamlData = await loadYAML(yamlFile);
+                const galleryItems = yamlData.images
+                    .sort((a, b) => b.order - a.order)  // Sort by manual order (highest first)
+                    .map((image) => ({
+                        src: folderPath + image.src.split('/').pop(),
+                        srct: folderPath + image.srct.split('/').pop(),
+                        title: image.title,
+                        description: image.description,
+                        numero: image.numero,
+                        order: image.order,
+                    }));
+
+                // Initialiser la galerie avec les données YAML
+                initializeGallery(galleryItems);
+            });
+        </script>
     </main>
 
     <footer>        
         <!-- Formulaire Newsletter -->
         <div class="newsletter-section">
             <form id="newsletter-form">
-                <label for="email">Vous pouvez vous abonner à ma newsletter si vous voulez que je vous envoie des informations sur mes futurs marchés, expos et nouvelles oeuvres</label>
+                <label for="email"><a>Abonnez vous à ma newsletter pour ne rien louper!</a></label>
                 <input type="email" id="email" name="email" required />
                 <button type="submit">Je m'abonne</button>
                 <div id="newsletter-success" style="display: none;">Merci ! Votre abonnement a été enregistré.</div>
             </form>
         </div>
-        <br>
-        <a>Vous pouvez me contacter par mail directement à</a>
-        <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a><br>
-        <p>Contact: <a href="mailto:victor.mo@laposte.net">Contactez-moi</a></p>
 
-                <p>&copy;2026 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a></p>
-        <br/>
-        <center>
+        Pour toute questions contactez moi à
+        <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a><br>
+        
+        <p>All media on this website is under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC by 4.0 license</a></p>
+
+         <img alt="decoration" src="img/star.gif"/>
+            Fais toi aussi ton site web librement avec <a href="https://neocities.org"target="_blank">
+                <img alt="créé un site web avec neocities!"src="img/neocities_hosted.gif"/></a>
             <img alt="decoration" src="img/star.gif"/>
-            <a href="https://neocities.org" target="_blank">
-                <img alt="créé un site web avec neocities!" src="img/neocities_hosted.gif"/>
-            </a>
-            <img alt="decoration" src="img/star.gif"/>
-        </center>
+
         <br/>
-        <p><a href="#top">[ Revenir en haut ]</a></p>
+        <p><a href="#top">[ Bouton pour revenir en haut ]</a></p>
     </footer>
 
     <!-- Script Formspree -->

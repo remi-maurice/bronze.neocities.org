@@ -21,59 +21,177 @@
 	<meta http-equiv="Expires" content="0" />
 
 	<!-- le css -->
-	<link rel="stylesheet" href="simple.css">
+	<link rel="stylesheet" href="css/global.css">
 
 	<!-- balise google -->
 	<meta name="google-site-verification" content="nVmpPdFGrPKbloUWmymXnAAvizUcrBK1wvOOhEG_KoI" />
 
 </head>
 
-<body>
+<body id="top">
     <header>
-        <div class="logo-title">
-            <img src="img/favicon.png" alt="Logo Victor Maurice" class="logo">
-            <a href="index.html" class="title-link">Victor Maurice sculpteur fondeur</a>
-        </div>
-        <nav>
-            <ul class="nav-list">
+        <nav class="navbar-banner">
+            <ul>
+                <!-- La barre de navigation avec class="current" qui indique où on est -->
                 <li><a href="index.html">Galerie</a></li>
-                <li><a href="news.html">Expositions</a></li>
-                <li><a href="fabrication.html" class="current">Fabrication</a></li>
-                <li><a href="infos.html">Infos</a></li>
+                <li><a href="expos.html">Expos</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a class="current" href="fabrication.html">Fabrication</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <h1>Fabrication</h1>
-        <p>Découvrez le processus de fabrication de mes sculptures en bronze.</p>
-        <!-- Ajoutez ici le contenu spécifique de fabrication.html -->
-    </main>
+<main>
 
-    <footer>
-        <p>&copy;2026 victor-maurice <a href="https://victor-maurice.mit-license.org/" target="_blank">mit-license</a></p>
-        <br/>
-        <center>
-            <img alt="decoration" src="img/star.gif"/>
-            <a href="https://neocities.org" target="_blank">
-                <img alt="créé un site web avec neocities!" src="img/neocities_hosted.gif"/>
-            </a>
-            <img alt="decoration" src="img/star.gif"/>
-        </center>
-        <br/>
-        <p><a href="#top">[ Revenir en haut ]</a></p>
-        
+    <!-- Bouton retour en haut -->
+    <a href="#top" class="scrollToTopBtn" aria-label="Retour en haut">
+        ↑
+    </a>
+
+    <!-- Titre -->
+    <section class="hero">
+        <h1 class="page-title">
+            Comment je fabrique mes sculptures
+        </h1>
+    </section>
+
+    <!-- Galerie fabrication -->
+    <section class="fabrication-gallery">
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_1.webp"
+                alt="sculptures en cire d'abeille">
+            <figcaption>
+                Les sculptures en cire d'abeille avec leurs tiges de coulée et l'entonnoir
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_2.webp"
+                alt="moules en argile">
+            <figcaption>
+                Le moulage en argile avec la cire dedans
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_3.webp"
+                alt="décirage des moules">
+            <figcaption>
+                Le décirage, la cire fond et le moule se vide
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_4.webp"
+                alt="cuisson des moules">
+            <figcaption>
+                La cuisson des moules
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_5.webp"
+                alt="métaux de récupération">
+            <figcaption>
+                Le métal à fondre
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_6.webp"
+                alt="four au propane">
+            <figcaption>
+                Le four, le creuset et le métal dedans
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_7.webp"
+                alt="bronze en fusion">
+            <figcaption>
+                Le métal en fusion dans le four
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_8.webp"
+                alt="coulage du bronze en fusion">
+            <figcaption>
+                Le métal coulé dans les moules
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_9.webp"
+                alt="cassage du moule">
+            <figcaption>
+                On casse le moule
+            </figcaption>
+        </figure>
+
+        <figure>
+            <img
+                loading="lazy"
+                src="img/fabrication/fabrication_10.webp"
+                alt="sculpture en bronze sortie du moule">
+            <figcaption>
+                La sculpture se dévoile
+            </figcaption>
+        </figure>
+
+        <figure>
+            <figcaption>
+                Il faut ensuite la nettoyer, la polir, effectuer divers traitement avant d'obtenir la sculpture finie. C'est un processus long et plein de surprises!
+            </figcaption>
+        </figure>
+    </section>
+
+    <hr>
+
+</main>
+
+    <footer>        
         <!-- Formulaire Newsletter -->
         <div class="newsletter-section">
             <form id="newsletter-form">
-                <label for="email">Abonnez-vous à ma newsletter pour recevoir des informations périodiques:</label>
+                <label for="email"><a>Abonnez vous à ma newsletter pour ne rien louper!</a></label>
                 <input type="email" id="email" name="email" required />
                 <button type="submit">Je m'abonne</button>
                 <div id="newsletter-success" style="display: none;">Merci ! Votre abonnement a été enregistré.</div>
             </form>
         </div>
+
+        Pour toute questions contactez moi à
+        <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a><br>
         
-        <p>Contact: <a href="mailto:victor.mo@laposte.net">Contactez-moi</a></p>
+        <p>All media on this website is under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC by 4.0 license</a></p>
+
+         <img alt="decoration" src="img/star.gif"/>
+            Fais toi aussi ton site web librement avec <a href="https://neocities.org"target="_blank">
+                <img alt="créé un site web avec neocities!"src="img/neocities_hosted.gif"/></a>
+            <img alt="decoration" src="img/star.gif"/>
+
+        <br/>
+        <p><a href="#top">[ Bouton pour revenir en haut ]</a></p>
     </footer>
 
     <!-- Script Formspree -->

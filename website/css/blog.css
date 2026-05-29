@@ -1,0 +1,142 @@
+/* ======================================== */
+/* BLOG LAYOUT WRAPPER */
+/* ======================================== */
+
+.blog-layout {
+    grid-column: 1 / -1;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1rem;
+    min-height: 100vh;
+}
+
+/* ======================================== */
+/* SIDEBAR NAV (pagination style) */
+/* ======================================== */
+
+.blog-nav {
+    position: sticky;
+    top: 0;
+    align-self: start;
+
+    display: flex;
+    flex-direction: column;   /* IMPORTANT : mode pagination vertical propre */
+    gap: 0rem;
+
+    padding: 1rem;
+
+    max-height: 100vh;
+    overflow-y: auto;
+
+    border-right: 1px solid #2f2f2f;
+    padding-right: 0rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+}
+
+/* ======================================== */
+/* LINKS */
+/* ======================================== */
+
+.blog-nav a {
+    display: block;
+
+    padding: 0.6rem 0.8rem;
+
+    border: 1px solid #2f2f2f;
+    border-radius: 10px;
+
+    color: #e8e3dc;
+    text-decoration: none;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 100%;
+
+    transition: 0.2s ease;
+}
+.blog-nav a:hover {
+    border-color: #c6a972;
+    color: #c6a972;
+    transform: translateX(4px);
+}
+
+/* ======================================== */
+/* BLOG CONTENT */
+/* ======================================== */
+
+.blog {
+    padding: 2rem;
+    max-width: 900px;
+}
+
+/* ======================================== */
+/* MOBILE RESPONSIVE */
+/* ======================================== */
+
+@media (max-width: 800px) {
+
+    .blog-layout {
+        grid-template-columns: auto 1fr;
+    }
+
+    /* SIDEBAR COLLAPSABLE */
+    .blog-nav {
+        position: sticky;
+        top: 0;
+        align-self: start;
+
+        width: 60px;              /* état COLLAPSED */
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        padding: 1rem 0.5rem;
+
+        transition: width 0.25s ease;
+        border-right: 1px solid #2f2f2f;
+    }
+
+    /* quand on "hover" ou "focus" on déplie */
+    .blog-nav:hover,
+    .blog-nav:focus-within {
+        width: 220px;
+    }
+
+    /* LINKS */
+    .blog-nav a {
+        display: flex;
+        align-items: center;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        padding: 0.6rem 0.8rem;
+
+        flex: 0 0 auto;
+    }
+
+    /* texte caché en mode fermé (option clean UX) */
+    .blog-nav:not(:hover):not(:focus-within) a {
+        text-overflow: clip;
+    }
+
+    .blog-nav:not(:hover):not(:focus-within) a {
+        font-size: 0; /* version ultra compacte */
+    }
+
+    .blog-nav:not(:hover):not(:focus-within) a::before {
+        content: "•";
+        font-size: 1rem;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}

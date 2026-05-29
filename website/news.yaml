@@ -1,124 +1,108 @@
+#  Hey frérot je viens de voir qu'on peux écrire des commentaires dans un fichier yaml! Chouette!
+#  voila un exemple d'objet yaml correctement écris avec quelques explications.
+#
+#      - date: 1 janvier 2026            <---- ne pas mettre de caractères spéciaux (met juste des lettres et des chiffres)
+#        titre_lien: Mon exposition      <---- ne pas mettre de caractères spéciaux (met juste des lettres et des chiffres)
+#        lien: https://lien_complet.fr   <---- avec bien https:// ou http:// pas www.lien_complet.fr ni lien_complet.fr 
+#        description: Exposition         <---- ne pas mettre de caractères spéciaux (met juste des lettres et des chiffres)
+#        image: "img/news/image_avec_un_nom_sans_espaces_moi_j'aime_bien_remplacer_les_espaces_par_un_tiret_du_bas.jpg" 
+#        taille_image: "50vh"            <---- tu peux ajuster la taille de l'image ici
+#
+#  Ce qui bloque souvent pour toi c'est la syntaxe du nom de fichier de l'image! Regarde l'exemple. Attention, c'est la meme sur ton fichier, remplace les
+#  espaces par des tiret du bas. En general, pour tout fichier meme en dehors de yaml, c'est bien de faire sa pour garantir que l'ordinateur ne pense pas
+#  que sa peux être deux fichiers, ou plus!
+#
+#  Aussi, très important, l'indentation. Garde bien les objets aligné, un espace de travers et l'objet ne marchera pas
+#  Bisous!
+
 news:
   - category: Expositions
     items:
-    
+       # Garde cet objet la pour pouvoir copier coller facilou!
        - date: 
          titre_lien: 
          lien: 
          description:
-         image: 
+         image:
          taille_image: "50vh"   
 
        - date: du 3 au 15 aout 2026
          titre_lien: Estivales Lagorre
          lien: https://estivaleslagorre.fr
          description: Estivales Lagorre à Seix
-         image: 
          taille_image: "50vh"   
 
        - date: juin juillet 2026
          titre_lien: AMA 65
          lien: http://ama65.canalblog.com/
          description: Exposition l'Amatière à Bagnères de Bigorre
-         image: "img/news/Affiche expo Juin-Juillet 2026-HD.jpg"
+         image: "img/news/Affiche_expo_Juin-Juillet_2026-HD.jpg"
          taille_image: "50vh"   
        
        - date: Les samedis 13 et 20 décembre 2025
-         titre_lien: 
-         lien: 
          description: Marché de Saint Girons
-         image: 
          taille_image: "50vh"   
        
        - date: Le mercredi 17 décembre 2025
-         titre_lien: 
-         lien: 
          description: Marché de Noël à Soueix
          image: "img/news/Affichemarchedenoel2025soueix.jpg"
          taille_image: "50vh"   
 
        - date: Le dimanche 14 décembre 2025
-         titre_lien: 
-         lien: 
          description: Marché de Noël à Carla Bayle
          image: "img/news/marcheNoel2025carla.jpg"
          taille_image: "50vh"   
          
-       - date: Le dimanche 7 décembre 2025
-         titre_lien: 
-         lien: 
+       - date: Le dimanche 7 décembre 2025 
          description: Marché de Noël à Castillon en Couserans
          image: "img/news/CASTILLONAFFICHE2025 -1-.png"
          taille_image: "50vh"   
 
        - date: Le vendredi 5 décembre 2025
-         titre_lien: 
-         lien: 
          description: Marché de Noël Nocturne à Soulan
          image: "img/news/MNSOULAN25.webp"
          taille_image: "50vh"        
 
        - date: Le dimanche 9 novembre 2025
-         titre_lien: 
-         lien: 
          description: Salon de Noël des Créateurs d'Art
          image: "img/news/AfficheSalondeNoelMane25.jpg"
          taille_image: "50vh"          
 
        - date: Le jeudi 14 aout 2025
-         titre_lien: 
-         lien: 
          description: Marché Nocturne à Massat
          image: "img/news/m_nocturne_massat_25.jpg"
          taille_image: "50vh"   
 
        - date: Le mercredi 6 aout 2025 
-         titre_lien: 
-         lien: 
          description: Marché Extraordinaire à Soueix
          image: "img/news/soueix_extraordinaire_2025_web.webp"
          taille_image: "50vh"   
          
        - date: Du 18 au 20 Juillet 2025
-         titre_lien: 
-         lien: 
+
          description: Exposition à Castillon
          image: "img/news/Affiche_Exposition_Castillon_2025.jpg"
          taille_image: "60vh"
          
        - date: 22 décembre 2024
-         titre_lien: 
-         lien: 
          description: Marché de Noël de St Girons
-         image: 
          taille_image: "50vh"       
 
        - date: 18 décembre
-         titre_lien: 
-         lien: 
          description: Marché de Noël de Soueix
          image: "img/news/mn_soueix_24.webp"
          taille_image: "50vh"
 
        - date: 15 décembre
-         titre_lien: 
-         lien: 
          description: Marché de Noël de Massat
-         image: 
          taille_image: "50vh"   
 
        - date: 8 décembre
-         titre_lien: 
-         lien: 
          description: Marché de Noël du Carla Bayle
-         image: 
          taille_image: "50vh"   
 
        - date: 6 décembre
-         titre_lien: 
-         lien: 
          description: Marché de Noël de Soulan
-         image: 
          taille_image: "50vh"   
 
 
