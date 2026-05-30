@@ -38,23 +38,50 @@
 
 </main>
 
-<footer>
-	<div class="newsletter-section">
-		<form id="newsletter-form">
-			<label for="email">Abonnez vous à ma newsletter</label>
-			<input type="email" id="email" required />
-			<button type="submit">Je m'abonne</button>
-			<div id="newsletter-success" style="display:none;">Merci !</div>
-		</form>
-	</div>
+<footer class="site-footer">
+    <div class="newsletter-section">
+        <form id="newsletter-form">
+            <label for="email">
+                Pour ne rien louper de mes nouvelles sculptures, expositions..<br>
+                Abonnez-vous à ma newsletter en entrant votre adresse email ci-dessous:
+            </label>
+            <input type="email" id="email" name="email" required />
+            <button type="submit">Je m'abonne</button>
 
-	<p>Contact: <a href="mailto:victor.mo@laposte.net">victor.mo@laposte.net</a></p>
-
-	<p><a href="#top">Retour en haut</a></p>
+            <div id="newsletter-success" style="display:none;">
+                Merci ! J'ai bien reçu votre adresse email.
+            </div>
+        </form>
+    </div>
+    <p>
+        Pour toute question contactez-moi à :
+        <a href="mailto:victor.mo@laposte.net">
+            victor.mo@laposte.net
+        </a>
+    </p>
+    <p>
+        Tout les medias de ce site sont sous licence
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+            CC BY 4.0
+        </a>
+    </p>
+    <div class="footer-deco">
+        Crée toi aussi ton site gratuit et libre sur ->
+        <a href="https://neocities.org" target="_blank">
+            <img src="img/neocities_hosted.gif" alt="neocities">
+        </a> !
+    </div>
+    <p>
+        <a href="#top">↑ Retour en haut</a>
+    </p>
 </footer>
+
+<script>window.formspree=window.formspree||function(){(formspree.q=formspree.q||[]).push(arguments)};formspree('initForm',{formElement:'#newsletter-form',formId:'mykvoejk',onSuccess(){document.getElementById('newsletter-success').style.display='block';document.getElementById('newsletter-form').reset()}});</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <script src="nanogallery/js-yaml.min.js"></script>
 <script src="js/expos.js"></script>
 
 </body>
 </html>
+

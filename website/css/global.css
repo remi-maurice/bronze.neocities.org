@@ -291,7 +291,7 @@ header > nav a:visited {
   padding: 0.1rem 0.5rem;
   text-decoration: none;
 
-  transition: transform 1.2s ease, filter 1s ease, border-color 0.1s ease;
+  transition: transform 0.2s ease, filter 0.2s ease, border-color 0.1s ease;
 }
 
 
@@ -321,7 +321,7 @@ header > nav a[aria-current="page"] {
 
 
 /* HOVER EFFECT */
-header > nav a:hover {
+header > nav a:hover:not(.current):not([aria-current="page"]) {
   border-color: var(--accent-hover);
   cursor: pointer;
 
@@ -1035,4 +1035,49 @@ body.page-blog {
 
 body.page-blog > * {
   grid-column: auto;
+}
+
+
+/* ========================= */
+/* UNDERLINE EFFECT (REUSABLE)
+/* ========================= */
+
+.underline {
+    position: relative;
+    display: inline-block;
+}
+
+.underline::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    margin-top: 6px;
+
+    background: linear-gradient(90deg, #fff, transparent);
+    opacity: 0.3;
+}
+
+.site-footer {
+    margin-top: 4rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-light);
+}
+
+.site-footer p {
+    margin: 1rem 0;
+}
+
+.footer-deco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.footer-deco img {
+    height: 32px;
 }

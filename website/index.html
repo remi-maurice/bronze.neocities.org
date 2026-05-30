@@ -153,43 +153,45 @@
         </script>
     </main>
 
-    <footer>        
-        <!-- Formulaire Newsletter -->
-        <div class="newsletter-section">
-            <form id="newsletter-form">
-                <label for="email"><a>Abonnez vous à ma newsletter pour ne rien louper!</a></label>
-                <input type="email" id="email" name="email" required />
-                <button type="submit">Je m'abonne</button>
-                <div id="newsletter-success" style="display: none;">Merci ! Votre abonnement a été enregistré.</div>
-            </form>
-        </div>
+<footer class="site-footer">
+    <div class="newsletter-section">
+        <form id="newsletter-form">
+            <label for="email">
+                Pour ne rien louper de mes nouvelles sculptures, expositions..<br>
+                Abonnez-vous à ma newsletter en entrant votre adresse email ci-dessous:
+            </label>
+            <input type="email" id="email" name="email" required />
+            <button type="submit">Je m'abonne</button>
 
-        Pour toute questions contactez moi à
-        <a href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">victor.mo@laposte.net</a><br>
-        
-        <p>All media on this website is under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC by 4.0 license</a></p>
+            <div id="newsletter-success" style="display:none;">
+                Merci ! J'ai bien reçu votre adresse email.
+            </div>
+        </form>
+    </div>
+    <p>
+        Pour toute question contactez-moi à :
+        <a href="mailto:victor.mo@laposte.net">
+            victor.mo@laposte.net
+        </a>
+    </p>
+    <p>
+        Tout les medias de ce site sont sous licence
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+            CC BY 4.0
+        </a>
+    </p>
+    <div class="footer-deco">
+        Crée toi aussi ton site gratuit et libre sur ->
+        <a href="https://neocities.org" target="_blank">
+            <img src="img/neocities_hosted.gif" alt="neocities">
+        </a> !
+    </div>
+    <p>
+        <a href="#top">↑ Retour en haut</a>
+    </p>
+</footer>
 
-         <img alt="decoration" src="img/star.gif"/>
-            Fais toi aussi ton site web librement avec <a href="https://neocities.org"target="_blank">
-                <img alt="créé un site web avec neocities!"src="img/neocities_hosted.gif"/></a>
-            <img alt="decoration" src="img/star.gif"/>
-
-        <br/>
-        <p><a href="#top">[ Bouton pour revenir en haut ]</a></p>
-    </footer>
-
-    <!-- Script Formspree -->
-    <script>
-        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-        formspree('initForm', {
-            formElement: '#newsletter-form',
-            formId: 'mykvoejk',
-            onSuccess: function() {
-                document.getElementById('newsletter-success').style.display = 'block';
-                document.getElementById('newsletter-form').reset();
-            }
-        });
-    </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+<script>window.formspree=window.formspree||function(){(formspree.q=formspree.q||[]).push(arguments)};formspree('initForm',{formElement:'#newsletter-form',formId:'mykvoejk',onSuccess(){document.getElementById('newsletter-success').style.display='block';document.getElementById('newsletter-form').reset()}});</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

@@ -1,6 +1,10 @@
 const posts = document.querySelectorAll(".blog-post");
 const links = document.querySelectorAll(".blog-nav a");
 
+/* ========================= */
+/* ACTIVE STATE MANAGEMENT  */
+/* ========================= */
+
 function setActive(id) {
     posts.forEach(p => {
         p.classList.toggle("active", p.id === id);
@@ -12,24 +16,50 @@ function setActive(id) {
 }
 
 /* ========================= */
-/* SCROLL OBSERVER          */
+/* SCROLL LOGIC (rect.top)  */
 /* ========================= */
 
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.intersectionRatio > 0.2) {
-                setActive(entry.target.id);
-            }
-        });
-    },
-    {
-        threshold: [0.1, 0.2, 0.4],
-        rootMargin: "-10% 0px -10% 0px"
-    }
-);
+function updateActiveFromScroll() {
+    const triggerLine = window.innerHeight * 0.5; 
+    // ligne de déclenchement (30% du viewport)
 
-posts.forEach(p => observer.observe(p));
+    let current = null;
+    let bestDistance = Infinity;
+
+    posts.forEach(post => {
+        const rect = post.getBoundingClientRect();
+
+        // priorité aux posts déjà passés dans la zone haute
+        const distance = Math.abs(rect.top - triggerLine);
+
+        if (rect.top <= triggerLine) {
+            // on préfère ceux déjà entrés dans la zone
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                current = post;
+            }
+        }
+    });
+
+    // fallback si aucun post n'a encore atteint la zone
+    if (!current) {
+        current = posts[0];
+    }
+
+    setActive(current.id);
+}
+
+/* ========================= */
+/* EVENTS                    */
+/* ========================= */
+
+window.addEventListener("scroll", updateActiveFromScroll, {
+    passive: true
+});
+
+window.addEventListener("resize", updateActiveFromScroll);
+
+updateActiveFromScroll();
 
 /* ========================= */
 /* NAV CLICK SMOOTH FOCUS   */
@@ -47,10 +77,3 @@ links.forEach(link => {
         });
     });
 });
-
-
-
-
-
-
-
