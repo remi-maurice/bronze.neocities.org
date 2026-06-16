@@ -209,7 +209,7 @@ generate_image_list() {
 
 
 #####################################################################################
-#  Normalisation du YAML (ordre décroissant des images comme pour la valeur order)  #
+# Normalisation du YAML (ordre décroissant basé sur numero)
 #####################################################################################
 normalize_yaml_order() {
     echo ""
@@ -220,7 +220,6 @@ normalize_yaml_order() {
     tmpfile=$(mktemp)
 
     declare -A items_numero
-    declare -A items_block
 
     ############################################
     # 1. Parse YAML
@@ -229,15 +228,12 @@ normalize_yaml_order() {
     current_src=""
 
     while IFS= read -r line; do
+        # détecte src image principale
         if [[ $line =~ src:\ img/gallerie/([^[:space:]]+) ]]; then
             current_src="${BASH_REMATCH[1]}"
-            items_block["$current_src"]=""
         fi
 
-        if [[ -n "$current_src" ]]; then
-            items_block["$current_src"]+="$line\n"
-        fi
-
+        # récupère numero associé
         if [[ $line =~ numero:\ ([0-9]+) ]]; then
             items_numero["$current_src"]="${BASH_REMATCH[1]}"
         fi
@@ -245,15 +241,16 @@ normalize_yaml_order() {
     done < "$OUTPUT_FILE"
 
     ############################################
-    # 2. Sort keys by numero desc
+    # 2. Reconstruction triée
     ############################################
 
     {
         echo "images:"
         echo ""
 
-        order=100000
+        order=1
 
+        # création liste triable : numero|key
         for key in "${!items_numero[@]}"; do
             echo "${items_numero[$key]}|$key"
         done | sort -nr | while IFS="|" read -r num key; do
@@ -266,14 +263,18 @@ normalize_yaml_order() {
             echo "    order: ${order}"
             echo ""
 
-            ((order--))
+            ((order++))
         done
 
     } > "$tmpfile"
 
+    ############################################
+    # 3. Remplacement fichier
+    ############################################
+
     mv "$tmpfile" "$OUTPUT_FILE"
 
-    echo "→ Reindexage du yaml terminé (collisions résolues)"
+    echo "→ Reindexage du YAML terminé (ordre propre, sans collisions)"
 }
 
 ################################################################################
