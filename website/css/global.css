@@ -1,15 +1,11 @@
-@font-face {
-  font-family: 'OpenDyslexic'; 
-  src: url('../font/OpenDyslexic.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'jetbrains';
-  src: url('../font/JetBrainsMono-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../font/JetBrainsMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Hammer+Smith&display=swap');
+
+/* Remove old @font-face for OpenDyslexic and jetbrains – replaced by Google Fonts */
+
 :root,
 ::backdrop {
-  --sans-font:"jetbrains","OpenDyslexic", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+  --sans-font: 'Hammer Smith', -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
     "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
     "Helvetica Neue", sans-serif;
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -125,9 +121,15 @@ body > footer {
   border-top: 1px solid var(--border);
 }
 
-/* Format headers */
+/* Format headers and buttons – now using Nunito */
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+}
+
 h1 {
-  font-size: 1.9rem;
+  font-size: 2.34rem;
 }
 
 h2 {
@@ -166,24 +168,6 @@ h3 {
   line-height: 1.1;
 }
 
-/* Reduce header size on mobile */
-@media only screen and (max-width: 720px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2.1rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-  }
-}
 
 /* Format links & buttons */
 a,
@@ -960,9 +944,9 @@ canvas {
 
 .navbar-banner {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 2;
   padding: 0.8rem 0 0.3rem 0;
 
@@ -970,6 +954,7 @@ canvas {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 0;
 
 
 }
@@ -985,22 +970,16 @@ canvas {
   right: 0;
   bottom: 0;
 
-  width: 100%;              /* plus large pour pouvoir passer dessous */
+  width: 100%;             
 
   background-image: url("../img/bannière_droite.png");
-  background-position: right center;
+  background-position: right bottom;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: auto 9vw;
 
-  opacity: 0.2;
-
-  z-index: 0;              /* EN DESSOUS */
+  z-index: -1;             
   pointer-events: none;
-}
-
-/* =========================
-   PNG GAUCHE (AU-DESSUS)
-   ========================= */
+} 
 
 .navbar-banner::before {
   content: "";
@@ -1009,18 +988,25 @@ canvas {
   left: 0;
   bottom: 0;
 
-  width: 100%;              /* overlap volontaire */
+  width: 100%;             
 
   background-image: url("../img/bannière_gauche.png");
   background-position: left center;
   background-repeat: no-repeat;
-  background-size: auto 100% ;
+  background-size: auto 60%;
 
-  opacity: 1;
-
-  z-index: 1;              /* AU-DESSUS */
+  z-index: -1;             
   pointer-events: none;
-}
+} 
+
+/* ========================= */
+
+
+
+
+
+
+
 
 /* contenu nav */
 .navbar-banner > * {
@@ -1030,12 +1016,12 @@ canvas {
 
 
 body.page-blog {
-  display: block; /* casse le grid uniquement pour le blog */
+  display: block; 
 }
 
 body.page-blog > * {
   grid-column: auto;
-}
+} 
 
 
 /* ========================= */
@@ -1057,6 +1043,12 @@ body.page-blog > * {
     background: linear-gradient(90deg, #fff, transparent);
     opacity: 0.3;
 }
+
+
+
+/* ========================= */
+/*         FOOTER          */
+/* ========================= */ 
 
 .site-footer {
     margin-top: 4rem;

@@ -90,9 +90,13 @@
     flex-direction: column;
     justify-content: flex-start;
 
-    padding: 2rem 2rem;
+    padding: 2rem 1rem;
 
     transition: opacity 2s ease;
+
+    align-self: center;
+
+
 }
 
 
@@ -203,6 +207,10 @@
     color: rgba(255,255,255,0.78);
 
     max-width: 75ch;
+
+    text-indent: 0;     /* ← supprime l'alinéa */
+    margin-left: 0;     /* ← supprime toute marge gauche */
+    padding-left: 0;    /* ← supprime tout padding gauche */
 }
 
 .blog-post p + p {

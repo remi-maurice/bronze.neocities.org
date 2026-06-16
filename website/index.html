@@ -38,7 +38,7 @@
     <link href="nanogallery/nanogallery2.min.css?v=<?=Date.now()?>" rel="stylesheet" type="text/css">
 
     <!-- le css -->
-    <link rel="stylesheet" href="css/simple.css?v=<?=Date.now()?>">
+    <link rel="stylesheet" href="css/global.css?v=<?=Date.now()?>">
 
     <!-- js-yaml pour lire les fichiers YAML -->
     <script src="nanogallery/js-yaml.min.js?v=<?=Date.now()?>"></script>
@@ -46,14 +46,16 @@
 </head>
 
 <body id="top">
+    
     <header>
         <nav class="navbar-banner">
+            <h1 class="underline">Victor Sculpteur Fondeur</h1>
             <ul>
                 <!-- La barre de navigation avec class="current" qui indique où on est -->
                 <li><a class="current" href="index.html">Galerie</a></li>
                 <li><a href="expos.html">Expos</a></li>
-                <li><a href="blog.html">Blog</a></li>
                 <li><a href="fabrication.html">Fabrication</a></li>
+                                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -63,9 +65,11 @@
         <a href="#top" class="scrollToTopBtn">↑</a>
         
         <!--On met toute la page ici!-->
-        Pour toute questions, m'inviter à une exposition ou faire une demande d'achat n'hésitez pas a me contactez par mail  
+        Pour toute question et pour l'achat d'une sculpture, contactez-moi à: 
         <a class="rainbow-text" href="mailto:victor.mo@laposte.net" onclick="window.open('mailto:victor.mo@laposte.net'); return false;">
-            victor.mo@laposte.net</a>, je me ferais un plaisir de vous lire.
+             victor.mo@laposte.net</a>
+        <br>
+        
 
         <!-- Nanogallery intégré avec une database yaml-->
         <div id="ngy2p"></div>
@@ -129,7 +133,7 @@
                             standard: "label",
                         },
                         galleryFilterTags: "title",
-                        galleryL1FilterTagsMode: "multiple",
+                        galleryL1FilterTagsMode: "single",
                         navigationFontSize: "0.8em",
                     });
                 }
@@ -147,6 +151,7 @@
                         order: image.order,
                     }));
 
+                    
                 // Initialiser la galerie avec les données YAML
                 initializeGallery(galleryItems);
             });
@@ -176,8 +181,8 @@
     </p>
     <p>
         Tout les medias de ce site sont sous licence
-        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
-            CC BY 4.0
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+            CC BY-NC-ND 4.0
         </a>
     </p>
     <div class="footer-deco">

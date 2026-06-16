@@ -208,6 +208,73 @@ generate_image_list() {
 }
 
 
+#####################################################################################
+#  Normalisation du YAML (ordre décroissant des images comme pour la valeur order)  #
+#####################################################################################
+normalize_yaml_order() {
+    echo ""
+    echo "=============================================="
+    echo "Reconstruction complète des orders (SAFE)"
+    echo "=============================================="
+
+    tmpfile=$(mktemp)
+
+    declare -A items_numero
+    declare -A items_block
+
+    ############################################
+    # 1. Parse YAML
+    ############################################
+
+    current_src=""
+
+    while IFS= read -r line; do
+        if [[ $line =~ src:\ img/gallerie/([^[:space:]]+) ]]; then
+            current_src="${BASH_REMATCH[1]}"
+            items_block["$current_src"]=""
+        fi
+
+        if [[ -n "$current_src" ]]; then
+            items_block["$current_src"]+="$line\n"
+        fi
+
+        if [[ $line =~ numero:\ ([0-9]+) ]]; then
+            items_numero["$current_src"]="${BASH_REMATCH[1]}"
+        fi
+
+    done < "$OUTPUT_FILE"
+
+    ############################################
+    # 2. Sort keys by numero desc
+    ############################################
+
+    {
+        echo "images:"
+        echo ""
+
+        order=100000
+
+        for key in "${!items_numero[@]}"; do
+            echo "${items_numero[$key]}|$key"
+        done | sort -nr | while IFS="|" read -r num key; do
+
+            base="${key%.webp}"
+
+            echo "  - src: img/gallerie/${key}"
+            echo "    srct: img/gallerie/${base}s.webp"
+            echo "    numero: ${num}"
+            echo "    order: ${order}"
+            echo ""
+
+            ((order--))
+        done
+
+    } > "$tmpfile"
+
+    mv "$tmpfile" "$OUTPUT_FILE"
+
+    echo "→ Reindexage du yaml terminé (collisions résolues)"
+}
 
 ################################################################################
 # 3. Nettoyage
@@ -220,6 +287,7 @@ echo "=============================================="
 
 resize_and_compress_images
 generate_image_list
+normalize_yaml_order 
 
 echo "→ Suppression des originaux..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
@@ -274,6 +342,8 @@ done
 
 printf "\r\033[K"
 
+
+
 ################################################################################
 # FINAL MESSAGE
 ################################################################################
@@ -285,6 +355,6 @@ minutes=$(( duration / 60 ))
 seconds=$(( duration % 60 ))
 
 echo ""
-echo "============================================="
-echo "Mise à jour terminée en  ${minutes}m${seconds}s"
-echo "============================================="
+echo "======================================================================="
+echo "La Mise à jour a été effectuée en  ${minutes}m${seconds}s" avec succès!"
+echo "======================================================================="
