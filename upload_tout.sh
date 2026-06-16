@@ -212,6 +212,7 @@ generate_image_list() {
 ## 3. Normalisation des ordres dans le YAML
 #################################################################################
 
+#!/bin/bash
 
 normalize_yaml_order() {
     local yaml_file="$1"
@@ -221,37 +222,31 @@ normalize_yaml_order() {
     echo "→ Normalisation des ordres dans $yaml_file"
 
     # ------------------------------------------------------------
-    # 1. Lire tout le fichier et découper en blocs (un bloc = un élément)
+    # 1. Lecture du YAML → découpage en blocs individuels
     # ------------------------------------------------------------
     local blocks=()
     local current_block=""
     local in_block=0
 
     while IFS= read -r line || [[ -n "$line" ]]; do
-        # Détecte le début d'un nouvel élément (ligne contenant "- src:")
         if [[ "$line" =~ ^[[:space:]]*-[[:space:]]+src: ]]; then
-            if [[ $in_block -eq 1 ]]; then
-                blocks+=("$current_block")   # sauvegarde le bloc précédent
-            fi
+            [[ $in_block -eq 1 ]] && blocks+=("$current_block")
             current_block="$line"
             in_block=1
         else
-            if [[ $in_block -eq 1 ]]; then
-                current_block+=$'\n'"$line"
-            fi
+            [[ $in_block -eq 1 ]] && current_block+=$'\n'"$line"
         fi
     done < "$yaml_file"
-    # Ajouter le dernier bloc
     [[ -n "$current_block" ]] && blocks+=("$current_block")
 
     # ------------------------------------------------------------
-    # 2. Extraire les champs de chaque bloc
+    # 2. Extraction des champs pour chaque élément
     # ------------------------------------------------------------
     declare -A src order numero title description srct
     local keys=()
 
     for block in "${blocks[@]}"; do
-        # Extraire src (nom du fichier sans le préfixe "img/gallerie/")
+        # Extraire src
         local src_val=""
         if [[ "$block" =~ src:[[:space:]]+img/gallerie/([^[:space:]]+) ]]; then
             src_val="${BASH_REMATCH[1]}"
@@ -278,25 +273,18 @@ normalize_yaml_order() {
             continue
         fi
 
-        # Extraire title et description (facultatifs)
+        # Extraire title et description
         local title_val=""
-        if [[ "$block" =~ title:[[:space:]]*\"([^\"]*)\" ]]; then
-            title_val="${BASH_REMATCH[1]}"
-        fi
+        [[ "$block" =~ title:[[:space:]]*\"([^\"]*)\" ]] && title_val="${BASH_REMATCH[1]}"
 
         local desc_val=""
-        if [[ "$block" =~ description:[[:space:]]*\"([^\"]*)\" ]]; then
-            desc_val="${BASH_REMATCH[1]}"
-        fi
+        [[ "$block" =~ description:[[:space:]]*\"([^\"]*)\" ]] && desc_val="${BASH_REMATCH[1]}"
 
-        # Extraire srct (on le déduit du src)
+        # Extraire srct (ou le construire)
         local srct_val="img/gallerie/${src_val%.webp}s.webp"
-        # Mais on peut aussi le lire s'il est présent
-        if [[ "$block" =~ srct:[[:space:]]+(img/gallerie/[^[:space:]]+) ]]; then
-            srct_val="${BASH_REMATCH[1]}"
-        fi
+        [[ "$block" =~ srct:[[:space:]]+(img/gallerie/[^[:space:]]+) ]] && srct_val="${BASH_REMATCH[1]}"
 
-        # Stocker dans les tableaux
+        # Stockage
         src["$src_val"]="$src_val"
         order["$src_val"]="$order_val"
         numero["$src_val"]="$numero_val"
@@ -310,120 +298,53 @@ normalize_yaml_order() {
     [[ $nb -eq 0 ]] && { echo "Aucun élément trouvé." >&2; return 1; }
 
     # ------------------------------------------------------------
-    # 3. Détecter et résoudre les conflits d'ordre
+    # 3. Trier les clés par order décroissant, puis numero décroissant
     # ------------------------------------------------------------
-    echo "→ $nb éléments trouvés. Résolution des conflits..."
-
-    # On va travailler sur une copie des ordres
-    declare -A final_order
-    for k in "${keys[@]}"; do
-        final_order["$k"]="${order[$k]}"
-    done
-
-    # Fonction pour vérifier les doublons
-    has_duplicates() {
-        local -A seen
-        for k in "${keys[@]}"; do
-            local o="${final_order[$k]}"
-            if [[ -n "${seen[$o]}" ]]; then
-                return 0  # doublon trouvé
-            fi
-            seen["$o"]=1
-        done
-        return 1
-    }
-
-    # Boucle de résolution : tant qu'il y a des doublons, on incrémente le "perdant"
-    # Le perdant est celui avec le plus petit numero (ou le plus petit order en dernier recours)
-    local iteration=0
-    while has_duplicates; do
-        ((iteration++))
-        declare -A seen
-        local conflict_resolved=0
-
-        for k in "${keys[@]}"; do
-            local o="${final_order[$k]}"
-            if [[ -n "${seen[$o]}" ]]; then
-                # Conflit : on a déjà vu cet ordre
-                local other="${seen[$o]}"
-                # Déterminer le gagnant : plus grand numero gagne
-                if (( numero["$k"] > numero["$other"] )); then
-                    local winner="$k"
-                    local loser="$other"
-                elif (( numero["$k"] < numero["$other"] )); then
-                    local winner="$other"
-                    local loser="$k"
-                else
-                    # En cas d'égalité de numero, on compare les noms (src)
-                    if [[ "$k" > "$other" ]]; then
-                        winner="$k"; loser="$other"
-                    else
-                        winner="$other"; loser="$k"
-                    fi
-                fi
-                # Incrémenter l'ordre du loser
-                final_order["$loser"]=$((final_order["$loser"] + 1))
-                echo "  → Conflit sur order=$o : $loser (num=${numero[$loser]}) déplacé à ${final_order[$loser]}"
-                conflict_resolved=1
-                break  # on sort de la boucle for pour recommencer la détection
-            else
-                seen["$o"]="$k"
-            fi
-        done
-
-        if [[ $conflict_resolved -eq 0 ]]; then
-            # Normalement on ne devrait pas arriver ici
-            break
-        fi
-
-        # Sécurité : éviter une boucle infinie
-        if [[ $iteration -gt 100 ]]; then
-            echo "⚠️  Trop d'itérations, abandon." >&2
-            break
-        fi
-    done
-
-    # ------------------------------------------------------------
-    # 4. Réorganiser les clés par ordre décroissant
-    # ------------------------------------------------------------
-    # On crée un tableau de clés triées par order décroissant
     local sorted_keys=()
-    while IFS= read -r line; do
-        sorted_keys+=("$line")
+    while IFS= read -r key; do
+        sorted_keys+=("$key")
     done < <(
         for k in "${keys[@]}"; do
-            echo "${final_order[$k]}|$k"
-        done | sort -nr -t'|' -k1,1 | cut -d'|' -f2
+            printf "%010d|%010d|%s\n" "${order[$k]}" "${numero[$k]}" "$k"
+        done | sort -nr -t'|' -k1,1 -k2,2 | cut -d'|' -f3
     )
 
     # ------------------------------------------------------------
-    # 5. Générer le nouveau YAML
+    # 4. Attribution de nouveaux ordres uniques (décroissants stricts)
+    # ------------------------------------------------------------
+    declare -A new_order
+    local last_order=9999999  # plus grand que tout order existant
+
+    for k in "${sorted_keys[@]}"; do
+        local current="${order[$k]}"
+        # On veut que le nouvel ordre soit ≤ current et < last_order
+        # On prend le minimum entre current et (last_order - 1)
+        local candidate=$(( current < last_order ? current : last_order - 1 ))
+        # Si candidate < 0, on le met à 0 (mais normalement pas nécessaire)
+        [[ $candidate -lt 0 ]] && candidate=0
+        new_order["$k"]="$candidate"
+        last_order="$candidate"
+    done
+
+    # ------------------------------------------------------------
+    # 5. Reconstruire le YAML trié par nouvel ordre décroissant
     # ------------------------------------------------------------
     local tmpfile=$(mktemp)
     {
         echo "images:"
         echo ""
-        for k in "${sorted_keys[@]}"; do
-            local src_val="$k"
-            local srct_val="${srct[$k]}"
-            local title_val="${title[$k]}"
-            local numero_val="${numero[$k]}"
-            local order_val="${final_order[$k]}"
-            local desc_val="${description[$k]}"
-
-            echo "  - src: img/gallerie/${src_val}"
-            echo "    srct: ${srct_val}"
-            if [[ -n "$title_val" ]]; then
-                echo "    title: \"${title_val}\""
-            fi
-            echo "    numero: ${numero_val}"
-            echo "    order: ${order_val}"
-            echo "    description: \"${desc_val}\""
+        # On retrie les clés par new_order décroissant
+        for k in $(for k in "${sorted_keys[@]}"; do echo "${new_order[$k]}|$k"; done | sort -nr -t'|' -k1,1 | cut -d'|' -f2); do
+            echo "  - src: img/gallerie/${k}"
+            echo "    srct: ${srct[$k]}"
+            [[ -n "${title[$k]}" ]] && echo "    title: \"${title[$k]}\""
+            echo "    numero: ${numero[$k]}"
+            echo "    order: ${new_order[$k]}"
+            echo "    description: \"${description[$k]}\""
             echo ""
         done
     } > "$tmpfile"
 
-    # Remplacer le fichier original
     mv "$tmpfile" "$yaml_file"
     echo "✅ YAML normalisé : ${#sorted_keys[@]} éléments, ordres uniques et triés décroissants."
 }
