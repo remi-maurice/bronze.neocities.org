@@ -985,15 +985,16 @@ canvas {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0vw;
   bottom: 0;
 
   width: 100%;             
 
-  background-image: url("../img/bannière_gauche.png");
+  background-image: url("../img/sig.webp");
   background-position: left center;
   background-repeat: no-repeat;
-  background-size: auto 60%;
+  background-size: auto 150%;
+  opacity: 1;
 
   z-index: -1;             
   pointer-events: none;
