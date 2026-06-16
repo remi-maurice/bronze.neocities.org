@@ -427,6 +427,8 @@ normalize_yaml_order() {
     mv "$tmpfile" "$yaml_file"
     echo "✅ YAML normalisé : ${#sorted_keys[@]} éléments, ordres uniques et triés décroissants."
 }
+
+
 ################################################################################
 # 3. Nettoyage
 ################################################################################
@@ -438,7 +440,7 @@ echo "=============================================="
 
 resize_and_compress_images
 generate_image_list
-normalize_yaml_order 
+normalize_yaml_order "$OUTPUT_FILE"
 
 echo "→ Suppression des originaux..."
 find "$ORIGINAL_DIR" -type f ! -name ".gitkeep" -exec rm -f {} +
