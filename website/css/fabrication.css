@@ -25,7 +25,7 @@
 
     padding:
         0rem
-        2rem;
+        7rem;
 
     opacity: 0.25;
 
@@ -83,17 +83,17 @@
 
 .fabrication-gallery figcaption {
 
-    margin-top: 1.5rem;
+    margin-top: -2rem;
 
     font-size: 1.05rem;
 
     line-height: 1.7;
 
-    color: rgba(255,255,255,0.82);
-
     max-width: 65ch;
 
     align-self: center;
+
+    z-index: 10;
 }
 
 /* ======================================== */
