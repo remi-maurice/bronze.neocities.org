@@ -58,13 +58,13 @@ news:
          titre_lien: Estivales Lagorre
          lien: https://estivaleslagorre.fr
          description: Je serais présent aux Estivales Lagorre à Seix
-         image: "img/news/Flyer_est_Lagorre.jpg
+         image: "img/news/FlyerestLagorre.jpg
          taille_image: "50vh"   
 
        - date: du 10 au 19 juillet 2026
          titre_lien: Exposition Grand Format
          description: à Castillon en Couserans
-         image: "img/news/Affiche_castillon_2026.png"
+         image: "img/news/Affichecastillon2026.png"
          taille_image: "50vh"   
 
        - date: juin juillet 2026
