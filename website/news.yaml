@@ -45,14 +45,7 @@ news:
       #    lien: 
       #    description:
       #    image:
-      #    taille_image: "50vh"   
-
-       - date: 
-         titre_lien: 
-         lien: 
-         description:
-         image:
-         taille_image: "50vh"   
+      #    taille_image: "50vh"  
 
        - date: du 3 au 15 aout 2026
          titre_lien: Estivales Lagorre
