@@ -1,5 +1,12 @@
 images:
 
+  - src: img/gallerie/172b_vendu.webp
+    srct: img/gallerie/172s.webp
+    title: "172:#vendu"
+    numero: 172
+    order: 203
+    description: ""
+
   - src: img/gallerie/186b-510_20x9x6_1.3.webp
     srct: img/gallerie/186s.webp
     title: "186:#en_vente"
@@ -181,13 +188,6 @@ images:
     numero: 164
     order: 164
     description: ""
-
-  - src: img/gallerie/172b_200_14x6x5_0.5.webp
-    srct: img/gallerie/172s.webp
-    title: "172:#en_vente"
-    numero: 172
-    order: 163
-    description: "200€, 14x6x5cm, 0.5kg"
 
   - src: img/gallerie/169b_200_14x8x6_1.3.webp
     srct: img/gallerie/169s.webp
