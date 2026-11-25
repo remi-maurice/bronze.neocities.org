@@ -41,39 +41,39 @@ news:
       #    taille_image: "50vh"   
 
        - date: le dimanche 20 décembre 2026
-          titre_lien: Marché de Noël de St Girons
-          lien: 
-          description:je serais aussi présent aux marchés du Samedi matin le 5,12 et 19 décembre
-          image:
-          taille_image: "50vh"   
+         titre_lien: Marché de Noël de St Girons
+         lien: 
+         description:je serais aussi présent aux marchés du Samedi matin le 5,12 et 19 décembre
+         image:
+         taille_image: "50vh"   
 
        - date: le mercredi 16 décembre 2026 de 15h30 à 23h
-          titre_lien: Marché de Noël de Soueix
-          lien: 
-          description:
-          image: "img/news/marche de noel soueix 2026-compresse.jpg"
-          taille_image: "50vh"   
+         titre_lien: Marché de Noël de Soueix
+         lien: 
+         description:
+         image: "img/news/marche de noel soueix 2026-compresse.jpg"
+         taille_image: "50vh"   
 
        - date: le dimanche 13 décembre 2026
-          titre_lien: Marché de Noël de Massat de 10h à 16h
-          lien: 
-          description:
-          image: "img/news/affiche-MASSAT-marche-de-noel2026.pdf"
-          taille_image: "50vh"   
+         titre_lien: Marché de Noël de Massat de 10h à 16h
+         lien: 
+         description:
+         image: "img/news/affiche-MASSAT-marche-de-noel2026.pdf"
+         taille_image: "50vh"   
 
        - date: le dimanche 6 décembre 2026 de 10h à 17h
-          titre_lien: Marché de Noël de Castillon en couserans
-          lien: 
-          description:
-          image:
-          taille_image: "50vh"   
+         titre_lien: Marché de Noël de Castillon en couserans
+         lien: 
+         description:
+         image:
+         taille_image: "50vh"   
 
        - date: le vendredi 4 décembre à parir de 17h
-          titre_lien: Marché de Noël de Soulan
-          lien: 
-          description:
-          image:
-          taille_image: "50vh"  
+         titre_lien: Marché de Noël de Soulan
+         lien: 
+         description:
+         image:
+         taille_image: "50vh"  
 
        - date: du 3 au 15 aout 2026
          titre_lien: Estivales Lagorre
