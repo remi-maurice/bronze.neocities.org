@@ -58,14 +58,14 @@ news:
          titre_lien: 
          lien: 
          description: Marché de Noël de Massat de 10h à 16h
-         image: "img/news/affiche-MASSAT-marche-de-noel2026.pdf"
+         image: "img/news/affiche-MASSAT-marche-de-noel2026.jpg"
          taille_image: "50vh"   
 
        - date: le dimanche 6 décembre 2026 de 10h à 17h
          titre_lien: 
          lien: 
          description: Marché de Noël de Castillon en couserans
-         image:
+         image: "img/news/AFFICHE2026castillonsoleil3.jpg"
          taille_image: "50vh"   
 
        - date: le vendredi 4 décembre à parir de 17h
