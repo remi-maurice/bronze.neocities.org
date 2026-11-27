@@ -1,5 +1,82 @@
 images:
 
+  - src: img/gallerie/197b.webp
+    srct: img/gallerie/197s.webp
+    title: "197:#en_vente"
+    numero: 197
+    order: 214
+    description: ""
+
+  - src: img/gallerie/196b.webp
+    srct: img/gallerie/196s.webp
+    title: "196:#en_vente"
+    numero: 196
+    order: 213
+    description: ""
+
+  - src: img/gallerie/195b.webp
+    srct: img/gallerie/195s.webp
+    title: "195:#en_vente"
+    numero: 195
+    order: 212
+    description: ""
+
+  - src: img/gallerie/194b.webp
+    srct: img/gallerie/194s.webp
+    title: "194:#en_vente"
+    numero: 194
+    order: 211
+    description: ""
+
+  - src: img/gallerie/193b.webp
+    srct: img/gallerie/193s.webp
+    title: "193:#en_vente"
+    numero: 193
+    order: 210
+    description: ""
+
+  - src: img/gallerie/192b.webp
+    srct: img/gallerie/192s.webp
+    title: "192:#en_vente"
+    numero: 192
+    order: 209
+    description: ""
+
+  - src: img/gallerie/191b.webp
+    srct: img/gallerie/191s.webp
+    title: "191:#en_vente"
+    numero: 191
+    order: 208
+    description: ""
+
+  - src: img/gallerie/190b.webp
+    srct: img/gallerie/190s.webp
+    title: "190:#en_vente"
+    numero: 190
+    order: 207
+    description: ""
+
+  - src: img/gallerie/189b.webp
+    srct: img/gallerie/189s.webp
+    title: "189:#en_vente"
+    numero: 189
+    order: 206
+    description: ""
+
+  - src: img/gallerie/188b.webp
+    srct: img/gallerie/188s.webp
+    title: "188:#en_vente"
+    numero: 188
+    order: 205
+    description: ""
+
+  - src: img/gallerie/187b.webp
+    srct: img/gallerie/187s.webp
+    title: "187:#en_vente"
+    numero: 187
+    order: 204
+    description: ""
+
   - src: img/gallerie/172b_vendu.webp
     srct: img/gallerie/172s.webp
     title: "172:#vendu"
